@@ -1,0 +1,51 @@
+nav a {
+    color: black;
+}
+
+.background-default {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.background-trans {
+    animation-name: to_trans;
+    animation-duration: 1s;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.background-white {
+    animation-name: to_white;
+    animation-duration: 1s;
+    background-color: white;
+}
+
+@keyframes to_white {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    } to {
+        background-color: white;
+    }
+}
+
+@-webkit-keyframes to_white {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    } to {
+        background-color: white;
+    }
+}
+
+@keyframes to_trans {
+    from {
+        background-color: white;
+    } to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@-webkit-keyframes to_trans {
+    from {
+        background-color: white;
+    } to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
