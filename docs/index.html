@@ -4,24 +4,64 @@
 <head>
     <!--for bootstrap-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <!--custom css-->
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet"> 
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto+Mono&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!--icon-->
     <link rel="icon" href="pictures/logo-transparent-cropped.png">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content ="IE=edge">
-    <title>KK Cabinets</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>KK Cabinets | Home</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1>HeLlO wOrLd</h1>
-        <div class="jumbotron">
-            <p>PHP is bad</p>
+    <!--Navbar-->
+    <nav id = "navbar" class="navbar sticky-top navbar-expand-lg navbar-light background-default">
+        <a class="navbar-brand" href="#"><img src="pictures/logo-transparent-cropped.png" style="width: 60px; height: 40px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="countertops.html">Countertops</a>
+            <a class="nav-item nav-link" href="gallery.html">Gallery</a>
+            <a class="nav-item nav-link" href="testimonials.html">Testomonials</a>
+            <a class="nav-item nav-link" href="about.html">About</a>
+          </div>
         </div>
-    </div>
+    </nav>
+    
+
+    <!-- FIREBASE STUFF-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC8LzSIS1mRoQuFnjtwq1U5vtp2Hx2rdtk",
+        authDomain: "kk-cabinets.firebaseapp.com",
+        databaseURL: "https://kk-cabinets.firebaseio.com",
+        projectId: "kk-cabinets",
+        storageBucket: "kk-cabinets.appspot.com",
+        messagingSenderId: "999203573812",
+        appId: "1:999203573812:web:7baa8753bce4e8ac187a61"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+
     <script src="js/script.js"></script>
+
     <!--for bootstrap-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
