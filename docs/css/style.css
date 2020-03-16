@@ -19,6 +19,8 @@ nav a {
 }
 
 .overlay-logo {
+    animation-name: overlay-logo;
+    animation-duration: 2.5s;
     position: relative;
     width: 90%;
     height: auto;
@@ -29,6 +31,8 @@ nav a {
 }
 
 .overlay-surface {
+    animation-name: overlay-surface;
+    animation-duration: 2.5s;
     position: absolute;
     width: 25%;
     height: 30%;
@@ -37,6 +41,38 @@ nav a {
     transform: translate(-50%, -90%);
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes overlay-surface {
+    from {
+        background-color: rgba(255, 255, 255, 0);
+    } to {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+@-webkit-keyframes overlay-surface {
+    from {
+        background-color: rgba(255, 255, 255, 0);
+    } to {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+@keyframes overlay-logo {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes overlay-logo {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
 }
 
 @keyframes to_white {
