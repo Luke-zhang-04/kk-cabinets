@@ -28,7 +28,7 @@ nav a {
 }
 
 .overlay-logo {
-    animation-name: overlay-logo;
+    animation-name: fade-in;
     animation-duration: 2.5s;
     position: relative;
     width: 90%;
@@ -73,7 +73,7 @@ nav a {
     }
 }
 
-@keyframes overlay-logo {
+@keyframes fade-in {
     from {
         opacity: 0;
     } to {
@@ -81,7 +81,7 @@ nav a {
     }
 }
 
-@-webkit-keyframes overlay-logo {
+@-webkit-keyframes fade-in {
     from {
         opacity: 0;
     } to {
@@ -119,4 +119,14 @@ nav a {
     } to {
         background-color: rgba(255, 255, 255, 0);
     }
+}
+
+.transparent {
+    opacity: 0;
+}
+
+.opaque {
+    animation-name: fade-in;
+    animation-duration: 1.5s;
+    opacity: 1;
 }

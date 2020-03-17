@@ -84,7 +84,7 @@
     <div style = "height: 110vh"></div>
 
     <!--First section-->
-    <div class="container">
+    <div class="container section transparent">
         <div class="jumbotron-1">
             <p>
                 K&K is a full custom cabinet design studio and shop located in Kitchener Waterloo, Ontario.<br/>Whether you are renovating, building or looking to add some new built in cabinetry or vanities to your space, K&K is your answer to making custom affordable.
@@ -93,46 +93,44 @@
     </div>
 
     <!--First section-->
-    <div class="container">
+    <div class="container section transparent">
         <div class="jumbotron-2">
             <h5>
                 Countertops
             </h5>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed accumsan est. Fusce auctor tristique sapien eget aliquam. Donec egestas tristique tempor. Cras a dui in magna aliquam pharetra ac id tellus. Quisque scelerisque mi at elit aliquet aliquam. Morbi malesuada interdum leo quis malesuada. Curabitur tristique felis dolor, vitae molestie neque iaculis eu. Cras pellentesque lorem sit amet lectus mattis, ac consectetur velit molestie. Quisque ut rutrum urna. Mauris porta sed ipsum vel auctor. Donec turpis odio, dapibus et pellentesque vitae, mattis sit amet purus. Fusce facilisis diam lacus, ut finibus mi pellentesque sit amet. Duis commodo eros malesuada, dictum neque in, fringilla urna. Vivamus varius mi turpis, non tincidunt diam vulputate vel. 
+                Learn why quartz is our "go to" choice for your counter tops, and our other options to see which one is right for you.
             </p>
             <button type="button" class="btn btn-primary">Learn more <i class="material-icons">keyboard_arrow_right</i></button>
         </div>
     </div>
 
     <!--Second section-->
-    <div class="container">
+    <div class="container section transparent">
         <div class="jumbotron-1">
             <h5>
                 Gallery
             </h5>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed accumsan est. Fusce auctor tristique sapien eget aliquam. Donec egestas tristique tempor. Cras a dui in magna aliquam pharetra ac id tellus. Quisque scelerisque mi at elit aliquet aliquam. Morbi malesuada interdum leo quis malesuada. Curabitur tristique felis dolor, vitae molestie neque iaculis eu. Cras pellentesque lorem sit amet lectus mattis, ac consectetur velit molestie. Quisque ut rutrum urna. Mauris porta sed ipsum vel auctor. Donec turpis odio, dapibus et pellentesque vitae, mattis sit amet purus. Fusce facilisis diam lacus, ut finibus mi pellentesque sit amet. Duis commodo eros malesuada, dictum neque in, fringilla urna. Vivamus varius mi turpis, non tincidunt diam vulputate vel. 
+                Search, filter, and sort previous projects and see which options are right for you.
             </p>
             <button type="button" class="btn btn-secondary-dark">Learn more <i class="material-icons">keyboard_arrow_right</i></button>
         </div>
     </div>
 
     <!--Third section-->
-    <div class="container">
+    <div class="container section transparent">
         <div class="jumbotron-2">
             <h5>
                 Testimonials
             </h5>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed accumsan est. Fusce auctor tristique sapien eget aliquam. Donec egestas tristique tempor. Cras a dui in magna aliquam pharetra ac id tellus. Quisque scelerisque mi at elit aliquet aliquam. Morbi malesuada interdum leo quis malesuada. Curabitur tristique felis dolor, vitae molestie neque iaculis eu. Cras pellentesque lorem sit amet lectus mattis, ac consectetur velit molestie. Quisque ut rutrum urna. Mauris porta sed ipsum vel auctor. Donec turpis odio, dapibus et pellentesque vitae, mattis sit amet purus. Fusce facilisis diam lacus, ut finibus mi pellentesque sit amet. Duis commodo eros malesuada, dictum neque in, fringilla urna. Vivamus varius mi turpis, non tincidunt diam vulputate vel. 
-            </p>
+            <p id="testimonial"></p>
             <button type="button" class="btn btn-primary">Learn more <i class="material-icons">keyboard_arrow_right</i></button>
         </div>
     </div>
 
     <!--Fouth section-->
-    <div class="container">
+    <div class="container section transparent">
         <div class="jumbotron-1">
             <h5>
                 About
@@ -219,8 +217,10 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+
 
     <script>
     // Your web app's Firebase configuration
@@ -235,9 +235,11 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore()
     </script>
 
     <script src="js/script.js"></script>
+    <script src="js/homepage.js"></script>
 
     <!--for bootstrap-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
