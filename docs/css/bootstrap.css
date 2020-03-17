@@ -6402,7 +6402,8 @@ a.close.disabled {
 }
 
 .carousel {
-  position: relative;
+  position: absolute;
+  width: 100%;
   top: -66px;
 }
 
