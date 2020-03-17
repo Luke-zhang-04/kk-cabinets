@@ -2,6 +2,15 @@ nav a {
     color: black;
 }
 
+.text-uppercase {
+    padding-top: 20px;
+}
+
+.page-footer {
+    background-color: #373737;
+    color: white;;
+}
+
 .background-default {
     background-color: rgba(0, 0, 0, 0);
 }
