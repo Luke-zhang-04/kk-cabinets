@@ -47,9 +47,14 @@ nav a {
     height: 30%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -90%);
+    transform: translate(-50%, -50%);
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.8);
+}
+
+.material-icons {
+    display: inline-flex;
+    vertical-align: middle;
 }
 
 @keyframes overlay-surface {
