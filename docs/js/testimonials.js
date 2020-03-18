@@ -23,6 +23,7 @@ function displayTestimonials(obj) {
         container.classList.add("container")
         container.classList.add("section")
         container.classList.add("transparent")
+        container.classList.add("testimonial")
         let jumbotron = document.createElement("div")
         if (alternating % 2 == 0) {
             jumbotron.classList.add("jumbotron-1")
@@ -61,9 +62,20 @@ function scroll() {
 
     if (window.pageYOffset+window.screen.height*0.8 >= positions[counter]) { //if bottom of screen*0.8 is below elements[counter]
         elements[counter].classList.add("opaque") //make text appear
+        elements[counter].classList.add("raise")
         elements[counter].classList.remove("transparent") //remove transparent class
         counter ++ //increment counter to next element
         if (positions[counter] <= window.pageYOffset+window.screen.height*0.8) {
+            scroll()//if scrolled through more than one element recurse to load multiple elements at once
+        }
+    }
+
+    if (window.pageYOffset+window.screen.height*0.85 <= positions[counter]) {
+        elements[counter].classList.remove("opaque") //make text appear
+        elements[counter].classList.remove("raise")
+        elements[counter].classList.add("transparent") //remove transparent class
+        counter -- //increment counter to next element
+        if (positions[counter] >= window.pageYOffset+window.screen.height*0.85) {
             scroll()//if scrolled through more than one element recurse to load multiple elements at once
         }
     }

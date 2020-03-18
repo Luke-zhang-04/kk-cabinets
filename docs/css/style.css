@@ -130,3 +130,12 @@ nav a {
     animation-duration: 1.5s;
     opacity: 1;
 }
+
+.testimonial {
+    transform: translateY(150px);
+    transition: all 1s ease-out;
+}
+
+.raise {
+    transform: translateY(0)
+}
