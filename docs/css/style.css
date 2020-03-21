@@ -237,3 +237,27 @@ nav a {
     top: 29%;
     margin-top: 15%;
 }
+
+.content-right article {
+    text-align: right;
+}
+
+@media screen and (max-width: 767px) {
+    .content img {
+        display: none;
+    }
+
+    .content h5 {
+        width: 80%;
+        display: block;
+        position: relative;
+    }
+
+    .content {
+        height: 100%;
+    }
+
+    .content-right h5 {
+        margin-left:auto;
+    }
+}
