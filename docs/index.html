@@ -2,17 +2,23 @@
 
 <html lang="en">
 <head>
+    <!--normalize-->
+    <link rel="stylesheet" type="text/cee" href="css/normalize.css">
     <!--for bootstrap-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <!--custom css-->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
     <!--google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto+Mono&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7bc17e9531.js" crossorigin="anonymous"></script>
     <!--icon-->
     <link rel="icon" href="pictures/logo-transparent-cropped.png">
+
+    <!--ScrollMagic stuff-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,22 +59,22 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="pictures/home-slide-1.png" alt="First slide">
+                <img class="d-block w-100" src="pictures/slideshow/home-slide-1.png" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="pictures/home-slide-2.png" alt="Second slide">
+                <img class="d-block w-100" src="pictures/slideshow/home-slide-2.png" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="pictures/home-slide-3.png" alt="Third slide">
+                <img class="d-block w-100" src="pictures/slideshow/home-slide-3.png" alt="Third slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="pictures/home-slide-4.png" alt="Fourth slide">
+                <img class="d-block w-100" src="pictures/slideshow/home-slide-4.png" alt="Fourth slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="pictures/home-slide-5.png" alt="Fifth slide">
+                <img class="d-block w-100" src="pictures/slideshow/home-slide-5.png" alt="Fifth slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="pictures/home-slide-6.png" alt="Sixth slide">
+                <img class="d-block w-100" src="pictures/slideshow/home-slide-6.png" alt="Sixth slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#homePageSlides" role="button" data-slide="prev">
@@ -83,63 +89,54 @@
 
     <img style="width: 100%" src="pictures/aligner.png">
 
-    <!--First section-->
-    <div class="container section transparent">
-        <div class="jumbotron-1">
-            <p>
-                K&K is a full custom cabinet design studio and shop located in Kitchener Waterloo, Ontario.<br/>Whether you are renovating, building or looking to add some new built in cabinetry or vanities to your space, K&K is your answer to making custom affordable.
-            </p>
-        </div>
+    <div class="content content-left">
+        <h5>
+            <article>K&K Cabinets and Countertops</article>
+            <span class="line1"></span>
+            <p>K&K is a full custom cabinet design studio and shop located in Kitchener Waterloo, Ontario.<br/>Whether you are renovating, building or looking to add some new built in cabinetry or vanities to your space, K&K is your answer to making custom affordable.</p>
+        </h5>
+        <img class="content_img ci1" src="pictures/content-img-1.png"/>
+        <img class="content_img ci2" src="pictures/content-img-2.png"/>
     </div>
 
-    <!--First section-->
-    <div class="container section transparent">
-        <div class="jumbotron-2">
-            <h5>
-                Countertops
-            </h5>
-            <p>
-                Learn why quartz is our "go to" choice for your counter tops, and our other options to see which one is right for you.
-            </p>
-            <button type="button" class="btn btn-primary">Learn more <i class="material-icons">keyboard_arrow_right</i></button>
-        </div>
+    <div class="content content-right">
+        <h5>
+            <article>Countertops</article>
+            <span class="line2"></span>
+            <p>Learn why quartz is our "go to" choice for your countertops, and our other options, such as granite and marble. Also check out our cabinets, such as pull out spice drawers, and more</p>
+        </h5>
+        <img class="content_img ci1" src="pictures/content-img-1.png"/>
+        <img class="content_img ci2" src="pictures/content-img-2.png"/>
     </div>
 
-    <!--Second section-->
-    <div class="container section transparent">
-        <div class="jumbotron-1">
-            <h5>
-                Gallery
-            </h5>
-            <p>
-                Search, filter, and sort previous projects and see which options are right for you.
-            </p>
-            <button type="button" class="btn btn-secondary-dark">Learn more <i class="material-icons">keyboard_arrow_right</i></button>
-        </div>
+    <div class="content content-left">
+        <h5>
+            <article>Gallery</article>
+            <span class="line1"></span>
+            <p>Search, filter, and sort previous projects and see which options are right for you.</p>
+        </h5>
+        <img class="content_img ci1" src="pictures/content-img-1.png"/>
+        <img class="content_img ci2" src="pictures/content-img-2.png"/>
     </div>
 
-    <!--Third section-->
-    <div class="container section transparent">
-        <div class="jumbotron-2">
-            <h5>
-                Testimonials
-            </h5>
+    <div class="content content-right">
+        <h5>
+            <article>Testimonials</article>
+            <span class="line2"></span>
             <p id="testimonial"></p>
-            <button type="button" class="btn btn-primary">Learn more <i class="material-icons">keyboard_arrow_right</i></button>
-        </div>
+        </h5>
+        <img class="content_img ci1" src="pictures/content-img-1.png"/>
+        <img class="content_img ci2" src="pictures/content-img-2.png"/>
     </div>
 
-    <!--Fouth section-->
-    <div class="container section transparent">
-        <div class="jumbotron-1">
-            <h5>
-                About us
-            </h5>
-            <p>
-                Our custom shop has a group of skilled craftspeople hand crafting the cabinetry for your home.  With our own CNC machine and spray booth we are able to control our quality and lead times which benefits our clients. Find out why local matters.
-            </p>
-            <button type="button" class="btn btn-secondary-dark">Learn more <i class="material-icons">keyboard_arrow_right</i></button>
-        </div>
+    <div class="content content-left">
+        <h5>
+            <article>About us</article>
+            <span class="line1"></span>
+            <p>Our custom shop has a group of skilled craftspeople hand crafting the cabinetry for your home.  With our own CNC machine and spray booth we are able to control our quality and lead times which benefits our clients. Find out why local matters.</p>
+        </h5>
+        <img class="content_img ci1" src="pictures/content-img-1.png"/>
+        <img class="content_img ci2" src="pictures/content-img-2.png"/>
     </div>
 
     <!-- Footer -->
@@ -239,12 +236,13 @@
     </script>
 
     <script src="js/scrollmagic/ScrollMagic.js"></script>
+    <script src="js/scrollmagic/plugins/animation.gsap.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/homepage.js"></script>
 
     <!--for bootstrap-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/homepage.js"></script>
 </body>
 </html>
