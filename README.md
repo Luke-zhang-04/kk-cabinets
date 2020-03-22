@@ -6,7 +6,7 @@ The purpose of this project is to refresh the front page and revamp the Gallery 
 1. Redesign the home page to enhance the first impressions of viewers by creating an artistic look and style on the main page
 2. Redesign the gallery page to create navigation through the use of the product category. The product category can be designed to have multiple levels such as style, material, colour, etc.
 ## Optional Requirements (demo required): ##
-1. Enable the functionalist to display similar projects to the ones currently viewed by potential customers
+1. Enable the functionality to display similar projects to the ones currently viewed by potential customers
 2. Integrate the connections between the supply material/raw products/finished products allowing customers to search projects by various criteria<br/>
 Students can use any programming languages such as PHP (cough cough)/Python (^_^)/MySQL for this project. Students can also use existing content management software such as WordPress. <br/><br/>
 ## Each team is suggested to have: ##
