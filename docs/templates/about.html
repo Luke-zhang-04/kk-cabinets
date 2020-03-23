@@ -3,41 +3,89 @@
 <html lang="en">
 <head>
     <!--for bootstrap-->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/bootstrap.css">
     <!--custom css-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/about.css">
     <!--google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto+Mono&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7bc17e9531.js" crossorigin="anonymous"></script>
     <!--icon-->
-    <link rel="icon" href="pictures/logo-transparent-cropped.png">
+    <link rel="icon" href="../static/logo-transparent-cropped.png">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>KK Cabinets | Testimonials</title>
+    <title>KK Cabinets | About</title>
 </head>
 
 <body>
     <!--Navbar-->
     <nav id = "navbar" class="navbar sticky-top navbar-expand-lg navbar-light background-default">
-        <a class="navbar-brand" href="index.html"><img src="pictures/logo-transparent-cropped.png" style="width: 60px; height: 40px"></a>
+        <a class="navbar-brand" href="index.html"><img src="../static/logo-transparent-cropped.png" style="width: 60px; height: 40px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
             <a class="nav-item nav-link" href="index.html">Home</a>
-            <a class="nav-item nav-link" href="countertops.html">Countertops</a>
+            <a class="nav-item nav-link" href="countertops.html">Countertops<span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="gallery.html">Gallery</a>
-            <a class="nav-item nav-link active" href="testimonials.html">Testomonials<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="about.html">About</a>
+            <a class="nav-item nav-link" href="testimonials.html">Testomonials<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="about.html">About<span class="sr-only">(current)</span></a>
             </div>
         </div>
     </nav>
 
-    <div id="testimonial_container"></div>
+    <img id="headerLogo" src="../static/logo-transparent.png"/>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-9 col">
+                <div class="jumbotron" style="padding: 10%">
+                    <p style="padding: 8%; font-size: 125%">
+                        K&K Cabinets and Countertops is a custom made, one a time, product to enhance people’s homes by ergonomic means, aesthetics, and the way people cook, entertain and communicate in their kitchen space. We are truly custom, and every one of our projects is custom and taylored to you.<br/>
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3" style="transform: translate(0, -3%)">
+                <div class="row">
+                    <div class="col-6 col-md-12">
+                        <!-- Card -->
+                        <div class="card">
+                            <!-- Card image -->
+                            <img class="card-img-top" src="../static/about-us/blueprint.png" alt="Card image cap">
+                            <!-- Card content -->
+                            <div class="card-body text-white p-2">Our Process</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-12" >
+                        <!-- Card -->
+                        <div class="card">
+                            <!-- Card image -->
+                            <img class="card-img-top" src="../static/about-us/flag-canada.png" alt="Card image cap">
+                            <!-- Card content -->
+                            <div class="card-body text-white p-2">Buy Canadian</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <img src="../static/content-images/content-img-8.png">
+            </div>
+            <div class="col-8">
+                <div class="jumbotron">
+                    ​Zenia Horton has been designing award-winning kitchens, baths, and custom built ins for residential and commercial clients throughout Ontario for the past 20 years.  Zenia is a real designer- an artist..which is really just a nice way of saying she's kind of quirky!  Working with Zen is entertaining, enlightening and engaging.  Her passion and artistry is captured in every design and exceeding your expectations is her mission.  Her goal as your designer is to maximize the functionality, beauty and enjoyment of your space; she has a reputation for thinking outside-the-box and consistently delivers best in class solutions and "wow-factor" design.<br/><br/>"Being able to work alongside the skilled craftsmen and installers at K&K to help deliver your vision has been a dream come true."<br/><br/>So isn't it about time that you brought balance, simplicity and some "zen" into your space?  
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="page-footer">
@@ -107,16 +155,15 @@
     </div>
     <!-- Copyright -->
   
-    </footer>
+  </footer>
   <!-- Footer -->
 
     <!-- FIREBASE STUFF-->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
 
-   <!-- Add Firebase products that you want to use -->
-   <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
 
     <script>
     // Your web app's Firebase configuration
@@ -131,14 +178,14 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore()
     </script>
 
-    <script src="js/testimonials.js"></script>
+    <script src="../static/js/script.js"></script>
 
     <!--for bootstrap-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/about.js"></script>
 </body>
 </html>
