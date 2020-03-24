@@ -22,19 +22,19 @@ function display_batch() {
                 "<div class=\"image_container\" id=" + id + "><img onclick=\"expand(" + id + ")\"src=\""+ url + "\"/></div>"
             )
             let element = $("#" + id)
-            let info = "Colour: " + data[id]["details"]["colour"] + "<br/>Furniture: "
+            let info = "Colour: " + data[id]["details"]["colour"].charAt(0).toUpperCase() + data[id]["details"]["colour"].slice(1) + "<br/>Furniture: "
 
             if (data[id]["details"]["furniture"]["countertop"] && data[id]["details"]["furniture"]["cabinet"]) {
-                info += "Countertop and cabinets "
+                info += "Countertop and Cabinets "
             } else if (data[id]["details"]["furniture"]["cabinet"]) {
                 info += "Cabinets"
             } else if (data[id]["details"]["furniture"]["countertop"]) {
                 info += "Countertop"
             }
 
-            info += "<br/>Location: " + data[id]["details"]["location"]
-            info += "<br/>Material: " + data[id]["details"]["material"]
-            info += "<br/>Pattern: " + (data[id]["details"]["pattern"] ? "yes" : "no")
+            info += "<br/>Location: " + data[id]["details"]["location"].charAt(0).toUpperCase() + data[id]["details"]["location"].slice(1)
+            info += "<br/>Material: " + data[id]["details"]["material"].charAt(0).toUpperCase() + data[id]["details"]["material"].slice(1)
+            info += "<br/>Pattern: " + (data[id]["details"]["pattern"] ? "Yes" : "None")
 
             element.append(
                 "<div class=\"details\"><p>" + info + "<p></div>"
