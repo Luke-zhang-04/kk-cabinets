@@ -19,9 +19,28 @@ function display_batch() {
         let id = key
         imgURL.getDownloadURL().then(function(url) {
             $(column).append(
-                "<img onclick=\"expand(" + id + ")\"src=\""+ url + "\"/>"
+                "<div class=\"image_container\" id=" + id + "><img onclick=\"expand(" + id + ")\"src=\""+ url + "\"/></div>"
+            )
+            let element = $("#" + id)
+            let info = "Colour: " + data[id]["details"]["colour"] + "<br/>Furniture: "
+
+            if (data[id]["details"]["furniture"]["countertop"] && data[id]["details"]["furniture"]["cabinet"]) {
+                info += "Countertop and cabinets "
+            } else if (data[id]["details"]["furniture"]["cabinet"]) {
+                info += "Cabinets"
+            } else if (data[id]["details"]["furniture"]["countertop"]) {
+                info += "Countertop"
+            }
+
+            info += "<br/>Location: " + data[id]["details"]["location"]
+            info += "<br/>Material: " + data[id]["details"]["material"]
+            info += "<br/>Pattern: " + (data[id]["details"]["pattern"] ? "yes" : "no")
+
+            element.append(
+                "<div class=\"details\"><p>" + info + "<p></div>"
             )
         })
+
         columnNum++
         if (columnNum == 4) {
             columnNum = 0
@@ -30,6 +49,13 @@ function display_batch() {
     $("#loading").remove()
 }
 
+
 function expand(key) {
-    
+    let element = document.getElementById(key)
+    let container = element.getElementsByClassName("details")[0]
+    if (container.style.maxHeight){
+        container.style.maxHeight = null;
+      } else {
+        container.style.maxHeight = container.scrollHeight + "px";
+      }
 }
