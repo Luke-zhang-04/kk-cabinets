@@ -13,12 +13,13 @@ db.collection("gallery").get().then((snapshot) => {
 })
 
 function display_batch() {
-    for (project in data) {
-        imgURL = storageRef.child(data[project]["file"])
+    for (key in data) {
+        imgURL = storageRef.child(data[key]["file"])
         let column = columns[columnNum]
+        let id = key
         imgURL.getDownloadURL().then(function(url) {
             $(column).append(
-                "<img onclick=\"expand(" + column + ")\"src=\""+ url + "\"/>"
+                "<img onclick=\"expand(" + id + ")\"src=\""+ url + "\"/>"
             )
         })
         columnNum++
@@ -27,4 +28,8 @@ function display_batch() {
         }
     }
     $("#loading").remove()
+}
+
+function expand(key) {
+    
 }
