@@ -209,10 +209,9 @@ nav a {
 }
 .content-right h5 span {
     width: 100%;
-    display: block;
+    display: inline-block;
     height: 5px;
     margin-top: 20px;
-    float: right;
 }
 
 .content-right h5 p {
