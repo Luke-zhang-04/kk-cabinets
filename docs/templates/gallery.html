@@ -38,6 +38,45 @@
         </div>
     </nav>
 
+    <div class="accordion" id="advancedSearch">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Advanced search
+                    </button>
+                </h5>
+            </div>
+      
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#advancedSearch">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-md-4 col-lg-2 filters">
+                            <!--dropdown-->
+                            <button style="width: 100%;" class="btn btn-secondary-reverse" onclick="expand_filter(0)">Colours</button>
+                            <div id="filter0">
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-4 col-lg-2 filters">
+                            <!--dropdown-->
+                            <button style="width: 100%;" class="btn btn-secondary" onclick="expand_filter(1)">Location</button>
+                            <div id="filter1">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-2 filters">
+                            <!--dropdown-->
+                            <button style="width: 100%;" class="btn btn-secondary-reverse" onclick="expand_filter(2)">Materials</button>
+                            <div id="filter2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="responive_row" id="row">
         <div class="responsive_column"></div>
         <div class="responsive_column"></div>
@@ -148,7 +187,7 @@
     <!--for bootstrap-->
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
     <script src="../static/js/gallery.js"></script>
 </body>
 </html>
