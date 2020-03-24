@@ -1,4 +1,4 @@
-let data = []
+let data = new Map
 let docNum = 0
 let columnNum = 0
 let columns = $("#row").find(".responsive_column")
@@ -7,18 +7,18 @@ let storageRef = storage.ref("gallery")
 
 db.collection("gallery").get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
-        data.push(doc.data())
+        data[doc.id] = doc.data()
     })
     display_batch()
 })
 
 function display_batch() {
-    for (project of data) {
-        imgURL = storageRef.child(project["file"])
+    for (project in data) {
+        imgURL = storageRef.child(data[project]["file"])
         let column = columns[columnNum]
         imgURL.getDownloadURL().then(function(url) {
             $(column).append(
-                "<img src=\""+ url + "\"/>"
+                "<img onclick=\"expand(" + column + ")\"src=\""+ url + "\"/>"
             )
         })
         columnNum++
@@ -26,4 +26,5 @@ function display_batch() {
             columnNum = 0
         }
     }
+    $("#loading").remove()
 }
