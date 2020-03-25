@@ -63,15 +63,17 @@ db.collection("gallery").get().then((snapshot) => {
         for (info of filterOptions[infoType+"s"]) { //within these types, get all filter options
             let id = info + "_" + infoType //unique id for each button
             $("#filter" + count).append( //create button for seleting filter
-                "<button id=" + id + ">" + info + "</button>"
+                "<button id=" + id + ">" + info + "<span style=\"float: right;\" class=\"material-icons\">done</span></button>"
             )
             let filter_name = info
             let filter_type = infoType
             $("#"+id).click(function() { //create event listener for
                 if (!contains(filter_name, activeFilters[filter_type+"s"])) {
                     activeFilters[filter_type+"s"].push(filter_name)
+                    $(this).find("span").text("clear")
                 } else {
                     activeFilters[filter_type+"s"] = arrayRemove(activeFilters[filter_type+"s"], filter_name)
+                    $(this).find("span").text("done")
                 }
             })
         }
