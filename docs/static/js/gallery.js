@@ -63,7 +63,7 @@ db.collection("gallery").get().then((snapshot) => {
         for (info of filterOptions[infoType+"s"]) { //within these types, get all filter options
             let id = info + "_" + infoType //unique id for each button
             $("#filter" + count).append( //create button for seleting filter
-                "<button id=" + id + ">" + info + "<span style=\"float: right;\" class=\"material-icons\">done</span></button>"
+                "<button class=\"dropdown_menu\" id=" + id + ">" + info + "<span style=\"float: right;\" class=\"material-icons\">done</span></button>"
             )
             let filter_name = info
             let filter_type = infoType
@@ -146,27 +146,44 @@ function expand_filter(numb) {
     }
 }
 
+//apply the filters
 function apply_filters() {
-    const filterTypes = ["colour", "material", "location"]
-    console.log(activeFilters)
-    $(".image_container").remove()
-    $("#loading").css("display", "block")
-    let filteredData = new Map
+    const filterTypes = ["colour", "material", "location"] //filter rtpes
+    $(".image_container").remove() //get rid of all images in gallery
+    $("#loading").css("display", "block") //display loading gif
+    let filteredData = new Map //new map of filtered data
     console.log(data, "DATA")
-    for (key in data) {
+    for (key in data) { //iterate through data
         doc = data[key]
         let broken = false
-        for ([_, filter] of filterTypes.entries()) {
+        for ([_, filter] of filterTypes.entries()) { //make sure doc doesn't have attribute assosiated with a selected filter
             if (contains(doc["details"][filter], activeFilters[filter+"s"])) {
-                //console.log(doc, filter)
-                //filteredData[key] = doc
                 broken = true
                 break
             }
         }
-        if (!broken) {
+        if (!broken) { //if data isn't filtered, add it to filtered data
             filteredData[key] = doc
         }
     }
-    display_batch(filteredData)
+    display_batch(filteredData) //display filtered data
+}
+
+function clear_filters() {
+    $(".dropdown_menu").each(function() { //change all x to checkmarks
+        if ($(this).find("span").text() == "clear") {
+            $(this).find("span").text("done")
+        }
+    })
+    //reset active filters
+    activeFilters = {
+        colours: [],
+        materials: [],
+        cabinets: null,
+        countertop: null,
+        pattern: null,
+        locations: []
+    }
+    $("#loading").css("display", "block") //display loading gif
+    display_batch(data)
 }
