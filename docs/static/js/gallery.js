@@ -1,5 +1,4 @@
 let data = new Map
-let docNum = 0
 let columnNum = 0
 let columns = $("#row").find(".responsive_column")
 let imgURL
@@ -9,8 +8,7 @@ let storageRef = storage.ref("gallery")
 let filterOptions = {
     colours: [],
     materials: [],
-    cabinets: null,
-    countertop: null,
+    furniture: ["cabinets", "countertop"],
     pattern: null,
     locations: []
 }
@@ -162,6 +160,9 @@ function apply_filters() {
                 break
             }
         }
+        if (activeFilters["pattern"] !== null && doc["details"]["pattern"] !== activeFilters["pattern"]) {
+            broken = true;
+        }
         if (!broken) { //if data isn't filtered, add it to filtered data
             filteredData[key] = doc
         }
@@ -170,6 +171,7 @@ function apply_filters() {
 }
 
 function clear_filters() {
+    $(".image_container").remove() //get rid of all images in gallery
     $(".dropdown_menu").each(function() { //change all x to checkmarks
         if ($(this).find("span").text() == "clear") {
             $(this).find("span").text("done")
@@ -187,3 +189,20 @@ function clear_filters() {
     $("#loading").css("display", "block") //display loading gif
     display_batch(data)
 }
+
+$("document").ready(function() {
+    $("#pattern_toggle").click(function() {
+        if ($(this).find("span").text() === "remove") {
+            $(this).find("span").text("clear")
+            activeFilters["pattern"] = false
+
+        } else if ($(this).find("span").text() === "clear") {
+            $(this).find("span").text("done")
+            activeFilters["pattern"] = true
+
+        } else if ($(this).find("span").text() === "done") {
+            $(this).find("span").text("remove")
+            activeFilters["pattern"] = null
+        }
+    })
+})
