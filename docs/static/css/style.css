@@ -259,6 +259,10 @@ nav a {
     .content-right h5 {
         margin-left:auto;
     }
+
+    #testimonial-content h5 {
+        position: relative !important;
+    }
 }
 
 #testimonial-content h5 {

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -50,26 +50,45 @@
       
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#advancedSearch">
                 <div class="card-body">
+                    <p>Choose what categories you want to filter out</p>
                     <div class="row">
                         <div class="col-12 col-md-4 col-lg-2 filters">
                             <!--dropdown-->
-                            <button style="width: 100%;" class="btn btn-secondary-reverse" onclick="expand_filter(0)">Colours</button>
+                            <button style="width: 100%;" class="btn btn-secondary-reverse" onclick="expand_filter(0)">
+                                Colours
+                                <span class="material-icons">arrow_drop_down</span>
+                            </button>
                             <div id="filter0">
                             </div>
                         </div>
                         
                         <div class="col-12 col-md-4 col-lg-2 filters">
                             <!--dropdown-->
-                            <button style="width: 100%;" class="btn btn-secondary" onclick="expand_filter(1)">Location</button>
+                            <button style="width: 100%;" class="btn btn-secondary" onclick="expand_filter(1)">
+                                Materials
+                                <span class="material-icons">arrow_drop_down</span>
+                            </button>
                             <div id="filter1">
                             </div>
                         </div>
 
                         <div class="col-12 col-md-4 col-lg-2 filters">
                             <!--dropdown-->
-                            <button style="width: 100%;" class="btn btn-secondary-reverse" onclick="expand_filter(2)">Materials</button>
+                            <button style="width: 100%;" class="btn btn-secondary-reverse" onclick="expand_filter(2)">
+                                Location
+                                <span class="material-icons">arrow_drop_down</span>
+                            </button>
                             <div id="filter2">
                             </div>
+                        </div>
+
+                        <div class="col-lg-3"></div>
+
+                        <div class="col-12 col-md-4 col-lg-2" style="justify-content: right;">
+                            <!--dropdown-->
+                            <button style="width: 100%;" class="btn btn-success" onclick="apply_filters()">
+                                Apply Filters
+                            </button>
                         </div>
                     </div>
                 </div>
