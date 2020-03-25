@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
     <!--custom css-->
     <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/countertops.css">
     <!--google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto+Mono&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -37,6 +37,15 @@
             </div>
         </div>
     </nav>
+
+    <div class="responive_row" id="row">
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+    </div>
+
+    <img src="../static/pictures/loading.gif" id="loading"/>
 
     <!-- Footer -->
     <footer class="page-footer">
@@ -132,14 +141,15 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     var storage = firebase.storage();
+    const db = firebase.firestore()
     </script>
 
     <script src="../static/js/script.js"></script>
-    <script src="../staticj/js/countertops.js"></script>
 
     <!--for bootstrap-->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/countertops.js"></script>
 </body>
 </html>
