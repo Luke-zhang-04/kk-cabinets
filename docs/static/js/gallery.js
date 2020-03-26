@@ -154,7 +154,7 @@ function apply_filters() {
     for (key in data) { //iterate through data
         doc = data[key]
         let broken = false
-        for ([_, filter] of filterTypes.entries()) { //make sure doc doesn't have attribute assosiated with a selected filter
+        for (filter of filterTypes) { //make sure doc doesn't have attribute assosiated with a selected filter
             if (contains(doc["details"][filter], activeFilters[filter+"s"])) {
                 broken = true
                 break
@@ -163,6 +163,17 @@ function apply_filters() {
         if (activeFilters["pattern"] !== null && doc["details"]["pattern"] !== activeFilters["pattern"]) {
             broken = true;
         }
+
+        if (activeFilters["countertop"] !== null && activeFilters["cabinets"] !== null) {
+            let match = (
+                doc["details"]["furniture"]["countertop"] !== activeFilters["countertop"] ||
+                doc["details"]["furniture"]["cabinet"] !== activeFilters["cabinets"]
+            )
+            if (match) {
+                broken = true;
+            }
+        }
+
         if (!broken) { //if data isn't filtered, add it to filtered data
             filteredData[key] = doc
         }
@@ -177,6 +188,7 @@ function clear_filters() {
             $(this).find("span").text("done")
         }
     })
+    $("#pattern_toggle").find("span").text("remove")
     //reset active filters
     activeFilters = {
         colours: [],
@@ -204,5 +216,36 @@ $("document").ready(function() {
             $(this).find("span").text("remove")
             activeFilters["pattern"] = null
         }
+    })
+
+    const furniture_dropdowns = ["either", "both", "countertop", "cabinets"]
+    $(".furniture_dropdown").each(function() {
+        $(this).click(function() {
+            for (i of furniture_dropdowns) {
+                $("#" + i + "_furniture").find("span").text("")
+            }
+            $(this).find("span").text("done")
+            let id = $(this).attr('id')
+            id = id.replace("_furniture", "")
+            console.log(id)
+
+            if (id === "both") {
+                activeFilters["cabinets"] = true
+                activeFilters["countertop"] = true
+
+            } else if (id === "either") {
+                activeFilters["cabinets"] = null
+                activeFilters["countertop"] = null
+                
+            } else if (id === "countertop") {
+                activeFilters["cabinets"] = false
+                activeFilters["countertop"] = true
+
+            } else if (id === "cabinets") {
+                activeFilters["cabinets"] = true
+                activeFilters["countertop"] = false
+            }
+            console.log("activeFilters", activeFilters)
+        })
     })
 })
