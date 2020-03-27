@@ -3,6 +3,7 @@ let columnNum = 0
 let columns = $("#row").find(".responsive_column")
 let imgURL
 let storageRef = storage.ref("gallery")
+let asyncFinished = false
 
 //get filter options
 let filterOptions = {
@@ -81,6 +82,7 @@ db.collection("gallery").get().then((snapshot) => {
 
 //handle data and display images accordingly
 function display_batch(data) {
+    asyncFinished = false
     for (key in data) {
         imgURL = storageRef.child(data[key]["file"]) //image url
         let column = columns[columnNum%4] //column to append image to
@@ -115,14 +117,36 @@ function display_batch(data) {
 
             //append information to element
             element.append(
-                "<div class=\"details\"><p>" + info + "<p></div>"
+                "<div class=\"details\"><p>" + info + "<p>" + 
+                "<div class=\"slide\">" + 
+                    "<input type=\"range\" min=\"1\" max=\"10\" value=\"5\" class=\"slider\">" + 
+                    "<p>Rating: <span></span></p>" + 
+                "</div>" +
+                "</div>"
             )
+            
+            //can't use jquery for some reason; JS DOMS works just fine anyways
+            let slider = document.getElementById(id)
+                .getElementsByClassName("slide")[0]
+                .getElementsByTagName("input")[0]
+
+            let output =document.getElementById(id)
+                .getElementsByClassName("slide")[0]
+                .getElementsByTagName("p")[0]
+                .getElementsByTagName("span")[0]
+
+            output.innerHTML = slider.value/2
+
+            slider.oninput = function() {
+                output.innerHTML = this.value/2
+            }
         })
         columnNum++
     }
     //remove loading gif
     $("#loading").css("display", "none")
 }
+
 //makes information drop down
 function expand(key) {
     let element = document.getElementById(key)
@@ -203,21 +227,23 @@ function clear_filters() {
 }
 
 $("document").ready(function() {
+    //toggler for pattern fitler
     $("#pattern_toggle").click(function() {
-        if ($(this).find("span").text() === "remove") {
+        if ($(this).find("span").text() === "remove") { //if current setting is either or
             $(this).find("span").text("clear")
             activeFilters["pattern"] = false
 
-        } else if ($(this).find("span").text() === "clear") {
+        } else if ($(this).find("span").text() === "clear") { //if current setting is no pattern
             $(this).find("span").text("done")
             activeFilters["pattern"] = true
 
-        } else if ($(this).find("span").text() === "done") {
+        } else if ($(this).find("span").text() === "done") { //if current setting is with a pattern
             $(this).find("span").text("remove")
             activeFilters["pattern"] = null
         }
     })
 
+    //toggler for furniture types
     const furniture_dropdowns = ["either", "both", "countertop", "cabinets"]
     $(".furniture_dropdown").each(function() {
         $(this).click(function() {
@@ -229,19 +255,19 @@ $("document").ready(function() {
             id = id.replace("_furniture", "")
             console.log(id)
 
-            if (id === "both") {
+            if (id === "both") { //if current setting is both countertops and cabinets
                 activeFilters["cabinets"] = true
                 activeFilters["countertop"] = true
 
-            } else if (id === "either") {
+            } else if (id === "either") { //if current setting is either countertops or cabinets
                 activeFilters["cabinets"] = null
                 activeFilters["countertop"] = null
                 
-            } else if (id === "countertop") {
+            } else if (id === "countertop") { //if current setting is countertops only
                 activeFilters["cabinets"] = false
                 activeFilters["countertop"] = true
 
-            } else if (id === "cabinets") {
+            } else if (id === "cabinets") { //if current setting is cabinets only
                 activeFilters["cabinets"] = true
                 activeFilters["countertop"] = false
             }
