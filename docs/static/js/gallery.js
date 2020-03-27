@@ -119,7 +119,7 @@ function display_batch(data) {
             element.append(
                 "<div class=\"details\"><p>" + info + "<p>" + 
                 "<div class=\"slide\">" + 
-                    "<input type=\"range\" min=\"1\" max=\"10\" value=\"5\" class=\"slider\">" + 
+                    "<input type=\"range\" min=\"2\" max=\"10\" value=\"6\" class=\"slider\">" + 
                     "<p>Rating: <span></span></p>" + 
                 "</div>" +
                 "</div>"
@@ -143,8 +143,10 @@ function display_batch(data) {
         })
         columnNum++
     }
-    //remove loading gif
-    $("#loading").css("display", "none")
+    Promise.all(columns).then(() => {
+        //remove loading gif
+        $("#loading").css("display", "none")
+    })
 }
 
 //makes information drop down
