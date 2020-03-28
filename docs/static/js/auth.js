@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         toggleSwitch.addEventListener("click", logout)
         toggleSwitch.setAttribute("href", "#")
 
-        console.log(window.useremail, window.useruid, window.providerData)
+        console.log(window.useremail, window.uid, window.providerData)
     } else {
         console.log("No user signed in")
         toggleSwitch.innerHTML = "Login/Register"

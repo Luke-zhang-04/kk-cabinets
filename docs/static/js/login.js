@@ -1,4 +1,5 @@
 let state = "login"
+let provider = new firebase.auth.GoogleAuthProvider()
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -7,11 +8,36 @@ firebase.auth().onAuthStateChanged(function(user) {
         window.email = user.email
         window.emailVerified = user.emailVerified
         window.providerData = user.providerData
-        console.log(window.useremail, window.useruid, window.providerData)
+        console.log(window.email, window.uid, window.providerData)
     } else {
         // No user is signed in.
     }
 })
+
+//sign in with google
+function googleSignin() {
+    let err = false
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+       let token = result.credential.accessToken
+       let user = result.user
+         
+       console.log(token, user)
+    }).catch(function(error) {
+       let errorCode = error.code
+       let errorMessage = error.message
+       window.alert("ERROR! Code: " + errorCode + "\nInfo: " + errorMessage)
+       err = true
+    }).then(_ => {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user && !err) {
+                window.location.href = "index.html"
+            } else {
+                // No user is signed in.
+            }
+        })
+    })
+}
+ 
 
 //show register forms
 function showRegister() {
@@ -118,4 +144,8 @@ document.getElementById("login_button").addEventListener("click", _ => {
         document.getElementById("login_password").value,
     ]
     login(...info)
+})
+
+document.getElementById("login_google").addEventListener("click", _ => {
+    googleSignin()
 })
