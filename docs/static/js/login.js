@@ -3,15 +3,7 @@ let provider = new firebase.auth.GoogleAuthProvider()
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        var user = firebase.auth().currentUser;
-        /*
-        window.uid = user.uid
-        window.email = user.email
-        window.emailVerified = user.emailVerified
-        */
-        window.user = user
-        window.providerData = user.providerData
-        console.log(window.user, window.providerData)
+        console.log(user, user.providerData)
     } else {
         // No user is signed in.
     }
@@ -21,10 +13,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 function googleSignin() {
     let err = false
     firebase.auth().signInWithPopup(provider).then(function(result) {
-       let token = result.credential.accessToken
-       let user = result.user
-         
-       console.log(token, user)
+        let token = result.credential.accessToken
+        let user = result.user
+        console.log(token, user)
     }).catch(function(error) {
        let errorCode = error.code
        let errorMessage = error.message
@@ -33,7 +24,15 @@ function googleSignin() {
     }).then(_ => {
         firebase.auth().onAuthStateChanged(function(user) {
             if (user && !err) {
-                window.location.href = "index.html"
+                var userId = firebase.auth().currentUser.uid;
+                firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+                    if (!snapshot.exists()) {
+                        let user = firebase.auth().currentUser;
+                        createNewUser(user.uid, user.email)
+                        console.log(user.uid, user.email, user)
+                    }
+                    window.location.href = "index.html"
+                })
             } else {
                 // No user is signed in.
             }
@@ -83,14 +82,8 @@ function register(email, password, password2) {
     if (!err) { //if no errors
         firebase.auth().onAuthStateChanged((user) => {
             if (user) { //if success, send verification email
-                /*
-                window.uid = user.uid
-                window.email = user.email
-                window.emailVerified = user.emailVerified
-                */
-                window.user = user
-                window.providerData = user.providerData
-                console.log(window.user, window.providerData)
+                //let user = firebase.auth().currentUser;
+                console.log(user, user.providerData)
 
                 user.sendEmailVerification().then(function() { //send verification email
                     window.alert("Success! An email has been sent to " + email + " Please confirm your email to access all features.")
@@ -102,14 +95,25 @@ function register(email, password, password2) {
                     var errorMessage = error.message
                     window.alert("ERROR! Code: " + errorCode + "\nInfo: " + errorMessage)
                 })
+
+                createNewUser(user.uid, user.email)
+
             }
         })
     }
 }
 
+function createNewUser(userId, email) {
+    firebase.database().ref('users/' + userId).set({
+      uid: userId,
+      email: email
+    })
+}
+
 //logout user
 function logout() {
     firebase.auth().signOut();
+    console.log("succesfully out")
 }
 
 function login(email, password) {
@@ -119,10 +123,11 @@ function login(email, password) {
         var errorMessage = error.message
         window.alert("ERROR! Code: " + errorCode + "\nInfo: " + errorMessage)
         err = true
+    }).then(_ => {
+        if (!err) {
+            window.location.href = "index.html"
+        }
     })
-    if (!err) {
-        window.location.href = "index.html"
-    }
 }
 
 Array.from(document.getElementsByClassName("switchButton")).forEach(self => {

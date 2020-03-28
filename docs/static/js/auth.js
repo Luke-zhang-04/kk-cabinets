@@ -8,24 +8,20 @@ function logout() {
 firebase.auth().onAuthStateChanged(function(user) {
     toggleSwitch = document.getElementById("navbarLogin")
     if (user) {
-        var user = firebase.auth().currentUser;
-        /*
-        window.uid = user.uid
-        window.email = user.email
-        window.emailVerified = user.emailVerified
-        */
-        window.user = user
-        window.providerData = user.providerData
 
         toggleSwitch.innerHTML = "Logout"
         toggleSwitch.addEventListener("click", logout)
         toggleSwitch.setAttribute("href", "#")
 
-        console.log(window.user, window.providerData)
+        document.getElementById("navbarRecommend").style.display = "block"
+
+        console.log(user, user.providerData)
     } else {
         console.log("No user signed in")
         toggleSwitch.innerHTML = "Login/Register"
         toggleSwitch.removeEventListener("click", logout)
         toggleSwitch.setAttribute("href", "login.html")
+
+        document.getElementById("navbarRecommend").style.display = "none"
     }
 })

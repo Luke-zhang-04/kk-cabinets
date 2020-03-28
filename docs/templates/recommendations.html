@@ -117,6 +117,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
 
     <script>
     // Your web app's Firebase configuration
@@ -131,8 +132,9 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    var storage = firebase.storage();
+    var storage = firebase.storage()
     const db = firebase.firestore()
+    var database = firebase.database()
     </script>
 
     <script src="../static/js/auth.js"></script>
