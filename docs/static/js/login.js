@@ -3,13 +3,11 @@ let state = "login"
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         var user = firebase.auth().currentUser;
-        window.useruid = user.uid
-        window.useremail = user.email
-        window.path = 'Users/' + useruid
-        console.log(window.useremail)
-        if(user != null){
-            window.useremail = user.email
-        }
+        window.uid = user.uid
+        window.email = user.email
+        window.emailVerified = user.emailVerified
+        window.providerData = user.providerData
+        console.log(window.useremail, window.useruid, window.providerData)
     } else {
         // No user is signed in.
     }
@@ -18,7 +16,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 //show register forms
 function showRegister() {
     state = "register"
-    document.getElementById("to_login").style.display = "blick"
+    document.getElementById("to_login").style.display = "block"
     document.getElementById("to_register").style.display = "none"
 
     document.getElementById("login").style.display = "none"
@@ -56,11 +54,16 @@ function register(email, password, password2) {
     if (!err) { //if no errors
         firebase.auth().onAuthStateChanged((user) => {
             if (user) { //if success, send verification email
-                window.useruid = user.uid
+                window.uid = user.uid
+                window.email = user.email
+                window.emailVerified = user.emailVerified
+                window.providerData = user.providerData
+                console.log(window.useremail, window.useruid, window.providerData)
 
                 user.sendEmailVerification().then(function() { //send verification email
                     window.alert("Success! An email has been sent to " + email + " Please confirm your email to access all features.")
                     showLogin()
+                    window.location.href = "index.html"
                   }).catch(function(error) {
                     // Handle Errors here.
                     var errorCode = error.code
