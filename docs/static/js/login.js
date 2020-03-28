@@ -4,11 +4,14 @@ let provider = new firebase.auth.GoogleAuthProvider()
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         var user = firebase.auth().currentUser;
+        /*
         window.uid = user.uid
         window.email = user.email
         window.emailVerified = user.emailVerified
+        */
+        window.user = user
         window.providerData = user.providerData
-        console.log(window.email, window.uid, window.providerData)
+        console.log(window.user, window.providerData)
     } else {
         // No user is signed in.
     }
@@ -80,11 +83,14 @@ function register(email, password, password2) {
     if (!err) { //if no errors
         firebase.auth().onAuthStateChanged((user) => {
             if (user) { //if success, send verification email
+                /*
                 window.uid = user.uid
                 window.email = user.email
                 window.emailVerified = user.emailVerified
+                */
+                window.user = user
                 window.providerData = user.providerData
-                console.log(window.useremail, window.useruid, window.providerData)
+                console.log(window.user, window.providerData)
 
                 user.sendEmailVerification().then(function() { //send verification email
                     window.alert("Success! An email has been sent to " + email + " Please confirm your email to access all features.")
