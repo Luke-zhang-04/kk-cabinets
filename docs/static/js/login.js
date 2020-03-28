@@ -1,7 +1,9 @@
 let state = "login"
 let provider = new firebase.auth.GoogleAuthProvider()
 
+//auth state changed
 firebase.auth().onAuthStateChanged(function(user) {
+    //let user = firebase.auth().currentUser
     if (user) {
         console.log(user, user.providerData)
     } else {
@@ -12,26 +14,26 @@ firebase.auth().onAuthStateChanged(function(user) {
 //sign in with google
 function googleSignin() {
     let err = false
-    firebase.auth().signInWithPopup(provider).then(function(result) {
+    firebase.auth().signInWithPopup(provider).then(function(result) { //sign in with popul
         let token = result.credential.accessToken
         let user = result.user
         console.log(token, user)
-    }).catch(function(error) {
+    }).catch(function(error) { //alert error
        let errorCode = error.code
        let errorMessage = error.message
        window.alert("ERROR! Code: " + errorCode + "\nInfo: " + errorMessage)
        err = true
     }).then(_ => {
         firebase.auth().onAuthStateChanged(function(user) {
-            if (user && !err) {
+            if (user && !err) { //if properly signed in/registered
                 var userId = firebase.auth().currentUser.uid;
-                firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-                    if (!snapshot.exists()) {
+                firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) { //try and get user info from database
+                    if (!snapshot.exists()) { //if user doesn't exist
                         let user = firebase.auth().currentUser;
-                        createNewUser(user.uid, user.email)
+                        createNewUser(user.uid, user.email) //create a new user
                         console.log(user.uid, user.email, user)
                     }
-                    window.location.href = "index.html"
+                    window.location.href = "index.html" //redirect
                 })
             } else {
                 // No user is signed in.
@@ -103,10 +105,12 @@ function register(email, password, password2) {
     }
 }
 
+//create a new user
 function createNewUser(userId, email) {
     firebase.database().ref('users/' + userId).set({
       uid: userId,
-      email: email
+      email: email,
+      ratings: {}
     })
 }
 
@@ -116,47 +120,56 @@ function logout() {
     console.log("succesfully out")
 }
 
+//log a user in
 function login(email, password) {
     let err = false
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) { //sign in with email and pswrd
         var errorCode = error.code
         var errorMessage = error.message
         window.alert("ERROR! Code: " + errorCode + "\nInfo: " + errorMessage)
         err = true
     }).then(_ => {
         if (!err) {
-            window.location.href = "index.html"
+            window.location.href = "index.html" //redirect
         }
     })
 }
 
-Array.from(document.getElementsByClassName("switchButton")).forEach(self => {
-    self.addEventListener("click", _ => {
-        if (state === "login") {
-            showRegister()
-        } else {
-            showLogin()
-        }
+function main() {
+    //set buttons for regristration and login changing
+    Array.from(document.getElementsByClassName("switchButton")).forEach(self => {
+        self.addEventListener("click", _ => {
+            if (state === "login") {
+                showRegister()
+            } else {
+                showLogin()
+            }
+        })
     })
-})
 
-document.getElementById("register_button").addEventListener("click", _ => {
-    let info = [
-        document.getElementById("register_email").value,
-        document.getElementById("register_password").value,
-        document.getElementById("register_password_confirm").value
-    ]
-    register(...info)
-})
+    //regristration button
+    document.getElementById("register_button").addEventListener("click", _ => {
+        let info = [
+            document.getElementById("register_email").value,
+            document.getElementById("register_password").value,
+            document.getElementById("register_password_confirm").value
+        ]
+        register(...info)
+    })
 
-document.getElementById("login_button").addEventListener("click", _ => {
-    let info = [
-        document.getElementById("login_email").value,
-        document.getElementById("login_password").value,
-    ]
-    login(...info)
-})
+    //login button
+    document.getElementById("login_button").addEventListener("click", _ => {
+        let info = [
+            document.getElementById("login_email").value,
+            document.getElementById("login_password").value,
+        ]
+        login(...info)
+    })
 
-document.getElementById("login_google").addEventListener("click", _ => {
-    googleSignin()
-})
+    //google login button
+    document.getElementById("login_google").addEventListener("click", _ => {
+        googleSignin()
+    })
+}
+
+main()

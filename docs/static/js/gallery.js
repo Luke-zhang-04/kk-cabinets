@@ -115,30 +115,61 @@ function display_batch(data) {
             //pattern
             info += "<br/>Pattern: " + (data[id]["details"]["pattern"] ? "Yes" : "None")
 
-            //append information to element
-            element.append(
-                "<div class=\"details\"><p>" + info + "<p>" + 
-                "<div class=\"slide\">" + 
-                    "<input type=\"range\" min=\"2\" max=\"10\" value=\"6\" class=\"slider\">" + 
-                    "<p>Rating: <span></span></p>" + 
-                "</div>" +
-                "</div>"
-            )
-            
-            //can't use jquery for some reason; JS DOMS works just fine anyways
-            let slider = document.getElementById(id)
-                .getElementsByClassName("slide")[0]
-                .getElementsByTagName("input")[0]
+            let user = firebase.auth().currentUser
+            if (user) {
+                element.append(
+                    "<div class=\"details\"><p>" + info + "<p>" + 
+                        "<div class=\"slide\">" + 
+                            "<input type=\"range\" min=\"2\" max=\"10\" value=\"6\" class=\"slider\">" + 
+                            "<p>Rating: <span></span></p>" + 
+                        "</div>" +
+                        "<button class=\"btn btn-success\">Submit</button>" + 
+                    "</div>"
+                )
 
-            let output =document.getElementById(id)
-                .getElementsByClassName("slide")[0]
-                .getElementsByTagName("p")[0]
-                .getElementsByTagName("span")[0]
+                //slider
+                let slider = document.getElementById(id)
+                    .getElementsByClassName("slide")[0]
+                    .getElementsByTagName("input")[0]
 
-            output.innerHTML = slider.value/2
+                //slide value
+                let output = document.getElementById(id)
+                    .getElementsByClassName("slide")[0]
+                    .getElementsByTagName("p")[0]
+                    .getElementsByTagName("span")[0]
 
-            slider.oninput = function() {
-                output.innerHTML = this.value/2
+                //submit button
+                let button = document.getElementById(id)
+                    .getElementsByClassName("btn")[0]
+
+                output.innerHTML = slider.value/2
+
+                slider.oninput = function() {
+                    output.innerHTML = this.value/2
+                }
+
+                button.addEventListener("click", _ => { //submit button function
+                    let value = slider.value //value of slider
+                    var userId = firebase.auth().currentUser.uid //current user id
+
+                    //read "ratings" from database for this user
+                    firebase.database().ref('/users/' + userId + "/ratings").once('value').then(function(snapshot) {
+                        //set new ratings
+                        let ratings = new Map
+                        for (i in snapshot.val()) {
+                            ratings[i] = snapshot.val()[i]
+                        }
+                        ratings[id] = value
+                        firebase.database().ref('users/' + userId + "/ratings").set({ //push to database
+                            ...ratings
+                        })
+                    })
+                })
+            } else {
+                //append information to element
+                element.append(
+                    "<div class=\"details\"><p>" + info + "<p>"
+                )
             }
         })
         columnNum++
@@ -209,6 +240,7 @@ function apply_filters() {
 
 function clear_filters() {
     $(".image_container").remove() //get rid of all images in gallery
+    $("#loading").css("display", "block") //display loading gif
     $(".dropdown_menu").each(function() { //change all x to checkmarks
         if ($(this).find("span").text() == "clear") {
             $(this).find("span").text("done")
@@ -224,7 +256,6 @@ function clear_filters() {
         pattern: null,
         locations: []
     }
-    $("#loading").css("display", "block") //display loading gif
     display_batch(data)
 }
 
