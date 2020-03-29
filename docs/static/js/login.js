@@ -190,6 +190,20 @@ function main() {
         googleSignin()
     })
 
+    document.getElementById("register_password_confirm").addEventListener("keydown", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault()
+            document.getElementById("register_button").click()
+        }
+    })
+
+    document.getElementById("login_password").addEventListener("keydown", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault()
+            document.getElementById("login_button").click()
+        }
+    })
+
     if (windowWidth < 768) {
         document.getElementsByClassName("authChange")[0].style.display = "none"
         document.getElementById("mobileAuthChange").style.display = "block"
