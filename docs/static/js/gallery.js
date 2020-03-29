@@ -120,7 +120,7 @@ function display_batch(data) {
                 element.append(
                     "<div class=\"details\"><p>" + info + "<p>" + 
                         "<div class=\"slide\">" + 
-                            "<input type=\"range\" min=\"2\" max=\"10\" value=\"6\" class=\"slider\">" + 
+                            "<input type=\"range\" min=\"0\" max=\"10\" value=\"5\" class=\"slider\">" + 
                             "<p>Rating: <span></span></p>" + 
                         "</div>" +
                         "<button class=\"btn btn-success\">Submit</button>" + 
