@@ -1,5 +1,8 @@
 let state = "login"
 let provider = new firebase.auth.GoogleAuthProvider()
+let windowWidth = window.innerWidth
+                || document.documentElement.clientWidth
+                || document.body.clientWidth
 
 //auth state changed
 firebase.auth().onAuthStateChanged(function(user) {
@@ -41,26 +44,42 @@ function googleSignin() {
         })
     })
 }
- 
 
 //show register forms
 function showRegister() {
     state = "register"
-    document.getElementById("to_login").style.display = "block"
-    document.getElementById("to_register").style.display = "none"
+    
+    if (windowWidth >= 768) {
+        document.getElementById("to_login").style.display = "block"
+        document.getElementById("to_register").style.display = "none"
 
-    document.getElementById("login").style.display = "none"
-    document.getElementById("register").style.display = "block"
+        document.getElementById("login").style.display = "none"
+        document.getElementById("register").style.display = "block"
+    } else {
+        document.getElementById("to_login_mobile").style.display = "block"
+        document.getElementById("to_register_mobile").style.display = "none"
+
+        document.getElementById("login").style.display = "none"
+        document.getElementById("register").style.display = "block"
+    }
 }
 
 //show login forms
 function showLogin() {
     state = "login"
-    document.getElementById("to_register").style.display = "block"
-    document.getElementById("to_login").style.display = "none"
+    if (windowWidth >= 768) {
+        document.getElementById("to_register").style.display = "block"
+        document.getElementById("to_login").style.display = "none"
 
-    document.getElementById("register").style.display = "none"
-    document.getElementById("login").style.display = "block"
+        document.getElementById("register").style.display = "none"
+        document.getElementById("login").style.display = "block"
+    } else {
+        document.getElementById("to_register_mobile").style.display = "block"
+        document.getElementById("to_login_mobile").style.display = "none"
+
+        document.getElementById("register").style.display = "none"
+        document.getElementById("login").style.display = "block"
+    }
 }
 
 //register new users
@@ -170,6 +189,11 @@ function main() {
     document.getElementById("login_google").addEventListener("click", _ => {
         googleSignin()
     })
+
+    if (windowWidth < 768) {
+        document.getElementsByClassName("authChange")[0].style.display = "none"
+        document.getElementById("mobileAuthChange").style.display = "block"
+    }
 }
 
 main()
