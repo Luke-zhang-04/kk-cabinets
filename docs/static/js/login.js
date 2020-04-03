@@ -36,7 +36,7 @@ function googleSignin() {
                         createNewUser(user.uid, user.email) //create a new user
                         console.log(user.uid, user.email, user)
                     }
-                    window.location.href = "index.html" //redirect
+                    window.location.href = "/" //redirect
                 })
             } else {
                 // No user is signed in.
@@ -109,7 +109,7 @@ function register(email, password, password2) {
                 user.sendEmailVerification().then(function() { //send verification email
                     window.alert("Success! An email has been sent to " + email + " Please confirm your email to access all features.")
                     showLogin()
-                    window.location.href = "index.html"
+                    window.location.href = "/"
                   }).catch(function(error) {
                     // Handle Errors here.
                     var errorCode = error.code
@@ -149,7 +149,7 @@ function login(email, password) {
         err = true
     }).then(_ => {
         if (!err) {
-            window.location.href = "index.html" //redirect
+            window.location.href = "/" //redirect
         }
     })
 }

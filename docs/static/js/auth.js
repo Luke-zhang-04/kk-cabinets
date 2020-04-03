@@ -20,7 +20,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log("No user signed in")
         toggleSwitch.innerHTML = "Login/Register"
         toggleSwitch.removeEventListener("click", logout)
-        toggleSwitch.setAttribute("href", "login.html")
+        toggleSwitch.setAttribute("href", "login")
 
         document.getElementById("navbarRecommend").style.display = "none"
     }
