@@ -1,7 +1,9 @@
 window.onscroll = function() {
+    /*
     if (window.innerWidth > 991) {
         scroll()
-    }
+    }*/
+    scroll()
 }
 
 // Get the navbar
@@ -17,9 +19,9 @@ function scroll() {
         navbar.classList.add("background-trans")
     }
 }
-
+/*
 if (window.innerWidth <= 991) {
     navbar.classList.remove("background-default")
     navbar.classList.remove("background-trans")
     navbar.classList.add("background-white")
-}
+}*/

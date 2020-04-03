@@ -1,12 +1,10 @@
 .banner {
     position: absolute;
     top: -66px;
-    object-fit: cover;
     width: 100%;
 }
 
 .seperator {
-    object-fit: cover;
     width: 100%;
 }
 
