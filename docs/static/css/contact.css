@@ -1,0 +1,33 @@
+.banner {
+    position: absolute;
+    top: -66px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.seperator {
+    object-fit: cover;
+    width: 100%;
+}
+
+.contactForm {
+    width: 100%;
+    display: block;
+    padding: 15px;
+    border: 1px solid #b5b5b5;
+    outline: none;
+}
+
+.contactButton {
+    padding: 15px;
+    max-width: 184px;
+    width: 100%;
+    background: #373737;
+    color: #f4f4f4;
+    border: none;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    float: right;
+    cursor: pointer;
+}
