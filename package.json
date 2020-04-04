@@ -1,5 +1,8 @@
 {
     "scripts": {
         "start": "python3 docs/app.py"
+    },
+    "engines": {
+        "python3": "python-3.7.6"
     }
 }
