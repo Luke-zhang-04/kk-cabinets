@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 
-tData = {'Name': 'You'}
 
 app = Flask(__name__)
 
@@ -41,6 +40,12 @@ def routeRecommendations():
 @app.route('/testimonials')
 def testimonials():
     return render_template('testimonials.html')
+
+
+@app.errorhandler(404)
+def page_not_found():
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":
