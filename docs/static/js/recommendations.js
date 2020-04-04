@@ -16,7 +16,7 @@ function get_recommendations(user) {
         for ([index, elem] of snapshot.val().entries()) {
             if (!Number.isInteger(elem) && elem >= 5) {
                 recommended[index] = elem
-            } else if (Number.isInteger && elem >= 7.5) {
+            } else if (Number.isInteger && elem >= 7) {
                 rated[index] = elem
             }
         }
@@ -76,6 +76,12 @@ function display_batch(data, allData, row) {
             //pattern
             info += "<br/>Pattern: " + (allData[id]["details"]["pattern"] ? "Yes" : "None")
 
+            if (row == "recon") {
+                info += "<br/>Estimated rating: " + data[id]
+            } else if (row == "rated") {
+                info += "<br/>Your rating: " + data[id]
+            }
+
             element.insertAdjacentHTML (
                 "beforeend",
                 "<div class=\"details\"><p>" + info + "<p>"
@@ -83,6 +89,7 @@ function display_batch(data, allData, row) {
         })
         columnNum++
     }
+
     if (Object.keys(data).length == 0) {
         if (row == "recon") {
             let header = document.getElementById("reconHeader")
