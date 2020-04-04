@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
     <!--custom css-->
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/gallery.css">
+    <link rel="stylesheet" href="../static/css/recon.css">
     <!--google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto+Mono&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -39,6 +41,32 @@
             </div>
         </div>
     </nav>
+
+    <div id="reconHeader">
+        <h1 class="reconHeader">Recommendations</h1>
+        <hr/>
+    </div>
+
+    <div class="responive_row" id="recon">
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+    </div>
+
+    <div id="ratedHeader">
+        <h1 class="reconHeader">Projects you liked</h1>
+        <hr/>
+    </div>
+
+    <div class="responive_row" id="rated">
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+    </div>
+
+    <img src="../static/pictures/loading.gif" id="loading"/>
 
     <!-- Footer -->
     <footer class="page-footer">
@@ -133,7 +161,7 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    var storage = firebase.storage()
+    var storage = firebase.storage();
     const db = firebase.firestore()
     var database = firebase.database()
     </script>
@@ -146,5 +174,6 @@
     <script src="../static/js/jquery.js"></script>
     <script src="../static/js/popper.min.js"></script>
     <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/recommendations.js"></script>
 </body>
 </html>

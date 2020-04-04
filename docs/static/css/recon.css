@@ -1,0 +1,9 @@
+.reconHeader, .noDisplay {
+    padding: 10px;
+    padding-bottom: 2.5px;
+}
+
+hr {
+    border-top: 1px solid grey;
+    padding-bottom: 7.5px;
+}
