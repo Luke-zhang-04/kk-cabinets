@@ -241,6 +241,14 @@ nav a {
     text-align: right;
 }
 
+.quote-icon {
+    font-size: 500% !important;
+    text-align: left;
+    transform: translate(0%, 400%);
+    display: block;
+    position: relative;
+}
+
 @media screen and (max-width: 767px) {
     .content img {
         display: none;
@@ -270,6 +278,10 @@ nav a {
 
     .content-first {
         padding-top: 0;
+    }
+
+    .quote-icon {
+        transform: translate(-50%, 400%);
     }
 }
 

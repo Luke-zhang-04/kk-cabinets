@@ -15,7 +15,7 @@ db.collection("testimonials").get().then((snapshot) => {
 function getTestimonials(obj) {
     let list = Object.values(obj)
     displayedTestimonial = list[Math.floor(Math.random()*list.length)]
-    para.innerHTML = "\"" + displayedTestimonial + "\""
+    para.innerHTML = displayedTestimonial
 }
 
 if ($( window ).width() >= 767) {
