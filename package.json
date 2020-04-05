@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "python3 docs/app.py"
+        "start": "python3 docs/main.py"
     },
     "engines": {
         "python3": "python-3.7.6"
