@@ -17,6 +17,16 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         console.log(user, user.providerData)
 
+        let login
+        firebase.database().ref("logged-in/").once("value").then(function(snapshot) {
+            login = snapshot.val()
+        }).then(_ => {
+            login[user.uid] = Date.now()
+            firebase.database().ref("logged-in").set({ //push to database
+                ...login
+            })
+        })
+
     } else {
         console.log("No user signed in")
         toggleSwitch.innerHTML = "Login/Register"
