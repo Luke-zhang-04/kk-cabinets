@@ -255,6 +255,7 @@
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
 
 
     <script>
@@ -271,9 +272,10 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore()
+    let database = firebase.database()
     </script>
 
-    <script src="../static/js/auth.js"></script>
+    <script src="../static/js/authHome.js"></script>
 
     <script src="../static/js/scrollmagic/ScrollMagic.js"></script>
     <script src="../static/js/scrollmagic/plugins/animation.gsap.js"></script>
