@@ -1,4 +1,4 @@
-# kk-cabinets.github.io #
+# kk-cabinets #
 [![Website kk-cabinets.herokuapp.com](https://img.shields.io/website-up-down-green-red/https/kk-cabinets.herokuapp.com.svg)](https://kk-cabinets.herokuapp.com/)
 <br/>
 [https://kk-cabinets.herokuapp.com/](https://kk-cabinets.herokuapp.com/)
