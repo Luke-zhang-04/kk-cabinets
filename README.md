@@ -5,6 +5,9 @@
 ## Overview ##
 This is a dynamic web application for a website refresh for KK Cabinets and Countertops. We used Firebase for file storage, and data storage. We also used Flask for connection to the server and to make the application dynamic.
 
+# DEPENDENCIES #
+This website is indirectly dependent on a git repo [here](https://github.com/Luke-zhang-04/user-recommendations)
+
 ## Background and Scope ##
 The purpose of this project is to refresh the front page and revamp the Gallery section of the current website for KK Cabinets ([http://www.kkcabinets.ca](http://www.kkcabinets.ca)) to maximize customers' length of stay per visit.
 ## Basic Requirements: ##
