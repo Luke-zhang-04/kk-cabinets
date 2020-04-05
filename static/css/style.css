@@ -263,6 +263,14 @@ nav a {
     #testimonial-content h5 {
         position: relative !important;
     }
+
+    #aligner {
+        display: block !important;
+    }
+
+    .content-first {
+        padding-top: 0;
+    }
 }
 
 #testimonial-content h5 {
