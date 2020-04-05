@@ -21,6 +21,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         firebase.database().ref("logged-in/").once("value").then(function(snapshot) {
             login = snapshot.val()
         }).then(_ => {
+            if (!login) {
+                login = new Map()
+            }
             login[user.uid] = Date.now()
             firebase.database().ref("logged-in").set({ //push to database
                 ...login
