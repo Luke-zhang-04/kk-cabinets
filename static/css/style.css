@@ -315,3 +315,63 @@ hr {
     border-top: 1px solid grey;
     padding-bottom: 7.5px;
 }
+
+#downIcon {
+    padding-top: 25%;
+}
+
+#downBtn {
+    animation-name: desolidify;
+    animation-duration: 1s;
+    z-index: 100;
+    background-color: #373737;
+    color: black;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border-width: 0;
+    opacity: .75;
+    text-align: center;
+}
+
+@keyframes desolidify {
+    from {
+        opacity: 1;
+    } to {
+        opacity: .75;
+    }
+}
+
+@-webkit-keyframes desolidify {
+    from {
+        opacity: 1;
+    } to {
+        opacity: .75;
+    }
+}
+
+@keyframes solidify {
+    from {
+        opacity: .75;
+    } to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes solidify {
+    from {
+        opacity: .75;
+    } to {
+        opacity: 1;
+    }
+}
+
+#downBtn:hover {
+    animation-name: solidify;
+    animation-duration: 1s;
+    opacity: 1
+}
