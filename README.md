@@ -1,5 +1,5 @@
 # kk-cabinets.github.io #
-[https://luke-zhang-04.github.io/kk-cabinets.github.io/](https://luke-zhang-04.github.io/kk-cabinets.github.io/)
+[https://kk-cabinets.herokuapp.com/](https://kk-cabinets.herokuapp.com/)
 ## Overview ##
 This is a dynamic web application for a website refresh for KK Cabinets and Countertops. We used Firebase for file storage, and data storage. We also used Flask for connection to the server and to make the application dynamic.
 
