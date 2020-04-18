@@ -2,10 +2,7 @@
 [![Website kk-cabinets.herokuapp.com](https://img.shields.io/website-up-down-green-red/https/kk-cabinets.herokuapp.com.svg)](https://kk-cabinets.herokuapp.com/)
 <br/>
 [https://kk-cabinets.herokuapp.com/](https://kk-cabinets.herokuapp.com/)
-<br/><br/>
-[![Website luke-zhang-04.github.io/kk-cabinets.github.io](https://img.shields.io/website-up-down-green-red/https/luke-zhang-04.github.io/kk-cabinets.github.io.svg)](https://luke-zhang-04.github.io/kk-cabinets.github.io)
 <br/>
-[https://luke-zhang-04.github.io/kk-cabinets.github.io](https://luke-zhang-04.github.io/kk-cabinets.github.io)
 ## Overview ##
 This is a dynamic web application for a website refresh for KK Cabinets and Countertops. We used Firebase for file storage, and data storage. We also used Flask for connection to the server and to make the application dynamic.
 
