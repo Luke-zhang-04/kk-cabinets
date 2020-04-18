@@ -24,44 +24,96 @@
 
 <head>
     <!--for bootstrap-->
-    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <!--custom css-->
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/countertops.css">
     <!--google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto+Mono&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7bc17e9531.js" crossorigin="anonymous"></script>
     <!--icon-->
-    <link rel="icon" href="../static/pictures/logo-transparent-cropped.png">
+    <link rel="icon" href="pictures/logo-transparent-cropped.png">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>KK Cabinets | Testimonials</title>
+    <title>KK Cabinets | Countertops</title>
 </head>
 
 <body>
     <!--Navbar-->
     <nav id = "navbar" class="navbar sticky-top navbar-expand-lg navbar-light background-default">
-        <a class="navbar-brand" href="/"><img src="../static/pictures/logo-transparent-cropped.png" style="width: 60px; height: 40px"></a>
+        <a class="navbar-brand" href="index.html"><img src="pictures/logo-transparent-cropped.png" style="width: 60px; height: 40px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/">Home</a>
-            <a class="nav-item nav-link" href="countertops">Countertops</a>
-            <a class="nav-item nav-link" href="gallery">Gallery</a>
-            <a class="nav-item nav-link active" href="testimonials">Testomonials<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="about">About</a>
-            <a class="nav-item nav-link" href="contact">Contact</a>
-            <a class="nav-item nav-link" href="login" id="navbarLogin">Login/Register</a>
-            <a class="nav-item nav-link" href="recommendations" id="navbarRecommend" style="display: none;">Recommendations</a>
+            <a class="nav-item nav-link" href="index.html">Home</a>
+            <a class="nav-item nav-link active" href="countertops.html">Countertops<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="gallery.html">Gallery</a>
+            <a class="nav-item nav-link" href="testimonials.html">Testomonials<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="about.html">About</a>
+            <a class="nav-item nav-link" href="contact.html">Contact</a>
+            <a class="nav-item nav-link" href="login.html" id="navbarLogin">Login/Register</a>
+            <a class="nav-item nav-link" href="recommendations.html" id="navbarRecommend" style="display: none;">Recommendations</a>
             </div>
         </div>
     </nav>
 
-    <div id="testimonial_container"></div>
+    <div class="responive_row" id="row">
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+    </div>
+
+    <img src="pictures/loading.gif" id="loading"/>
+
+    <div class="jumbotron jumbotron-padded">
+        <h1>Quartz</h1>
+        <hr/>
+        <p>
+            Quartz is our "go to" choice for your counter tops. Quartz is harder than granite and thus more durable. In fact, Quartz is nearly indestructible, and because it isn't porous like granite, it's easy to keep your counter tops relatively bacteria-free.<br/><br/>
+            We love partnering with the following quartz suppliers and have their samples on display in our showroom.
+        </p>
+        <div class="row">
+            <div class="col-2">
+                MSI<br/>
+                KStone<br/>
+                TCE Stone<br/>
+                Lucent Quartz<br/>
+                Cambria<br/>
+                Hanstone<br/>
+                Silestone
+            </div>
+            <div class="col-2">
+                <a href="www.msisurfaces.com">www.msisurfaces.com</a><br/>
+                <a href="https://kstonequartz.com/">https://kstonequartz.com/</a><br/>
+                <a href="http://tcestone.com/">http://tcestone.com/  </a><br/>
+                <a href="www.lucentquartz.ca">www.lucentquartz.ca</a><br/>
+                <a href="http://www.quartzco.ca/">http://www.quartzco.ca/</a><br/>
+                <a href="https://hanstone.ca/">https://hanstone.ca/</a><br/>
+                <a href="https://ca.silestone.com/">https://ca.silestone.com/</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-padded">
+        <h1>Wood/Butcher Block</h1>
+        <hr/>
+    </div>
+
+    <div class="jumbotron jumbotron-padded">
+        <h1>Granite</h1>
+        <hr/>
+    </div>
+
+    <div class="jumbotron jumbotron-padded">
+        <h1>Wood/Butcher Block</h1>
+        <hr/>
+    </div>
 
     <!-- Footer -->
     <footer class="page-footer">
@@ -91,11 +143,11 @@
                 <h5 class="text-uppercase">Navigation</h5>
   
                 <ul class="list-unstyled">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="countertops">Countertops</a></li>
-                    <li><a href="gallery">Gallery</a></li>
-                    <li><a href="testimonials">Testimonials</a></li>
-                    <li><a href="about">About</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="countertops.html">Countertops</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
             </div>
             <!-- Grid column -->
@@ -127,20 +179,21 @@
   
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
-      <a href="https://kkcabinets.com/">kkcabinets.com</a>
+        Luke Zhang, Ethan Lim, and K&K Cabinets and Countertops</a>
     </div>
     <!-- Copyright -->
   
-    </footer>
+  </footer>
   <!-- Footer -->
 
     <!-- FIREBASE STUFF-->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
 
-   <!-- Add Firebase products that you want to use -->
+    <!-- Add Firebase products that you want to use -->
    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
 
     <script>
     // Your web app's Firebase configuration
@@ -155,16 +208,18 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    var storage = firebase.storage();
     const db = firebase.firestore()
     </script>
 
-    <script src="../static/js/auth.js"></script>
+    <script src="js/auth.js"></script>
 
-    <script src="../static/js/testimonials.js"></script>
+    <script src="js/script.js"></script>
 
     <!--for bootstrap-->
-    <script src="../static/js/jquery.js"></script>
-    <script src="../static/js/popper.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/countertops.js"></script>
 </body>
 </html>

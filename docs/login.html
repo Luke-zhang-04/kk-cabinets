@@ -24,70 +24,99 @@
 
 <head>
     <!--for bootstrap-->
-    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <!--custom css-->
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/gallery.css">
-    <link rel="stylesheet" href="../static/css/recon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
     <!--google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto+Mono&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7bc17e9531.js" crossorigin="anonymous"></script>
     <!--icon-->
-    <link rel="icon" href="../static/pictures/logo-transparent-cropped.png">
+    <link rel="icon" href="pictures/logo-transparent-cropped.png">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>KK Cabinets | Recommendations</title>
+    <title>KK Cabinets | Gallery</title>
 </head>
 
 <body>
     <!--Navbar-->
     <nav id = "navbar" class="navbar sticky-top navbar-expand-lg navbar-light background-default">
-        <a class="navbar-brand" href="/"><img src="../static/pictures/logo-transparent-cropped.png" style="width: 60px; height: 40px"></a>
+        <a class="navbar-brand" href="index.html"><img src="pictures/logo-transparent-cropped.png" style="width: 60px; height: 40px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/">Home</a>
-            <a class="nav-item nav-link" href="countertops">Countertops</a>
-            <a class="nav-item nav-link" href="gallery">Gallery</a>
-            <a class="nav-item nav-link" href="testimonials">Testomonials</a>
-            <a class="nav-item nav-link" href="about">About</a>
-            <a class="nav-item nav-link" href="contact">Contact</a>
-            <a class="nav-item nav-link" href="login" id="navbarLogin">Login/Register</a>
-            <a class="nav-item nav-link active" href="recommendations" id="navbarRecommend">Recommendations<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="index.html">Home</a>
+            <a class="nav-item nav-link" href="countertops.html">Countertops</a>
+            <a class="nav-item nav-link" href="gallery.html">Gallery</a>
+            <a class="nav-item nav-link" href="testimonials.html">Testomonials</a>
+            <a class="nav-item nav-link" href="about.html">About</a>
+            <a class="nav-item nav-link" href="contact.html">Contact</a>
+            <a class="nav-item nav-link active" href="login.html">Login/Register<span class="sr-only">(current)</span></a>
             </div>
         </div>
     </nav>
 
-    <div id="reconHeader">
-        <h1 class="reconHeader">Recommendations</h1>
-        <hr/>
+    <div class="authBody">
+        <div class="authChange">
+            <div id="to_register">
+                <h2>Don't have an account?</h2>
+                <button class="authButton switchButton">Register</button>
+            </div>
+            <div id="to_login" style="display: none;">
+                <h2>Already have an account?</h2>
+                <button class="authButton switchButton">Login</button>
+            </div>
+        </div>
+        <div class="whiteContainer">
+            <div class="authContainer" id="login">
+                <h5>Login</h5>
+                <input class="authForm" type="email" id="login_email" placeholder="Email..."><br/>
+                <input class="authForm" type="password" id="login_password" placeholder="Password..."><br/>
+                <a href="#">Forgot Password?</a>
+                <button class="authButton" id="login_button">Login</button>
+                <br/><br/>
+                <div class="google-btn" id="login_google">
+                    <div class="google-icon-wrapper">
+                      <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                    </div>
+                    <p class="btn-text"><b>Sign in with google</b></p>
+                </div>
+            </div>
+
+            <div class="authContainer" id="register" style="display: none;">
+                <h5>Register</h5>
+                <input class="authForm" type="email" id="register_email" placeholder="Email..."><br/>
+                <input class="authForm" type="password" id="register_password" placeholder="Password..."><br/>
+                <input class="authForm" type="password" id="register_password_confirm" placeholder="Confirm your Password..."><br/>
+                <button class="authButton" id="register_button">Register</button>
+                <br/><br/>
+                <div class="google-btn" id="login_google">
+                    <div class="google-icon-wrapper">
+                      <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                    </div>
+                    <p class="btn-text"><b>Sign up with google</b></p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="responive_row" id="recon">
-        <div class="responsive_column"></div>
-        <div class="responsive_column"></div>
-        <div class="responsive_column"></div>
-        <div class="responsive_column"></div>
+    <div id="mobileAuthChange" style="display: none">
+        <div id="to_register_mobile">
+            <h2>Don't have an account?</h2>
+            <button class="authButton switchButton">Register</button>
+            <br/><br/><br/>
+        </div>
+        <div id="to_login_mobile" style="display: none;">
+            <h2>Already have an account?</h2>
+            <button class="authButton switchButton">Login</button>
+            <br/><br/><br/>
+        </div>
     </div>
-
-    <div id="ratedHeader">
-        <h1 class="reconHeader">Projects you liked</h1>
-        <hr/>
-    </div>
-
-    <div class="responive_row" id="rated">
-        <div class="responsive_column"></div>
-        <div class="responsive_column"></div>
-        <div class="responsive_column"></div>
-        <div class="responsive_column"></div>
-    </div>
-
-    <img src="../static/pictures/loading.gif" id="loading"/>
 
     <!-- Footer -->
     <footer class="page-footer">
@@ -117,11 +146,11 @@
                 <h5 class="text-uppercase">Navigation</h5>
   
                 <ul class="list-unstyled">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="countertops">Countertops</a></li>
-                    <li><a href="gallery">Gallery</a></li>
-                    <li><a href="testimonials">Testimonials</a></li>
-                    <li><a href="about">About</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="countertops.html">Countertops</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
             </div>
             <!-- Grid column -->
@@ -153,7 +182,7 @@
   
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
-      <a href="https://kkcabinets.com/">kkcabinets.com</a>
+        Luke Zhang, Ethan Lim, and K&K Cabinets and Countertops</a>
     </div>
     <!-- Copyright -->
   
@@ -184,17 +213,15 @@
     firebase.initializeApp(firebaseConfig);
     var storage = firebase.storage();
     const db = firebase.firestore()
-    var database = firebase.database()
+    var dababase = firebase.database()
     </script>
 
-    <script src="../static/js/auth.js"></script>
-
-    <script src="../static/js/script.js"></script>
+    <script src="js/script.js"></script>
 
     <!--for bootstrap-->
-    <script src="../static/js/jquery.js"></script>
-    <script src="../static/js/popper.min.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
-    <script src="../static/js/recommendations.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
