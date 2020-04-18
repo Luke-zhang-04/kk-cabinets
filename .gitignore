@@ -63,3 +63,5 @@ typings/
 /.firebaserc
 
 env
+
+.firebase
