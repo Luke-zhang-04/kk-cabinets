@@ -3,7 +3,7 @@
 <br/>
 [https://kk-cabinets.herokuapp.com/](https://kk-cabinets.herokuapp.com/)
 <br/><br/>
-[![Website luke-zhang-04.github.io/kk-cabinets.github.io](https://img.shields.io/website-up-down-green-red/https/luke-zhang.github.io/kk-cabinets.github.io.svg)](https://luke-zhang-04.github.io/kk-cabinets.github.io)
+[![Website luke-zhang-04.github.io/kk-cabinets.github.io](https://img.shields.io/website-up-down-green-red/https/luke-zhang-04.github.io/kk-cabinets.github.io.svg)](https://luke-zhang-04.github.io/kk-cabinets.github.io)
 <br/>
 [https://luke-zhang-04.github.io/kk-cabinets.github.io](https://luke-zhang-04.github.io/kk-cabinets.github.io)
 ## Overview ##
