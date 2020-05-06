@@ -1,14 +1,21 @@
-# kk-cabinets #
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d6d5f99056ba41b6a80057c84ab398e9)](https://app.codacy.com/manual/luke.zhang2004/kk-cabinets?utm_source=github.com&utm_medium=referral&utm_content=Luke-zhang-04/kk-cabinets&utm_campaign=Badge_Grade_Dashboard)
-[![Website kk-cabinets.herokuapp.com](https://img.shields.io/website-up-down-green-red/https/kk-cabinets.herokuapp.com.svg)](https://kk-cabinets.herokuapp.com/)
-<br/>
-[https://kk-cabinets.herokuapp.com/](https://kk-cabinets.herokuapp.com/)
-<br/>
+<div align="center">
+    <img alt="pharmasave logo" src="docs/pictures/logo-transparent.png"/>
+</div>
+
+***
+
+<p align="center">
+    <a href="https://nodejs.org/en/"><img alt="Forthebadge made with JS" src="https://forthebadge.com/images/badges/uses-html.svg"/></a>
+</p>
+
+<p align="center">
+    <a href="https://github.com/luke-zhang-04/kk-cabinets/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/luke-zhang-04/kk-cabinets.svg"/></a>
+    <a href="https://kk-cabinets.herokuapp.com/"><img alt="website kk-cabinets.firebaseapp.com" src="https://img.shields.io/website-up-down-green-red/https/kk-cabinets.herokuapp.com.svg"/></a>
+    <a href="https://app.codacy.com/manual/luke.zhang2004/kk-cabinets?utm_source=github.com&utm_medium=referral&utm_content=Luke-zhang-04/kk-cabinets&utm_campaign=Badge_Grade_Dashboard"><img alt="Codacy Badge" src="https://api.codacy.com/project/badge/Grade/d6d5f99056ba41b6a80057c84ab398e9"/></a>
+</p>
+
 ## Overview ##
 This is a dynamic web application for a website refresh for KK Cabinets and Countertops. We used Firebase for file storage, and data storage. We also used Flask for connection to the server and to make the application dynamic.
-
-# DEPENDENCIES #
-This website is indirectly dependent on a git repo [here](https://github.com/Luke-zhang-04/user-recommendations)
 
 ## Background and Scope ##
 The purpose of this project is to refresh the front page and revamp the Gallery section of the current website for KK Cabinets ([http://www.kkcabinets.ca](http://www.kkcabinets.ca)) to maximize customers' length of stay per visit.
