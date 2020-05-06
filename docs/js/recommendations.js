@@ -64,7 +64,7 @@ function display_batch(data, allData, row) {
     let columns = document.getElementById(row).getElementsByClassName("responsive_column")
     let columnNum = 0
 
-    for (key in data) {
+    for (let key in data) {
         let imgURL = storageRef.child(allData[key]["file"]) //image url
         let column = columns[columnNum%4]
         let id = key

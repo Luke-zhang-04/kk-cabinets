@@ -104,7 +104,7 @@ db.collection("gallery").get().then((snapshot) => {
 //handle data and display images accordingly
 function display_batch(data) {
     asyncFinished = false
-    for (key in data) {
+    for (let key in data) {
         imgURL = storageRef.child(data[key]["file"]) //image url
         let column = columns[columnNum%4] //column to append image to
         let id = key //for asynchronus getDownloadURL
@@ -177,7 +177,7 @@ function display_batch(data) {
                     firebase.database().ref("/users/" + userId + "/ratings").once("value").then(function(snapshot) {
                         //set new ratings
                         let ratings = new Map
-                        for (i in snapshot.val()) {
+                        for (let i in snapshot.val()) {
                             ratings[i] = snapshot.val()[i]
                         }
                         ratings[id] = value
@@ -229,7 +229,7 @@ function apply_filters() {
     $("#loading").css("display", "block") //display loading gif
     let filteredData = new Map //new map of filtered data
     console.log(data, "DATA")
-    for (key in data) { //iterate through data
+    for (let key in data) { //iterate through data
         doc = data[key]
         let broken = false
         for (filter of filterTypes) { //make sure doc doesn"t have attribute assosiated with a selected filter

@@ -52,7 +52,7 @@ db.collection("countertops").get().then((snapshot) => {
 
 //handle data and display images accordingly
 function display_batch(data) {
-    for (key in data) {
+    for (let key in data) {
         imgURL = storageRef.child(data[key]["file"]) //image url
         let column = columns[columnNum%4] //column to append image to
         let id = key //for asynchronus getDownloadURL

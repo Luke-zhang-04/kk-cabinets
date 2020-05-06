@@ -19,18 +19,18 @@ This is a dynamic web application for a website refresh for KK Cabinets and Coun
 
 ## Background and Scope ##
 The purpose of this project is to refresh the front page and revamp the Gallery section of the current website for KK Cabinets ([http://www.kkcabinets.ca](http://www.kkcabinets.ca)) to maximize customers' length of stay per visit.
-## Basic Requirements: ##
+## Basic Requirements ##
 
 1.  Redesign the home page to enhance the first impressions of viewers by creating an artistic look and style on the main page
 
 2.  Redesign the gallery page to create navigation through the use of the product category. The product category can be designed to have multiple levels such as style, material, colour, etc.
-## Optional Requirements (demo required): ##
+## Optional Requirements (demo required) ##
 
 1.  Enable the functionality to display similar projects to the ones currently viewed by potential customers
 
 2.  Integrate the connections between the supply material/raw products/finished products allowing customers to search projects by various criteria<br/>
 Students can use any programming languages such as PHP (cough cough)/Python (^_^)/MySQL for this project. Students can also use existing content management software such as WordPress. <br/><br/>
-## Each team is suggested to have: ##
+## Each team is suggested to have ##
 
 1.  One <b>Scrum Master/Project Manager</b> to manage the deliverables
 
