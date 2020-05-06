@@ -41,7 +41,7 @@ function getTestimonials(obj) {
 
 if ($( window ).width() >= 767) {
     $(".content").each(function() {
-        multiplyer = (alternating % 2 == 0 ? 1 : -1)
+        multiplyer = (alternating % 2 === 0 ? 1 : -1)
         let tl = new TimelineMax();
         timelines.push(tl)
         tl.from($(this).find("h5 article"), .5, {x:200*multiplyer, opacity: 0})
@@ -73,9 +73,9 @@ $("#downBtn").on("click", function(event) {
         // Store hash
         var hash = this.hash
 
-        // Using jQuery's animate() method to add smooth page scroll
+        // Using jQuery"s animate() method to add smooth page scroll
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-        $('html, body').animate({
+        $("html, body").animate({
             scrollTop: $(hash).offset().top - $(window).height()
         }, 800, function(){
  

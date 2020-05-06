@@ -28,7 +28,7 @@ let storageRef = storage.ref("countertops")
 //if array conains target
 function contains(target, array) {
     for (i of array) {
-        if (target == i) {
+        if (target === i) {
             return true
         }
     }
@@ -38,7 +38,7 @@ function contains(target, array) {
 //remove element from array
 function arrayRemove(arr, value) {
     return arr.filter(function(ele){
-        return ele != value
+        return ele !== value
     })
 }
 

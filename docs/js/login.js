@@ -51,8 +51,8 @@ function googleSignin() {
         firebase.auth().onAuthStateChanged(function(user) {
             if (user && !err) { //if properly signed in/registered
                 var userId = firebase.auth().currentUser.uid;
-                firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) { //try and get user info from database
-                    if (!snapshot.exists()) { //if user doesn't exist
+                firebase.database().ref("/users/" + userId).once("value").then(function(snapshot) { //try and get user info from database
+                    if (!snapshot.exists()) { //if user doesn"t exist
                         let user = firebase.auth().currentUser;
                         createNewUser(user.uid, user.email) //create a new user
                         console.log(user.uid, user.email, user)
@@ -147,7 +147,7 @@ function register(email, password, password2) {
 
 //create a new user
 function createNewUser(userId, email) {
-    firebase.database().ref('users/' + userId).set({
+    firebase.database().ref("users/" + userId).set({
       uid: userId,
       email: email,
       ratings: {}

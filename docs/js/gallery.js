@@ -48,7 +48,7 @@ let activeFilters = {
 //if array conains target
 function contains(target, array) {
     for (i of array) {
-        if (target == i) {
+        if (target === i) {
             return true
         }
     }
@@ -174,14 +174,14 @@ function display_batch(data) {
                     var userId = firebase.auth().currentUser.uid //current user id
 
                     //read "ratings" from database for this user
-                    firebase.database().ref('/users/' + userId + "/ratings").once('value').then(function(snapshot) {
+                    firebase.database().ref("/users/" + userId + "/ratings").once("value").then(function(snapshot) {
                         //set new ratings
                         let ratings = new Map
                         for (i in snapshot.val()) {
                             ratings[i] = snapshot.val()[i]
                         }
                         ratings[id] = value
-                        firebase.database().ref('users/' + userId + "/ratings").set({ //push to database
+                        firebase.database().ref("users/" + userId + "/ratings").set({ //push to database
                             ...ratings
                         })
                     })
@@ -232,7 +232,7 @@ function apply_filters() {
     for (key in data) { //iterate through data
         doc = data[key]
         let broken = false
-        for (filter of filterTypes) { //make sure doc doesn't have attribute assosiated with a selected filter
+        for (filter of filterTypes) { //make sure doc doesn"t have attribute assosiated with a selected filter
             if (contains(doc["details"][filter], activeFilters[filter+"s"])) {
                 broken = true
                 break
@@ -252,7 +252,7 @@ function apply_filters() {
             }
         }
 
-        if (!broken) { //if data isn't filtered, add it to filtered data
+        if (!broken) { //if data isn"t filtered, add it to filtered data
             filteredData[key] = doc
         }
     }
@@ -305,7 +305,7 @@ $("document").ready(function() {
                 $("#" + i + "_furniture").find("span").text("")
             }
             $(this).find("span").text("done")
-            let id = $(this).attr('id')
+            let id = $(this).attr("id")
             id = id.replace("_furniture", "")
             console.log(id)
 

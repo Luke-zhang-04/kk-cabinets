@@ -46,7 +46,7 @@ function displayTestimonials(obj) {
         container.classList.add("transparent")
         container.classList.add("testimonial")
         let jumbotron = document.createElement("div")
-        if (alternating % 2 == 0) {
+        if (alternating % 2 === 0) {
             jumbotron.classList.add("jumbotron-1")
         } else {
             jumbotron.classList.add("jumbotron-2")

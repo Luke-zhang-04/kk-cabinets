@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 function get_recommendations(user) {
     let recommended = new Map()
     let rated = new Map()
-    firebase.database().ref('/users/' + user.uid + "/predicted").once('value').then(function(snapshot) {
+    firebase.database().ref("/users/" + user.uid + "/predicted").once("value").then(function(snapshot) {
         for ([index, elem] of snapshot.val().entries()) {
             if (!Number.isInteger(elem) && elem >= 5) {
                 recommended[index] = elem
