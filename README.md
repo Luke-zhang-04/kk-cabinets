@@ -1,4 +1,5 @@
 # kk-cabinets #
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d6d5f99056ba41b6a80057c84ab398e9)](https://app.codacy.com/manual/luke.zhang2004/kk-cabinets?utm_source=github.com&utm_medium=referral&utm_content=Luke-zhang-04/kk-cabinets&utm_campaign=Badge_Grade_Dashboard)
 [![Website kk-cabinets.herokuapp.com](https://img.shields.io/website-up-down-green-red/https/kk-cabinets.herokuapp.com.svg)](https://kk-cabinets.herokuapp.com/)
 <br/>
 [https://kk-cabinets.herokuapp.com/](https://kk-cabinets.herokuapp.com/)
