@@ -5366,7 +5366,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .jumbotron-2 {
-  background: #DCD0C0;
+  background: var(--white);
 }
 
 @media (min-width: 576px) {
@@ -6523,7 +6523,7 @@ a.close.disabled {
 .carousel {
   position: absolute;
   width: 100%;
-  top: -66px;
+  top: 150px;
 }
 
 .carousel.pointer-event {
