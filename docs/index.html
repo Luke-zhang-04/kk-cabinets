@@ -3,7 +3,7 @@
 
 <!--
 	KK Cabinets
-    Copyright (C) 2020  Luke Zhang, Ethan Lim
+    Copyright (C) 2020 Luke Zhang, Ethan Lim
     
     https://luke-zhang-04.github.io
     https://github.com/ethanlim04
@@ -24,7 +24,7 @@
 
 <head>
     <!--normalize-->
-    <link rel="stylesheet" type="text/cee" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <!--for bootstrap-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <!--custom css-->
@@ -67,24 +67,24 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
             <a class="nav-item nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="countertops.html">Countertops</a>
-            <a class="nav-item nav-link" href="gallery.html">Gallery</a>
-            <a class="nav-item nav-link" href="testimonials.html">Testomonials</a>
             <a class="nav-item nav-link" href="about.html">About</a>
+            <a class="nav-item nav-link" href="gallery.html">Gallery</a>
+            <a class="nav-item nav-link" href="countertops.html">Countertops</a>
+            <a class="nav-item nav-link" href="testimonials.html">Testomonials</a>
             <a class="nav-item nav-link" href="contact.html">Contact</a>
-            <a class="nav-item nav-link" href="login.html" id="navbarLogin">Login/Register</a>
-            <a class="nav-item nav-link" href="recommendations.html" id="navbarRecommend" style="display: none;">Recommendations</a>
+            <!-- <a class="nav-item nav-link" href="login.html" id="navbarLogin">Login/Register</a> -->
+            <!-- <a class="nav-item nav-link" href="recommendations.html" id="navbarRecommend" style="display: none;">Recommendations</a> -->
             </div>
         </div>
     </nav>
 
     <!--slideshow-->
     <div id="homePageSlides" class="carousel slide" data-ride="carousel">
-        <div class="overlay-surface">
+        <!-- <div class="overlay-surface">
             <img class="overlay-logo" src="pictures/logo-transparent.png">
-        </div>
+        </div> -->
 
-        <a id="downBtn" href="#hashAnchor"><span id="downIcon" class="material-icons">keyboard_arrow_down</span></a>
+        <!-- <a id="downBtn" href="#hashAnchor"><span id="downIcon" class="material-icons">keyboard_arrow_down</span></a> -->
 
         <ol class="carousel-indicators">
             <li data-target="#homePageSlides" data-slide-to="0" class="active"></li>
@@ -233,10 +233,10 @@
   
                 <ul class="list-unstyled">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="countertops.html">Countertops</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="countertops.html">Countertops</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
                 </ul>
             </div>
             <!-- Grid column -->
@@ -268,7 +268,7 @@
   
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        Luke Zhang, Ethan Lim, and K&K Cabinets and Countertops</a>
+        <a href="https://luke-zhang-04.github.io/">Luke Zhang</a>, <a href="https://github.com/ethanlim04">Ethan Lim</a>, and K&K Cabinets and Countertops</a>
     </div>
     <!-- Copyright -->
   
@@ -280,7 +280,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
 
     <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
 
@@ -302,7 +302,7 @@
     let database = firebase.database()
     </script>
 
-    <script src="js/authHome.js"></script>
+    <!-- <script src="js/authHome.js"></script> -->
 
     <script src="js/scrollmagic/ScrollMagic.js"></script>
     <script src="js/scrollmagic/plugins/animation.gsap.js"></script>

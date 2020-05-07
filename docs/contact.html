@@ -51,13 +51,13 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
             <a class="nav-item nav-link" href="index.html">Home</a>
-            <a class="nav-item nav-link" href="countertops.html">Countertops</a>
-            <a class="nav-item nav-link" href="gallery.html">Gallery</a>
-            <a class="nav-item nav-link" href="testimonials.html">Testomonials</a>
             <a class="nav-item nav-link" href="about.html">About</a>
+            <a class="nav-item nav-link" href="gallery.html">Gallery</a>
+            <a class="nav-item nav-link" href="countertops.html">Countertops</a>
+            <a class="nav-item nav-link" href="testimonials.html">Testomonials</a>
             <a class="nav-item nav-link active" href="contact.html">Contact<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="login.html" id="navbarLogin">Login/Register</a>
-            <a class="nav-item nav-link" href="recommendations.html" id="navbarRecommend" style="display: none;">Recommendations</a>
+            <!-- <a class="nav-item nav-link" href="login.html" id="navbarLogin">Login/Register</a> -->
+            <!-- <a class="nav-item nav-link" href="recommendations.html" id="navbarRecommend" style="display: none;">Recommendations</a> -->
             </div>
         </div>
     </nav>
@@ -167,13 +167,17 @@
         </div>
     </div>
 
+    <p class="container">Contact us to find out how you can meet with one of our designers to share your ideas and vision.  We will be asking you for rough dimensions of your space ad listening to your ideas, needs, budget and timeline.</p>
+
     <div class="container">
         <div class="jumbotron">
-            <h2 style="padding-bottom: 2.5%;">Get a free estimate:</h2>
+            <h2 style="padding-bottom: 2.5%;">Contact Us</h2>
             <form id="contact-form">
                 <input class="contactForm" type="text" id="name" placeholder="Name..."><br/>
                 <input class="contactForm" type="email" id="email" placeholder="Email..."><br/>
-                <input class="contactForm" type="comments" id="comments" placeholder="Additional Comments..."><br/>
+                <input class="contactForm" type="phone-number" id="phone-number" placeholder="Phone Number..."><br/>
+                <input class="contactForm" type="comments" id="comments" placeholder="Describe your Project..."><br/>
+                <input class="contactForm" type="time" id="time" placeholder="Prefered Time of Contact"><br/>
                 <button type="submit" class="contactButton" id="contact_button">Send</button>
             </form>
         </div>
@@ -208,10 +212,10 @@
   
                 <ul class="list-unstyled">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="countertops.html">Countertops</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="countertops.html">Countertops</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
                 </ul>
             </div>
             <!-- Grid column -->
@@ -243,7 +247,7 @@
   
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        Luke Zhang, Ethan Lim, and K&K Cabinets and Countertops</a>
+        <a href="https://luke-zhang-04.github.io/">Luke Zhang</a>, <a href="https://github.com/ethanlim04">Ethan Lim</a>, and K&K Cabinets and Countertops</a>
     </div>
     <!-- Copyright -->
   
@@ -255,7 +259,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
 
    <!-- Add Firebase products that you want to use -->
-   <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+   <!-- <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script> -->
 
     <script>
     // Your web app's Firebase configuration
@@ -272,7 +276,7 @@
     firebase.initializeApp(firebaseConfig);
     </script>
 
-    <script src="js/auth.js"></script>
+    <!-- <script src="js/auth.js"></script> -->
 
     <!--for bootstrap-->
     <script src="js/jquery.js"></script>
