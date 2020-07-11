@@ -87,6 +87,11 @@ db.collection("gallery").get().then((snapshot) => {
             )
             let filter_name = info
             let filter_type = infoType
+            
+            if (id.includes(" ")) {
+                id = "mixed_" + infoType
+            }
+            
             $("#"+id).click(function() { //create event listener for
                 if (!contains(filter_name, activeFilters[filter_type+"s"])) {
                     activeFilters[filter_type+"s"].push(filter_name)
@@ -136,7 +141,8 @@ function display_batch(data) {
             //pattern
             info += "<br/>Pattern: " + (data[id]["details"]["pattern"] ? "Yes" : "None")
 
-            let user = firebase.auth().currentUser
+            // let user = firebase.auth().currentUser
+            let user = null
             if (user) {
                 element.append(
                     "<div class=\"details\"><p>" + info + "<p>" + 
@@ -171,7 +177,7 @@ function display_batch(data) {
 
                 button.addEventListener("click", _ => { //submit button function
                     let value = slider.value //value of slider
-                    var userId = firebase.auth().currentUser.uid //current user id
+                    // var userId = firebase.auth().currentUser.uid //current user id
 
                     //read "ratings" from database for this user
                     firebase.database().ref("/users/" + userId + "/ratings").once("value").then(function(snapshot) {
