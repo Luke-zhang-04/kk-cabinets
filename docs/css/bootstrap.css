@@ -6525,7 +6525,6 @@ a.close.disabled {
 .carousel {
   position: absolute;
   width: 100%;
-  top: 150px;
 }
 
 .carousel.pointer-event {

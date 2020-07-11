@@ -61,16 +61,21 @@ nav a {
 }
 
 .overlay-surface {
-  /* animation-name: overlay-surface; */
-  /* animation-duration: 2.5s; */
   position: absolute;
-  width: 25%;
-  height: 30%;
+  /* width: 25%; */
+  /* height: 30%; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  /* background-color: rgba(255, 255, 255, 0.8); */
+}
+
+.overlay-surface h1 {
+  font-size: 5vw;
+}
+
+.overlay-surface p {
+  font-size: 3vw;
 }
 
 .material-icons {
