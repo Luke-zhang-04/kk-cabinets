@@ -17,4 +17,36 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/#headerLogo{display:block;margin-left:auto;margin-right:auto;width:25%}.col.jumbotron p{padding:30px}.card{margin:1rem auto;position:relative;cursor:pointer}.card-body{z-index:2;position:absolute;right:0;bottom:0;left:0;text-align:center;background-color:rgba(255, 255, 255, 0.75);color:#373737 !important}/*# sourceMappingURL=about.css.map */
+*/
+
+.banner {
+  position: absolute;
+  top: -66px;
+  width: 100%;
+}
+
+.seperator {
+  width: 100%;
+}
+
+.contactForm {
+  width: 100%;
+  display: block;
+  padding: 15px;
+  border: 1px solid #b5b5b5;
+  outline: none;
+}
+
+.contactButton {
+  padding: 15px;
+  max-width: 184px;
+  width: 100%;
+  background: #373737;
+  color: #f4f4f4;
+  border: none;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  float: right;
+  cursor: pointer;
+}

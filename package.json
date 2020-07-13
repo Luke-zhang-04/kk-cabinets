@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx babel ./js/ --out-dir ./docs/js --minified --compact true --no-comments -s inline"
+    "build": "bash build.sh"
   },
   "repository": {
     "type": "git",
@@ -30,5 +30,6 @@
     "babel-plugin-transform-merge-sibling-variables": "^6.9.4",
     "babel-plugin-transform-minify-booleans": "^6.9.4",
     "babel-plugin-transform-remove-console": "^6.9.4"
-  }
+  },
+  "dependencies": {}
 }

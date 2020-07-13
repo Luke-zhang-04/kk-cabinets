@@ -1,2 +1,3 @@
 docs/* linguist-documentation=false
 docs/js/* linguist-generated=true
+docs/css/* linguist-generated=true
