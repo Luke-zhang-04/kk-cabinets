@@ -1,0 +1,20 @@
+/*!
+ * KK Cabinets
+ * Copyright (C) 2020  Luke Zhang, Ethan Lim
+ *
+ * https://luke-zhang-04.github.io
+ * https://github.com/ethanlim04
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/.authBody{position:relative;display:block;top:50%;transform:translateY(50%);width:70%;right:0;left:0;margin:auto;height:400px;background-color:#dcd0c0;margin-bottom:25%}.whiteContainer{background-color:rgba(255, 255, 255, 1);height:500px;position:absolute;top:-50px;width:50%;right:calc(50% - 50px);transition:.3s ease-in-out;z-index:0;box-shadow:0 0 15px 9px #00000096}.authContainer{padding:10%}.authForm{width:100%;display:block;padding:15px;border:1px solid #b5b5b5;outline:none}.authButton{padding:15px;max-width:184px;width:100%;background:#373737;color:#f4f4f4;border:none;padding:10px;text-transform:uppercase;border-radius:2px;float:right;cursor:pointer}.authContainer a{color:#17a2b8}.authContainer h5{padding-bottom:10%}.authChange{width:30%;padding:0 50px;top:20%;right:0;position:absolute;text-align:left}.authChange h2{margin-bottom:.5rem;font-family:inherit;font-weight:500;line-height:1.2;color:inherit}.authChange button{float:left}@media screen and (max-width: 768px){.authBody{transform:translateY(10%);width:90%}.whiteContainer{width:60%;right:calc(50% - 50px)}.authChange{width:40%}}.google-btn{width:184px;height:42px;background-color:#4285f4;border-radius:2px;box-shadow:0 3px 4px 0 rgba(0, 0, 0, 0.25);float:right;cursor:pointer}.google-btn .google-icon-wrapper{position:absolute;margin-top:1px;margin-left:1px;width:40px;height:40px;border-radius:2px;background-color:#fff}.google-btn .google-icon{position:absolute;margin-top:11px;margin-left:11px;width:18px;height:18px}.google-btn .btn-text{float:right;margin:11px 11px 0 0;color:#fff;font-size:14px;letter-spacing:.2px}.google-btn:hover{box-shadow:0 0 6px #4285f4}.google-btn:active{background:#1669f2}/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+	KK Cabinets
+    Copyright (C) 2020  Luke Zhang, Ethan Lim
+    
+    https://luke-zhang-04.github.io
+    https://github.com/ethanlim04
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<head>
+    <!--for bootstrap-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <!--custom css-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto+Mono&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7bc17e9531.js" crossorigin="anonymous"></script>
+    <!--icon-->
+    <link rel="icon" href="pictures/logo-transparent-cropped.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>KK Cabinets | Gallery</title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav id = "navbar" class="navbar sticky-top navbar-expand-lg navbar-light background-default">
+        <a class="navbar-brand" href="index.html"><img src="pictures/logo-transparent-cropped.png" style="width: 60px; height: 40px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-item nav-link" href="index.html">Home</a>
+            <a class="nav-item nav-link" href="about.html">About</a>
+            <a class="nav-item nav-link active" href="gallery.html">Gallery<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="countertops.html">Countertops</a>
+            <a class="nav-item nav-link" href="testimonials.html">Testomonials</a>
+            <a class="nav-item nav-link" href="contact.html">Contact</a>
+            <!-- <a class="nav-item nav-link" href="login.html" id="navbarLogin">Login/Register</a> -->
+            <!-- <a class="nav-item nav-link" href="recommendations.html" id="navbarRecommend" style="display: none;">Recommendations</a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!--
+    <div class="slide">
+        <input type="range" min="1" max="10" value="5" class="slider">
+        <p>Value: <span></span></p>
+    </div>
+    <div class="slide">
+        <input type="range" min="1" max="10" value="5" class="slider">
+        <p>Value: <span ></span></p>
+    </div>
+    -->
+
+    <div class="accordion" id="advancedSearch">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Advanced search
+                    </button>
+                </h5>
+            </div>
+      
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#advancedSearch">
+                <div class="card-body">
+                    <p>Choose what categories you want to filter out</p>
+                    <h5>/</h5>
+                    <p>
+                        <span class="material-icons">remove</span>neutral - include all<br/>
+                        <span class="material-icons">done</span>included<br/>
+                        <span class="material-icons">clear</span>not included
+                    </p>
+                    <div class="row">
+                        <div class="col-12 col-md-4 col-lg-2 filters">
+                            <!--dropdown-->
+                            <button style="width: 100%;" class="btn btn-secondary-reverse" onclick="expand_filter(0)">
+                                Colours
+                                <span class="material-icons">arrow_drop_down</span>
+                            </button>
+                            <div id="filter0">
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-4 col-lg-2 filters">
+                            <!--dropdown-->
+                            <button style="width: 100%;" class="btn btn-secondary" onclick="expand_filter(1)">
+                                Materials
+                                <span class="material-icons">arrow_drop_down</span>
+                            </button>
+                            <div id="filter1">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-2 filters">
+                            <!--dropdown-->
+                            <button style="width: 100%;" class="btn btn-secondary-reverse" onclick="expand_filter(2)">
+                                Location
+                                <span class="material-icons">arrow_drop_down</span>
+                            </button>
+                            <div id="filter2">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-2 filters">
+                            <!--dropdown-->
+                            <button style="width: 100%;" class="btn btn-secondary" onclick="expand_filter(3)">
+                                Furniture
+                                <span class="material-icons">arrow_drop_down</span>
+                            </button>
+                            <div id="filter3">
+                                <button class="dropdown_menu furniture_dropdown" id="cabinets_furniture">cabinets<span style="float: right;" class="material-icons"></span></button>
+                                <button class="dropdown_menu furniture_dropdown" id="countertop_furniture">countertops<span style="float: right;" class="material-icons"></span></button>
+                                <button class="dropdown_menu furniture_dropdown" id="both_furniture">both<span style="float: right;" class="material-icons"></span></button>
+                                <button class="dropdown_menu furniture_dropdown" id="either_furniture">either<span style="float: right;" class="material-icons">done</span></button>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-2 filters">
+                            <!--dropdown-->
+                            <button style="width: 100%;" class="btn btn-secondary-reverse" id="pattern_toggle">
+                                Pattern
+                                <span class="material-icons">remove</span>
+                            </button>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-2" style="justify-content: right;">
+                            <!--dropdown-->
+                            <button style="width: 100%;" class="btn btn-success" onclick="apply_filters()">
+                                Apply Filters
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-lg-10"></div>
+                        <div class="col-12 col-md-4 col-lg-2">
+                            <button style="width: 100%" class="btn btn-danger" onclick="clear_filters()">
+                                Clear Filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="responive_row" id="row">
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+        <div class="responsive_column"></div>
+    </div>
+
+    <img src="pictures/loading.gif" id="loading"/>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+            <!-- Grid row -->
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <!-- Content -->
+                    <h5 class="text-uppercase">KK Cabinets</h5>
+                    <p>
+                        <b>Business Hours</b><br/>
+                        
+                        Monday to Friday . . . . . 10 am - 5 pm<br/>
+                        Saturday . . . . . . . . . . . . . . 10 am - 2 pm
+                    </p>
+                    <p><b>Other times available by appointment</b></p>
+                    <p><b>Address:</b> 486 Weber Street North, Waterloo, Ontario</p>
+                </div>
+            <!-- Grid column -->
+            <hr class="clearfix w-100 d-md-none pb-3">
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+  
+                <!-- Links -->
+                <h5 class="text-uppercase">Navigation</h5>
+  
+                <ul class="list-unstyled">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="countertops.html">Countertops</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                </ul>
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+                <!-- Links -->
+                <h5 class="text-uppercase">Contact</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <p style="margin-block-end: 0;"><i class="material-icons">phone</i>(519) 578-9123</p>
+                    </li>
+                    <li>
+                        <a style="color: white" href="mailto:info@kkcabinets.ca"><i class="material-icons">email</i>info@kkcabinets.ca</a>
+                    </li>
+                    <li>
+                        <a style="color: white" href="mailto:kkcabinets2000@gmail.com"><i class="material-icons">email</i>kkcabinets2000@gmail.com</a>
+                    </li>
+                    <li>
+                        <a style="color: white" href="https://www.facebook.com/kkcabinetskw/"><i class="fab fa-facebook-square fa-lg"></i> kkcabinetskw</a>
+                    </li>
+                </ul>
+  
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://luke-zhang-04.github.io/">Luke Zhang</a>, <a href="https://github.com/ethanlim04">Ethan Lim</a>, and K&K Cabinets and Countertops</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+    <!-- FIREBASE STUFF-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC8LzSIS1mRoQuFnjtwq1U5vtp2Hx2rdtk",
+        authDomain: "kk-cabinets.firebaseapp.com",
+        databaseURL: "https://kk-cabinets.firebaseio.com",
+        projectId: "kk-cabinets",
+        storageBucket: "kk-cabinets.appspot.com",
+        messagingSenderId: "999203573812",
+        appId: "1:999203573812:web:7baa8753bce4e8ac187a61"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var storage = firebase.storage();
+    const db = firebase.firestore()
+    var database = firebase.database()
+    </script>
+
+    <!-- <script src="js/auth.js"></script> -->
+
+    <script src="js/script.js"></script>
+
+    <!--for bootstrap-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>
