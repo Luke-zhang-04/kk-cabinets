@@ -1,5 +1,5 @@
 <div align="center">
-    <img alt="pharmasave logo" src="docs/pictures/logo-transparent.png"/>
+    <img alt="KK Cabinets logo" src="public/pictures/logo-transparent.png"/>
 </div>
 
 ***
