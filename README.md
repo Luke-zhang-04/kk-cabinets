@@ -10,7 +10,7 @@
 
 <p align="center">
     <a href="https://github.com/luke-zhang-04/kk-cabinets/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/luke-zhang-04/kk-cabinets.svg"/></a>
-    <a href="https://kk-cabinets.herokuapp.com/"><img alt="website kk-cabinets.firebaseapp.com" src="https://img.shields.io/website-up-down-green-red/https/kk-cabinets.herokuapp.com.svg"/></a>
+    <a href="https://www.kkcabinets.ca"><img alt="website kk-cabinets.ca" src="https://img.shields.io/website-up-down-green-red/https/kkcabinets.ca.svg"/></a>
     <a href="https://app.codacy.com/manual/luke.zhang2004/kk-cabinets?utm_source=github.com&utm_medium=referral&utm_content=Luke-zhang-04/kk-cabinets&utm_campaign=Badge_Grade_Dashboard"><img alt="Codacy Badge" src="https://api.codacy.com/project/badge/Grade/d6d5f99056ba41b6a80057c84ab398e9"/></a>
 </p>
 
@@ -18,7 +18,7 @@
 This is a dynamic web application for a website refresh for KK Cabinets and Countertops. We used Firebase for file and data storage.
 
 ## Background and Scope ##
-The purpose of this project is to refresh the front page and revamp the Gallery section of the current website for KK Cabinets ([http://www.kkcabinets.ca](http://www.kkcabinets.ca)) to maximize customers' length of stay per visit.
+The purpose of this project is to refresh the front page and revamp the Gallery section of the current website for KK Cabinets ([https://www.kkcabinets.ca](https://www.kkcabinets.ca)) to maximize customers' length of stay per visit.
 ## Basic Requirements ##
 
 1.  Redesign the home page to enhance the first impressions of viewers by creating an artistic look and style on the main page
