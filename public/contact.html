@@ -170,11 +170,15 @@
         <div class="jumbotron">
             <h2 style="padding-bottom: 2.5%;">Contact Us</h2>
             <form id="contact-form">
-                <input class="contactForm" type="text" id="name" placeholder="Name..."><br/>
-                <input class="contactForm" type="email" id="email" placeholder="Email..."><br/>
-                <input class="contactForm" type="phone-number" id="phone-number" placeholder="Phone Number..."><br/>
-                <input class="contactForm" type="comments" id="comments" placeholder="Describe your Project..."><br/>
-                <input class="contactForm" type="time" id="time" placeholder="Prefered Time of Contact"><br/>
+                <label class="w-100">Name
+                    <input class="contactForm" type="text" id="contact-name" placeholder="Name...">
+                </label><br/>
+                <label class="w-100">Email
+                    <input class="contactForm" type="email" id="contact-email" placeholder="Email...">
+                </label class="w-100"><br/>
+                <label class="w-100 mb-3">Describe Your Project
+                    <textarea class="contactForm" type="text" id="contact-comments" placeholder="Describe your Project..."></textarea>
+                </label><br/>
                 <button type="submit" class="contactButton" id="contact_button">Send</button>
             </form>
         </div>
@@ -235,7 +239,7 @@
     </footer>
 
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-functions.js"></script>
 
     <script>
     var firebaseConfig = {
@@ -248,11 +252,14 @@
         appId: "1:999203573812:web:7baa8753bce4e8ac187a61"
     };
     firebase.initializeApp(firebaseConfig);
+
+    const functions = firebase.functions()
     </script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 </html>

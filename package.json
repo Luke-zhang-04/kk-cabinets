@@ -29,7 +29,8 @@
     "babel-plugin-minify-dead-code-elimination": "^0.5.1",
     "babel-plugin-transform-merge-sibling-variables": "^6.9.4",
     "babel-plugin-transform-minify-booleans": "^6.9.4",
-    "babel-plugin-transform-remove-console": "^6.9.4"
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "typescript": "^3.9.6"
   },
   "dependencies": {}
 }
