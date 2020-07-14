@@ -23,16 +23,16 @@
 -->
 
 <head>
-    <!--for bootstrap-->
+
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <!--custom css-->
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/contact.css">
-    <!--google fonts-->
+
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto+Mono&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7bc17e9531.js" crossorigin="anonymous"></script>
-    <!--icon-->
+
     <link rel="icon" href="pictures/logo-transparent-cropped.png">
 
     <meta charset="utf-8">
@@ -42,7 +42,6 @@
 </head>
 
 <body>
-    <!--Navbar-->
     <nav id = "navbar" class="navbar sticky-top navbar-expand-lg navbar-light background-default">
         <a class="navbar-brand" href="index.html"><img src="pictures/logo-transparent-cropped.png" style="width: 60px; height: 40px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,8 +55,6 @@
             <a class="nav-item nav-link" href="countertops.html">Countertops</a>
             <a class="nav-item nav-link" href="testimonials.html">Testomonials</a>
             <a class="nav-item nav-link active" href="contact.html">Contact<span class="sr-only">(current)</span></a>
-            <!-- <a class="nav-item nav-link" href="login.html" id="navbarLogin">Login/Register</a> -->
-            <!-- <a class="nav-item nav-link" href="recommendations.html" id="navbarRecommend" style="display: none;">Recommendations</a> -->
             </div>
         </div>
     </nav>
@@ -183,21 +180,10 @@
         </div>
     </div>
 
-    <!-- <div class="container">
-        <div class="jumbotron">
-            <h1>K&K Cabinets and Countertops News</h1>
-        </div>
-    </div> -->
-
-    <!-- Footer -->
     <footer class="page-footer">
-        <!-- Footer Links -->
         <div class="container-fluid text-center text-md-left">
-            <!-- Grid row -->
             <div class="row">
-                <!-- Grid column -->
                 <div class="col-md-6 mt-md-0 mt-3">
-                    <!-- Content -->
                     <h5 class="text-uppercase">KK Cabinets</h5>
                     <p>
                         <b>Business Hours</b><br/>
@@ -208,12 +194,9 @@
                     <p><b>Other times available by appointment</b></p>
                     <p><b>Address:</b> 486 Weber Street North, Waterloo, Ontario</p>
                 </div>
-            <!-- Grid column -->
             <hr class="clearfix w-100 d-md-none pb-3">
-            <!-- Grid column -->
             <div class="col-md-3 mb-md-0 mb-3">
   
-                <!-- Links -->
                 <h5 class="text-uppercase">Navigation</h5>
   
                 <ul class="list-unstyled">
@@ -224,10 +207,7 @@
                     <li><a href="testimonials.html">Testimonials</a></li>
                 </ul>
             </div>
-            <!-- Grid column -->
-            <!-- Grid column -->
             <div class="col-md-3 mb-md-0 mb-3">
-                <!-- Links -->
                 <h5 class="text-uppercase">Contact</h5>
                 <ul class="list-unstyled">
                     <li>
@@ -245,30 +225,19 @@
                 </ul>
   
             </div>
-            <!-- Grid column -->
         </div>
-        <!-- Grid row -->
     </div>
-    <!-- Footer Links -->
   
-    <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
         <a href="https://luke-zhang-04.github.io/">Luke Zhang</a>, <a href="https://github.com/ethanlim04">Ethan Lim</a>, and K&K Cabinets and Countertops</a>
     </div>
-    <!-- Copyright -->
   
     </footer>
-  <!-- Footer -->
 
-    <!-- FIREBASE STUFF-->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-
-   <!-- Add Firebase products that you want to use -->
-   <!-- <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
 
     <script>
-    // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyC8LzSIS1mRoQuFnjtwq1U5vtp2Hx2rdtk",
         authDomain: "kk-cabinets.firebaseapp.com",
@@ -278,13 +247,9 @@
         messagingSenderId: "999203573812",
         appId: "1:999203573812:web:7baa8753bce4e8ac187a61"
     };
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     </script>
 
-    <!-- <script src="js/auth.js"></script> -->
-
-    <!--for bootstrap-->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

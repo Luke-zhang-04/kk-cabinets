@@ -143,7 +143,6 @@ function display_batch(data) {
             //pattern
             info += "<br/>Pattern: " + (data[id]["details"]["pattern"] ? "Yes" : "None")
 
-            // let user = firebase.auth().currentUser
             let user = null
             if (user) {
                 element.append(
@@ -179,7 +178,6 @@ function display_batch(data) {
 
                 button.addEventListener("click", _ => { //submit button function
                     let value = slider.value //value of slider
-                    // var userId = firebase.auth().currentUser.uid //current user id
 
                     //read "ratings" from database for this user
                     firebase.database().ref("/users/" + userId + "/ratings").once("value").then(function(snapshot) {
