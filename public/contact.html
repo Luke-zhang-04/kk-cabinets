@@ -192,6 +192,10 @@
         </div>
     </div>
 
+    <div id="loader">
+        <div class="loading-container"><h1>Sending</h1></div>
+    </div>
+
     <p class="container">Contact us to find out how you can meet with one of our designers to share your ideas and vision.  We will be asking you for rough dimensions of your space ad listening to your ideas, needs, budget and timeline.</p>
 
     <div class="container">
@@ -204,8 +208,11 @@
                 <label class="w-100">Email
                     <input class="contactForm" type="email" id="contact-email" placeholder="Email...">
                 </label class="w-100"><br/>
-                <label class="w-100 mb-3">Describe Your Project
+                <label class="w-100">Describe Your Project
                     <textarea class="contactForm" type="text" id="contact-comments" placeholder="Describe your Project..."></textarea>
+                </label><br/>
+                <label class="w-100 mb-3">Please solve this problem: <span id="contact-problem"></span>
+                    <input class="contactForm" type="text" id="contact-answer" placeholder="Answer..."/>
                 </label><br/>
                 <button type="submit" class="contactButton" id="contact_button">Send</button>
             </form>

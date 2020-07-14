@@ -50,3 +50,31 @@
   float: right;
   cursor: pointer;
 }
+
+#loader {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: #373737ee;
+  top: 0;
+  left: 100vw;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+
+  div.loading-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    h1 {
+      position: relative;
+      left: -50%;
+      color: #f4f4f4;
+    }
+  }
+
+  &.active {
+    left: 0;
+    opacity: 1;
+  }
+}

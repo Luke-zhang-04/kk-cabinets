@@ -23,40 +23,101 @@
 
 declare const functions: {[key: string]: any}
 
-const form = document.getElementById("contact-form")
-
-if (form) {
-    form.addEventListener("submit", (event): void => {
-        event.preventDefault()
-    
-        const name = (document.getElementById("contact-name") as HTMLInputElement).value,
-            email = (document.getElementById("contact-email") as HTMLInputElement).value,
-            comments = (document.getElementById("contact-comments") as HTMLInputElement).value
-    
-        if (!localStorage.getItem("lastEmailSent")) {
-            localStorage.setItem("lastEmailSent", "0")
-        }
-
-        const lastEmailSent = Number(localStorage.getItem("lastEmailSent"))
-        
-        if (!name && !email && !comments) {
-            alert("Please fill out all fields")
-
-            return
-        } else if (Date.now() - lastEmailSent <= 60000) {
-            alert("Please wait before sending another email")
-
-            return
-        }
-
-        const sendEmail = functions.httpsCallable("contactFormSubmit"),
-            sentEmail = sendEmail({name, email, desc: comments})
-
-        Promise.resolve(sentEmail).then((msg: {[key: string]: string}): void => {
-            alert(msg.data)
-
-            localStorage.setItem("lastEmailSent", Date.now().toString())
-        })
-    })
+interface EmailReturn {
+    msg: string,
+    err?: boolean,
 }
 
+const loader = document.getElementById("loader"),
+    loading = loader?.querySelector("h1")
+
+if (loader && loading) {
+    setInterval(() => {
+        if (loader.classList.contains("active")) {
+            if (loading.innerText.length >= 13) {
+                loading.innerText = "Sending"
+            } else {
+                loading.innerText = `${loading.innerText} .`
+            }
+        }
+    }, 250)
+}
+
+const verifyMathProblem = (problem: string, answer: string): boolean => eval(problem) === Number(answer);
+
+((form: HTMLElement | null): void => {
+    if (form) {
+        form.addEventListener("submit", (event): void => {
+            event.preventDefault()
+        
+            const name = (document.getElementById("contact-name") as HTMLInputElement).value,
+                email = (document.getElementById("contact-email") as HTMLInputElement).value,
+                comments = (document.getElementById("contact-comments") as HTMLInputElement).value,
+                problem = (document.getElementById("contact-problem") as HTMLSpanElement)
+                    .innerHTML
+                    .replace(/<span>/ug, "")
+                    .replace(/<\/span>/ug, ""),
+                answer = (document.getElementById("contact-answer") as HTMLInputElement).value
+        
+            if (!localStorage.getItem("lastEmailSent")) {
+                localStorage.setItem("lastEmailSent", "0")
+            }
+    
+            const lastEmailSent = Number(localStorage.getItem("lastEmailSent"))
+            
+            if (!name && !email && !comments && !answer) {
+                alert("Please fill out all fields")
+    
+                return
+            } else if (Date.now() - lastEmailSent <= 60000) {
+                alert("Please wait before sending another email")
+    
+                return
+            } else if (!verifyMathProblem(problem, answer)) {
+                alert("Incorrect answer to math problem")
+
+                generateMathProblem()
+                return
+            }
+
+            loader?.classList.add("active")
+    
+            const sendEmail = functions.httpsCallable("contactFormSubmit"),
+                sentEmail = sendEmail({
+                    name,
+                    email,
+                    desc: comments,
+                    problem,
+                    answer,
+                })
+    
+            Promise.resolve(sentEmail).then((msg: {[key: string]: EmailReturn}): void => {
+                loader?.classList.remove("active")
+                alert(msg.data.msg)
+
+                if (msg.data.err) {
+                    generateMathProblem()
+                } else {
+                    localStorage.setItem("lastEmailSent", Date.now().toString())
+                }
+            })
+        })
+    }
+})(document.getElementById("contact-form"));
+
+
+const generateMathProblem = (): void => {
+    const contactProblem = document.getElementById("contact-problem")
+
+    if (contactProblem) {
+        const numbers = [
+            Math.floor(Math.random() * 11),
+            Math.floor(Math.random() * 11),
+            Math.floor(Math.random() * 11)
+        ]
+
+        contactProblem.innerHTML = `<span>${numbers[0]}</span>+<span>${numbers[1]}</span>-<span>${numbers[2]}</span>`
+    }
+}
+
+generateMathProblem()
