@@ -116,7 +116,7 @@ const generateMathProblem = (): void => {
             Math.floor(Math.random() * 11)
         ]
 
-        contactProblem.innerHTML = `<span>${numbers[0]}</span>+<span>${numbers[1]}</span>-<span>${numbers[2]}</span>`
+        contactProblem.innerHTML = `<span>${numbers[0]}</span>+<span>${numbers[1]}</span>-<span>${numbers[2]}</span>` // Ugh stringed HTML
     }
 }
 
