@@ -5,7 +5,8 @@
 ***
 
 <p align="center">
-    <a href="https://nodejs.org/en/"><img alt="Forthebadge made with JS" src="https://forthebadge.com/images/badges/uses-html.svg"/></a>
+    <a href="https://www.w3.org/html/"><img alt="Forthebadge uses HTML" src="https://img.shields.io/badge/Made%20with-HTML-%23e34f26?style=for-the-badge&logo=html5"/></a>
+    <a href="https://firebase.google.com/"><img alt="Forthebadge made with JS" src="https://img.shields.io/badge/Uses-Firebase-%23ffca28?style=for-the-badge&logo=firebase"/></a>
 </p>
 
 <p align="center">
