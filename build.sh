@@ -26,4 +26,4 @@ wait
 
 yarn rollup -c rollup.config.js
 
-yarn babel public/js/*.js -d public/js --no-babelrc --config-file .babelrc.min.js
+yarn babel public/js/*.js -d public/js --no-babelrc --config-file ./.babelrc.min.js
