@@ -2,30 +2,33 @@
  * KK Cabinets
  * @copyright 2020 Luke Zhang, Ethan Lim
  * @author luke zhang, Ethan Lim
- * 
+ *
  * https://luke-zhang-04.github.io
  * https://github.com/ethanlim04
- * 
+ *
  * @license
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap"
+import ScrollMagic from "scrollmagic"
 
 let timelines = []
 let scenes = []
 const controller = new ScrollMagic.Controller()
 let alternating = 0
-let multiplyer 
+let multiplyer
 
 let displayedTestimonial
 let para = document.getElementById("testimonial")
@@ -80,7 +83,7 @@ $("#downBtn").on("click", function(event) {
         $("html, body").animate({
             scrollTop: $(hash).offset().top - $(window).height()
         }, 800, function(){
- 
+
             // Add hash (#) to URL when done scrolling (default click behavior)
         })
     } // End if

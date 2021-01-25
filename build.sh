@@ -1,3 +1,4 @@
+#!/bin/bash
 # KK Cabinets
 # Copyright (C) 2020  Luke Zhang, Ethan Lim
 #
@@ -16,8 +17,13 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-npx tsc -p .
 
-npx babel ./src/ --out-dir ./public/js --minified --compact true --no-comments -s inline
+yarn tsc &
 
-sass scss/:public/css --style compressed
+sass scss/:public/css --style compressed &
+
+wait
+
+yarn rollup -c rollup.config.js
+
+yarn babel public/js/*.js -d public/js --no-babelrc --config-file .babelrc.min.js

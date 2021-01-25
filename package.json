@@ -25,12 +25,17 @@
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
-    "babel-plugin-minify-constant-folding": "^0.5.0",
-    "babel-plugin-minify-dead-code-elimination": "^0.5.1",
-    "babel-plugin-transform-merge-sibling-variables": "^6.9.4",
-    "babel-plugin-transform-minify-booleans": "^6.9.4",
-    "babel-plugin-transform-remove-console": "^6.9.4",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "@types/scrollmagic": "^2.0.1",
+    "babel-preset-minify": "^0.5.1",
+    "rollup": "^2.38.0",
     "typescript": "^3.9.6"
   },
-  "dependencies": {}
+  "dependencies": {
+    "destagnate": "^1.8.0",
+    "gsap": "^3.6.0",
+    "scrollmagic": "^2.0.8"
+  }
 }

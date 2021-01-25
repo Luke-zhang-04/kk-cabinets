@@ -63,3 +63,8 @@ typings/
 env
 
 .firebase
+tsbuildinfo
+lib
+js
+public/js
+public/css
