@@ -68,3 +68,5 @@ lib
 js
 public/js
 public/css
+buildInfo.json
+build

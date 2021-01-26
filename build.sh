@@ -18,12 +18,57 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-yarn tsc &
+bin="./node_modules/.bin"
 
-sass scss/:public/css --style compressed &
+build() {
+    echo "Compiling with tsc"
+    "$bin"/tsc &
 
-wait
+    echo "Compiling with sass"
+    "$bin"/sass scss/:build/css --style compressed &
 
-yarn rollup -c rollup.config.js
+    wait
 
-yarn babel public/js/*.js -d public/js --no-babelrc --config-file ./.babelrc.min.js
+    echo "Bundling with Rollup"
+    "$bin"/rollup -c rollup.config.js
+
+    echo "Minifying with Babel"
+    "$bin"/babel build/js/*.js -d build/js --no-babelrc --config-file ./.babelrc.min.js
+
+    echo "Moving assets"
+    cp -rv public/pictures build
+
+    echo "Minifying with html-minifer"
+    for file in public/*.html; do
+        "$bin"/html-minifier  --collapse-whitespace --remove-comments "$file" -o build/"$(basename "$file")" &
+    done
+}
+
+buildDev() {
+    if [[ $(echo "scss:$(tar cf - scss | shasum -a 384)" | node buildInfo.js) == 1 ]]; then
+        # Compile SASS
+        echo -e "Compiling ./scss/ to ./public/css/ with sass"
+        "$bin"/sass scss/:public/css &
+    else
+        echo -e "No changed found in ./scss/"
+    fi
+
+    sourceDidChange=$(echo "src:$(tar cf - src | shasum -a 384)" | node buildInfo.js)
+
+    if [[ $sourceDidChange == 1 ]]; then
+        # Compile w/ TypeScript
+        echo -e "Compiling ./src/ to ./lib/ with TypeScript"
+        "$bin"/tsc
+
+        echo -e "Bundling with rollup"
+        NODE_ENV="dev" "$bin"/rollup -c rollup.config.js
+    else
+        echo -e "No changed found in ./src/"
+    fi
+}
+
+if [[ $1 == "-d" ]]||[[ $1 == "--dev" ]]; then
+    buildDev
+else
+    build
+fi
