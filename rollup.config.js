@@ -4,6 +4,7 @@ import crypto from "crypto"
 import childProcess from "child_process"
 import fs from "fs/promises"
 import {nodeResolve} from "@rollup/plugin-node-resolve"
+import serve from "rollup-plugin-serve"
 
 const banner = `/**
  * KK cabinets
@@ -92,12 +93,19 @@ const config = async () => {
                     process.env.NODE_ENV === "dev" ? undefined : babel({
                         babelrc: true,
                         babelHelpers: "bundled",
-                    })
+                    }),
+                    process.env.NODE_ENV === "dev"
+                        ? serve({port: 3000, contentBase: "public"})
+                        : undefined,
                 ]
             })
         } else {
             console.log(`No changes found in lib/${script}, skipping.`)
         }
+    }
+
+    if (configs.length === 0) {
+        process.exit(0)
     }
 
     return configs
