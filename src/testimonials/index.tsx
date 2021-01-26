@@ -1,6 +1,6 @@
 /**
  * KK Cabinets
- * @copyright 2020 Luke Zhang, Ethan Lim
+ * @copyright 2020 - 2021 Luke Zhang, Ethan Lim
  * @author luke zhang, Ethan Lim
  *
  * https://luke-zhang-04.github.io
