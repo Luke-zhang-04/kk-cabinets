@@ -9,6 +9,7 @@
  * @license GPL-3.0
  */
 
+import "regenerator-runtime/runtime"
 import * as DeStagnate from "destagnate/lib/createElementOnly"
 import type firebase from "firebase"
 import {firestore as db} from "../_firebase"
@@ -49,7 +50,6 @@ const isTestimonials = (
 
     if (isTestimonials(data) && container) {
         for (const [index, testimonial] of Object.values(data).entries()) {
-            console.log({testimonial, data})
             container.appendChild(<div class="container section transparent testimonial">
                 <div class={`jumbotron-${index % 2 === 0 ? "1" : "2"}`}>
                     <p>{`"${testimonial}"`}</p>
