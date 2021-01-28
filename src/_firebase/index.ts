@@ -6,7 +6,7 @@
  * https://luke-zhang-04.github.io
  * https://github.com/ethanlim04
  *
- * @license GPL-3.0
+ * @license GPL-3.0-or-later
  */
 
 import type {default as Firebase} from "firebase/app"
