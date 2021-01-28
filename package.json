@@ -7,8 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "bash build.sh"
+    "build": "./build.sh",
+    "build:dev": "./build.sh --dev",
+    "start": "./node_modules/.bin/nodemon --watch src --exec \"./build.sh --dev\""
   },
   "repository": {
     "type": "git",
@@ -36,7 +37,6 @@
     "html-minifier": "^4.0.0",
     "nodemon": "^2.0.7",
     "rollup": "^2.38.0",
-    "rollup-plugin-serve": "^1.1.0",
     "sass": "^1.32.5",
     "typescript": "^3.9.6"
   },
