@@ -9,8 +9,9 @@
  * @license GPL-3.0
  */
 
-declare type Firebase = typeof import("firebase/app").default
-declare const firebase: Firebase
+import type {default as Firebase} from "firebase/app"
+
+declare const firebase: typeof Firebase
 
 const firebaseConfig = {
     apiKey: "AIzaSyC8LzSIS1mRoQuFnjtwq1U5vtp2Hx2rdtk",
@@ -24,7 +25,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 
-export const firestore = firebase.firestore?.()
+export const firestore: Firebase.firestore.Firestore | undefined = firebase.firestore?.()
 
 export default {
     firestore,

@@ -44,21 +44,23 @@ const isTestimonials = (
         }
     };
 
-(async (): Promise<void> => {
-    const data = (await db.collection("testimonials").get()).docs[0].data(),
-        container = document.getElementById("testimonial_container")
+if (db) {
+    (async (): Promise<void> => {
+        const data = (await db.collection("testimonials").get()).docs[0].data(),
+            container = document.getElementById("testimonial_container")
 
-    if (isTestimonials(data) && container) {
-        for (const [index, testimonial] of Object.values(data).entries()) {
-            container.appendChild(<div class="container section transparent testimonial">
-                <div class={`jumbotron-${index % 2 === 0 ? "1" : "2"}`}>
-                    <p>{`"${testimonial}"`}</p>
-                </div>
-            </div>)
+        if (isTestimonials(data) && container) {
+            for (const [index, testimonial] of Object.values(data).entries()) {
+                container.appendChild(<div class="container section transparent testimonial">
+                    <div class={`jumbotron-${index % 2 === 0 ? "1" : "2"}`}>
+                        <p>{`"${testimonial}"`}</p>
+                    </div>
+                </div>)
+            }
         }
-    }
 
-    handleScroll()
-})()
+        handleScroll()
+    })()
+}
 
 window.addEventListener("scroll", handleScroll)
