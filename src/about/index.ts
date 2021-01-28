@@ -21,27 +21,35 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-$(document).ready(function(){
-    // Add smooth scrolling to all links
-    $(".card").on("click", function(event) {
+declare const $: typeof import("jquery")
 
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "" && this.hash) {
-            // Prevent default anchor click behavior
+const enum About {
+    ScrollTime = 800,
+}
+
+/**
+ * Jquery smooth scroll on card click
+ */
+document.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("click", (event) => {
+        const {hash} = window.location
+
+        if (window.location.hash) {
             event.preventDefault()
 
-            // Store hash
-            var hash = this.hash
+            const animateProperties = {
+                scrollTop: document.querySelector<HTMLElement>(hash)?.offsetTop ?? 0
+            }
 
-            // Using jQuery"s animate() method to add smooth page scroll
-            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-            $("html, body").animate({
-                scrollTop: $(hash).offset().top
-            }, 800, function(){
-
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash
-            })
-        } // End if
+            $("html, body").animate(
+                animateProperties,
+                About.ScrollTime,
+                () => {
+                    window.location.hash = hash
+                }
+            )
+        }
     })
 })
+
+export default {}
