@@ -25,7 +25,7 @@ build() {
     "$bin"/tsc &
 
     echo "Compiling with sass"
-    "$bin"/sass scss/:build/css --style compressed --sourcemap false &
+    "$bin"/sass scss/:build/css --style compressed --no-source-map &
 
     wait
 
