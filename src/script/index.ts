@@ -9,6 +9,8 @@
  * @license GPL-3.0-or-later
  */
 
+export default {}
+
 // Get the navbar
 const navbar = document.getElementById("navbar"),
 
@@ -28,5 +30,3 @@ const navbar = document.getElementById("navbar"),
     }
 
 window.addEventListener("scroll", scroll)
-
-export {}
