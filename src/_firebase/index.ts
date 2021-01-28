@@ -26,7 +26,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 
 export const firestore: Firebase.firestore.Firestore | undefined = firebase.firestore?.()
+export const functions: Firebase.functions.Functions | undefined = firebase.functions?.()
 
 export default {
     firestore,
+    functions,
 }

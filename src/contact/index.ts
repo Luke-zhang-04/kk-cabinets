@@ -21,12 +21,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-declare const functions: {[key: string]: any}
-
-interface EmailReturn {
-    msg: string,
-    err?: boolean,
-}
+import {functions} from "../_firebase"
 
 const loader = document.getElementById("loader"),
     loading = loader?.querySelector("h1")
@@ -43,7 +38,11 @@ if (loader && loading) {
     }, 250)
 }
 
-const verifyMathProblem = (problem: string, answer: string): boolean => eval(problem) === Number(answer);
+const verifyMathProblem = (problem: string, answer: string): boolean => {
+    const numbers = problem.split(/\+|-/gu).map(Number)
+
+    return numbers[0] + numbers[1] - numbers[2] === Number(answer)
+};
 
 ((form: HTMLElement | null): void => {
     if (form) {
@@ -78,6 +77,10 @@ const verifyMathProblem = (problem: string, answer: string): boolean => eval(pro
 
                 generateMathProblem()
                 return
+            } else if (functions === undefined) {
+                alert("There was a problem")
+
+                return
             }
 
             loader?.classList.add("active")
@@ -91,11 +94,11 @@ const verifyMathProblem = (problem: string, answer: string): boolean => eval(pro
                     answer,
                 })
 
-            Promise.resolve(sentEmail).then((msg: {[key: string]: EmailReturn}): void => {
+            Promise.resolve(sentEmail).then((msg): void => {
                 loader?.classList.remove("active")
-                alert(msg.data.msg)
+                alert(msg.data.msg as string)
 
-                if (msg.data.err) {
+                if (msg.data.err as string | undefined) {
                     generateMathProblem()
                 } else {
                     localStorage.setItem("lastEmailSent", Date.now().toString())
@@ -104,7 +107,6 @@ const verifyMathProblem = (problem: string, answer: string): boolean => eval(pro
         })
     }
 })(document.getElementById("contact-form"));
-
 
 const generateMathProblem = (): void => {
     const contactProblem = document.getElementById("contact-problem")
