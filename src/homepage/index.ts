@@ -9,6 +9,7 @@
  * @license GPL-3.0-or-later
  */
 
+import "regenerator-runtime/runtime"
 import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap"
 import {
     Controller as ScrollMagicController,
