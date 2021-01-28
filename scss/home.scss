@@ -1,0 +1,19 @@
+/*!
+ * KK Cabinets
+ * Copyright (C) 2020 - 2021 Luke Zhang, Ethan Lim
+ *
+ * https://luke-zhang-04.github.io
+ * https://github.com/ethanlim04
+ *
+ * License: GPL-3.0-or-later
+ */
+
+#seperator {
+  height: 500px;
+}
+
+@media screen and (max-width: 768px) {
+  #seperator {
+      height: 0;
+  }
+}
