@@ -7,7 +7,11 @@ import {nodeResolve} from "@rollup/plugin-node-resolve"
 
 const banner = `/**
  * KK cabinets
- * @copyright 2020 - 2021 Luke Zhang
+ * @copyright 2020 - 2021 Luke Zhang, Ethan Lim
+ *
+ * https://luke-zhang-04.github.io
+ * https://github.com/ethanlim04
+ *
  * @license GPL-3.0-or-later
  */
 
