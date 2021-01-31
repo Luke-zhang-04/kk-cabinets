@@ -97,7 +97,7 @@ const config = async () => {
                         babelrc: true,
                         babelHelpers: "bundled",
                     })
-                ]
+                ],
             })
         } else {
             console.log(`No changes found in lib/${script}, skipping.`)
