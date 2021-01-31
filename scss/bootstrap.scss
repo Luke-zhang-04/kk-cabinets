@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "./variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/forms";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/dropdown";
+@import "../node_modules/bootstrap/scss/button-group";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/jumbotron";
+@import "../node_modules/bootstrap/scss/media";
+@import "../node_modules/bootstrap/scss/list-group";
+@import "../node_modules/bootstrap/scss/carousel";
+@import "../node_modules/bootstrap/scss/spinners";
+@import "../node_modules/bootstrap/scss/utilities";
+
+// Custom additions for styles
+.container {
+  padding-bottom: 15px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  font-size: 1.2rem;
+}
+
+.carousel {
+  position: absolute;
+  width: 100%;
+}
+
+footer li a {
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.jumbotron-1, .jumbotron-2 {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: map-get($grid-breakpoints, "sm")) {
+    padding: 4rem 2rem;
+  }
+}
+
+.jumbotron-1 {
+  background-color: #373737;
+  color: white;
+}
+
+.jumbotron-2 {
+  background-color: #fff;
+}
