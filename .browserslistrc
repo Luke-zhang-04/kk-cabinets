@@ -1,2 +1,6 @@
 defaults
-since 2016
+
+not IE >= 0
+not IE_mob >= 0
+> 3%
+not dead
