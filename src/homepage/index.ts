@@ -10,20 +10,15 @@
  */
 
 import "regenerator-runtime/runtime"
-import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap"
-import {
-    Controller as ScrollMagicController,
-    Scene as ScrollMagicScene,
-} from "scrollmagic"
 import type firebase from "firebase"
 import {firestore as db} from "../_firebase"
 
 declare const {TimelineMax}: typeof import("gsap")
-// declare const ScrollMagic: typeof import("scrollmagic")
+declare const ScrollMagic: typeof import("scrollmagic")
 
 const timelines = [],
     scenes = [],
-    controller = new ScrollMagicController()
+    controller = new ScrollMagic.Controller()
 
 
 type Testimonials = {[key: number]: string}
@@ -124,7 +119,7 @@ if (window.innerWidth >= 767) {
             }
         }
 
-        const scene = new ScrollMagicScene({
+        const scene = new ScrollMagic.Scene({
             triggerElement: element,
             triggerHook:"onLeave",
             duration: "250%",
