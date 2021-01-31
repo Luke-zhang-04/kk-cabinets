@@ -50,18 +50,6 @@ const capitalizeFirst = (str: string): string => str[0].toUpperCase() + str.slic
 
 class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
 
-    protected static handleImageClick = (event: MouseEvent): void => {
-        if (event.target instanceof HTMLElement) {
-            const container = event.target?.parentNode?.querySelector<HTMLElement>(".details")
-
-            if (container?.style.maxHeight){
-                container.style.maxHeight = "";
-            } else if (container) {
-                container.style.maxHeight = `${container.scrollHeight}px`;
-            }
-        }
-    }
-
     public constructor (parent: HTMLElement) {
         super(parent)
 
@@ -75,6 +63,18 @@ class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
                 locations: [],
             },
             galleryItems: [],
+        }
+    }
+
+    protected static handleImageClick = (event: MouseEvent): void => {
+        if (event.target instanceof HTMLElement) {
+            const container = event.target?.parentNode?.querySelector<HTMLElement>(".details")
+
+            if (container?.style.maxHeight) {
+                container.style.maxHeight = ""
+            } else if (container) {
+                container.style.maxHeight = `${container.scrollHeight}px`
+            }
         }
     }
 
@@ -94,37 +94,36 @@ class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
     public applyFilters = (): void => {
         type FilterTypes = ("colour" | "material" | "location")[]
 
-        const filterTypes: FilterTypes = ["colour", "material", "location"], //filter rtpes
+        const filterTypes: FilterTypes = ["colour", "material", "location"], // Filter rtpes
             filteredData: Types.GalleryItem[] = [], // Filtered data
             {activeFilters} = this.state
 
         for (const item of Object.values(galleryData)) {
-            let isFiltered = false
+            let isfiltered = false
 
             for (const filter of filterTypes) { // Make sure the filters don't catch this item
                 if (activeFilters[`${filter}s` as FilterKeys].includes(item.details[filter])) {
-                    isFiltered = true
+                    isfiltered = false
 
                     break
                 }
             }
 
-            if (activeFilters.pattern !== undefined && item.details.pattern !== activeFilters.pattern) {
-                isFiltered = true
-            }
-
-            if (activeFilters.countertop !== undefined && activeFilters.cabinets !== undefined) {
-                let match = item.details.furniture.countertop !== activeFilters.countertop ||
+            if (
+                isfiltered ||
+                activeFilters.pattern !== undefined && item.details.pattern !== activeFilters.pattern
+            ) {
+                break
+            } else if (activeFilters.countertop !== undefined && activeFilters.cabinets !== undefined) {
+                const didmatch = item.details.furniture.countertop !== activeFilters.countertop ||
                     item.details.furniture.cabinet !== activeFilters.cabinets
 
-                if (match) {
-                    isFiltered = true
+                if (didmatch) {
+                    break
                 }
             }
 
-            if (!isFiltered) {
-                filteredData.push(item)
-            }
+            filteredData.push(item)
         }
 
         this.setState({galleryItems: filteredData})
@@ -177,43 +176,44 @@ gallery.mount()
 const createFilterButtons = (): void => {
     for (const [count, infoType] of infoTypes.entries()) { // Iterate through each filter type
         for (const info of filterOptions[`${infoType}s` as FilterKeys]) { // Within these types, get all filter options
-            let id = `${info}_${infoType}` // Unique id for each button
+            const id = `${info}_${infoType}`, // Unique id for each button
 
-            const onClick = (event: MouseEvent): void => { // Handle filter clicks
-                const filterName = info,
-                    filterType = `${infoType}s` as FilterKeys,
-                    {activeFilters} = gallery.getState
+                /* eslint-disable no-loop-func */
+                onClick = (event: MouseEvent): void => { // Handle filter clicks
+                    const filterName = info,
+                        filterType = `${infoType}s` as FilterKeys,
+                        {activeFilters} = gallery.getState
 
-                if (!activeFilters[filterType].includes(filterName)) {
-                    gallery.setState({activeFilters: {
-                        ...activeFilters,
-                        [filterType]: [...activeFilters[filterType], filterName],
-                    }})
+                    if (activeFilters[filterType].includes(filterName)) {
+                        gallery.setState({activeFilters: {
+                            ...activeFilters,
+                            [filterType]: activeFilters[filterType].filter((val) => val !== filterName), // Remove an element
+                        }})
 
-                    if (event.target instanceof HTMLElement) {
-                        const icon = event.target.querySelector("span")
+                        if (event.target instanceof HTMLElement) {
+                            const icon = event.target.querySelector("span")
 
-                        if (icon) {
-                            icon.innerText = "clear"
+                            if (icon) {
+                                icon.innerText = "done"
+                            }
+                        }
+                    } else {
+                        gallery.setState({activeFilters: {
+                            ...activeFilters,
+                            [filterType]: [...activeFilters[filterType], filterName],
+                        }})
+
+                        if (event.target instanceof HTMLElement) {
+                            const icon = event.target.querySelector("span")
+
+                            if (icon) {
+                                icon.innerText = "clear"
+                            }
                         }
                     }
-                } else {
-                    gallery.setState({activeFilters: {
-                        ...activeFilters,
-                        [filterType]: activeFilters[filterType].filter((val) => val !== filterName), // Remove an element
-                    }})
 
-                    if (event.target instanceof HTMLElement) {
-                        const icon = event.target.querySelector("span")
-
-                        if (icon) {
-                            icon.innerText = "done"
-                        }
-                    }
+                    gallery.applyFilters()
                 }
-
-                gallery.applyFilters()
-            }
 
             document.querySelector(`#filter${count}`)?.appendChild( // Create button for seleting filter
                 <button
@@ -223,7 +223,7 @@ const createFilterButtons = (): void => {
                 >
                     {document.createTextNode(info)}
                     <span style="float: right;" class="material-icons">done</span>
-                </button>
+                </button>,
             )
         }
     }

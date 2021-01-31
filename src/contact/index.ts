@@ -9,6 +9,8 @@
  * @license GPL-3.0-or-later
  */
 
+/* eslint-disable */
+
 import {functions} from "../_firebase"
 
 const loader = document.getElementById("loader"),
@@ -64,6 +66,7 @@ const verifyMathProblem = (problem: string, answer: string): boolean => {
                 alert("Incorrect answer to math problem")
 
                 generateMathProblem()
+
                 return
             } else if (functions === undefined) {
                 alert("There was a problem")
@@ -94,7 +97,7 @@ const verifyMathProblem = (problem: string, answer: string): boolean => {
             })
         })
     }
-})(document.getElementById("contact-form"));
+})(document.getElementById("contact-form"))
 
 const generateMathProblem = (): void => {
     const contactProblem = document.getElementById("contact-problem")

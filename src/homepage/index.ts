@@ -10,15 +10,18 @@
  */
 
 import "regenerator-runtime/runtime"
-import type firebase from "firebase"
 import {firestore as db} from "../_firebase"
+import type firebase from "firebase"
 
+/* eslint-disable one-var, @typescript-eslint/naming-convention */
 declare const {TimelineMax}: typeof import("gsap")
+
 declare const ScrollMagic: typeof import("scrollmagic")
 
 const timelines = [],
     scenes = [],
     controller = new ScrollMagic.Controller()
+/* eslint-enable one-var, @typescript-eslint/naming-convention */
 
 
 type Testimonials = {[key: number]: string}
@@ -30,25 +33,28 @@ type TimelineArgs = [
 ]
 
 const isTestimonials = (
-    obj: firebase.firestore.DocumentData
+    obj: firebase.firestore.DocumentData,
 ): obj is Testimonials => typeof obj === "object"
 
-db?.collection("testimonials").get().then(async (snapshot): Promise<void> => {
-    const data = snapshot.docs[0].data()
+db?.collection("testimonials").get()
+    .then((snapshot): void => {
+        const data = snapshot.docs[0].data()
 
-    if (isTestimonials(data)) {
-        const testimonials = Object.values(data),
-            container = document.getElementById("testimonial")
+        if (isTestimonials(data)) {
+            const testimonials = Object.values(data),
+                container = document.getElementById("testimonial")
 
-        if (container) {
-            container.innerText = testimonials[Math.floor(Math.random() * testimonials.length)]
+            if (container) {
+                container.innerText =
+                    testimonials[Math.floor(Math.random() * testimonials.length)]
+            }
         }
-    }
-})
+    })
 
 if (window.innerWidth >= 767) {
     let multiplyer = 1
 
+    /* eslint-disable */
     document.querySelectorAll(".content").forEach((element, index) => {
         multiplyer = index % 2 === 0 ? 1 : -1
 
@@ -63,7 +69,7 @@ if (window.innerWidth >= 767) {
                     x: 200 * multiplyer,
                     opacity: 0,
                     duration: 0.5,
-                }
+                },
             ],
             [
                 element.querySelector("h5 span"),
@@ -110,7 +116,7 @@ if (window.innerWidth >= 767) {
                     duration: 1,
                 },
                 "=-0.1",
-            ]
+            ],
         ]
 
         for (const config of timelineElements) {
@@ -121,7 +127,7 @@ if (window.innerWidth >= 767) {
 
         const scene = new ScrollMagic.Scene({
             triggerElement: element,
-            triggerHook:"onLeave",
+            triggerHook: "onLeave",
             duration: "250%",
         })
             .setPin(element)
@@ -132,3 +138,4 @@ if (window.innerWidth >= 767) {
         scenes.push(scene)
     })
 }
+/* eslint-enable */

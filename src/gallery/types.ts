@@ -40,8 +40,9 @@ export type GalleryItem = {
     file: string,
 }
 
-export const isGalleryItem = (obj: {[key: string]: unknown}): obj is GalleryItem => (
+export const isGalleryItem = (
+    obj: {[key: string]: unknown},
+): obj is GalleryItem => (
     typeof obj?.file === "string" &&
-    obj.details instanceof Object &&
-    obj.details.hasOwnProperty("colour")
+    obj.details instanceof Object
 )

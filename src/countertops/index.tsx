@@ -29,10 +29,10 @@ const isCountertop = (obj: {[key: string]: unknown}): obj is Countertop => (
         const element = document.getElementById(key.toString()),
             [container] = element?.querySelectorAll<HTMLElement>(".details") ?? []
 
-        if (container.style.maxHeight){
-            container.style.maxHeight = "";
+        if (container.style.maxHeight) {
+            container.style.maxHeight = ""
         } else {
-            container.style.maxHeight = `${container.scrollHeight}px`;
+            container.style.maxHeight = `${container.scrollHeight}px`
         }
     },
 
@@ -60,6 +60,7 @@ const isCountertop = (obj: {[key: string]: unknown}): obj is Countertop => (
             spinner?.parentNode?.removeChild(spinner)
 
             for (const [index, countertop] of Object.values(data).entries()) {
+                // eslint-disable-next-line
                 const imageUrl = await storageRef.child(countertop.file).getDownloadURL() as string
 
                 if (typeof imageUrl === "string") {
@@ -69,10 +70,10 @@ const isCountertop = (obj: {[key: string]: unknown}): obj is Countertop => (
                         <div class="image_container" id={index.toString()}>
                             <img
                                 src={imageUrl}
-                                onClick={() => expand(index)}
+                                onClick={(): void => expand(index)}
                             />
                             <div class="details"><p>{countertop.caption}</p></div>
-                        </div>
+                        </div>,
                     )
                 }
             }

@@ -18,7 +18,7 @@ const navbar = document.getElementById("navbar"),
      * Add a background to the navbar when you reach its scroll position.
      * Remove "sticky" when you leave the scroll position
      */
-    scroll = () => {
+    scroll = (): void => {
         if (window.pageYOffset >= 100) {
             navbar?.classList.remove("background-default")
             navbar?.classList.remove("background-trans")

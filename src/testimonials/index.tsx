@@ -11,18 +11,18 @@
 
 import "regenerator-runtime/runtime"
 import * as DeStagnate from "destagnate/lib/createElementOnly"
-import type firebase from "firebase"
 import {firestore as db} from "../_firebase"
+import type firebase from "firebase"
 
 type Testimonials = {[key: number]: string}
 
 const isTestimonials = (
-        obj: firebase.firestore.DocumentData
+        obj: firebase.firestore.DocumentData,
     ): obj is Testimonials => typeof obj === "object",
 
     handleScroll = (): void => {
         const elements = Array.from(
-            document.getElementsByClassName("section") as HTMLCollectionOf<HTMLElement>
+            document.getElementsByClassName("section") as HTMLCollectionOf<HTMLElement>,
         )
 
         for (const element of elements) {
@@ -42,7 +42,7 @@ const isTestimonials = (
                 element.classList.add("transparent") // Remove transparent class
             }
         }
-    };
+    }
 
 if (db) {
     (async (): Promise<void> => {

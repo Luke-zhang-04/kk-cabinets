@@ -61,22 +61,26 @@ document.querySelector("footer.page-footer")?.appendChild(
                     <ul class="list-unstyled">
                         <li>
                             <p style="margin-block-end: 0;">
-                                <i class="material-icons">phone</i>{document.createTextNode(" (519) 578-9123")}
+                                <i class="material-icons">phone</i>
+                                {document.createTextNode(" (519) 578-9123")}
                             </p>
                         </li>
                         <li>
                             <a style="color: white" href="mailto:info@kkcabinets.ca">
-                                <i class="material-icons">email</i>{document.createTextNode(" info@kkcabinets.ca")}
+                                <i class="material-icons">email</i>
+                                {document.createTextNode(" info@kkcabinets.ca")}
                             </a>
                         </li>
                         <li>
                             <a style="color: white" href="mailto:kkcabinets2000@gmail.com">
-                                <i class="material-icons">email</i>{document.createTextNode(" kkcabinets2000@gmail.com")}
+                                <i class="material-icons">email</i>
+                                {document.createTextNode(" kkcabinets2000@gmail.com")}
                             </a>
                         </li>
                         <li>
                             <a style="color: white" href="https://www.facebook.com/kkcabinetskw/">
-                                <i class="fab fa-facebook-square fa-lg"/>{document.createTextNode(" kkcabinetskw")}
+                                <i class="fab fa-facebook-square fa-lg"/>
+                                {document.createTextNode(" kkcabinetskw")}
                             </a>
                         </li>
                     </ul>
@@ -105,5 +109,5 @@ document.querySelector("footer.page-footer")?.appendChild(
                 Terms of use
             </a>
         </div>
-    </div>
+    </div>,
 )

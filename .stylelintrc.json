@@ -1,0 +1,18 @@
+{
+    "extends": "stylelint-config-standard",
+    "ignoreFiles": [
+        "public/**",
+        "images/**/*.svg",
+        "css/",
+        "scss/normalize.css"
+    ],
+    "rules": {
+        "indentation": 2,
+        "at-rule-no-unknown": [true, {
+            "ignoreAtRules": ["function", "if", "each", "include", "mixin", "use", "for"]
+        }],
+        "no-eol-whitespace": [true, {
+            "ignore": ["empty-lines"]
+        }]
+    }
+}

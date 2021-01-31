@@ -26,7 +26,8 @@ document.querySelectorAll(".card").forEach((card) => {
             event.preventDefault()
 
             const animateProperties = {
-                scrollTop: document.querySelector<HTMLElement>(hash)?.offsetTop ?? 0
+                scrollTop:
+                    document.querySelector<HTMLElement>(hash)?.offsetTop ?? 0,
             }
 
             $("html, body").animate(
@@ -34,7 +35,7 @@ document.querySelectorAll(".card").forEach((card) => {
                 About.ScrollTime,
                 () => {
                     window.location.hash = hash
-                }
+                },
             )
         }
     })
