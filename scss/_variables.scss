@@ -8,7 +8,7 @@ $colors: map-merge(
   $colors,
   (
     "blue": $blue,
-  ),
+  )
 );
 
 $primary: $blue;
@@ -21,7 +21,7 @@ $theme-colors: map-merge(
     "secondary": $secondary,
     "secondary-reverse": #373737,
     "none": rgba(0, 0, 0, 0),
-  ),
+  )
 );
 
 $font-family-sans-serif: "Ubuntu", sans-serif;
