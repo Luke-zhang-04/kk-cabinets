@@ -48,7 +48,7 @@ buildDev() {
     if [[ $(echo "scss:$(tar cf - scss | shasum -a 384)" | node buildInfo.js) == 1 ]]; then
         # Compile SASS
         echo -e "Compiling ./scss/ to ./public/css/ with sass"
-        "$bin"/sass scss/:public/css &
+        "$bin"/sass scss/:public/css
     else
         echo -e "No changed found in ./scss/"
     fi
