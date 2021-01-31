@@ -108,7 +108,7 @@
                     <div class="row">
                         <div class="col-12 col-md-4 col-lg-2 filters">
                             <!--dropdown-->
-                            <button style="width: 100%;" class="btn btn-secondary-reverse" onclick="expand_filter(0)">
+                            <button style="width: 100%;" class="btn btn-secondary-reverse expand-filter">
                                 Colours
                                 <span class="material-icons">arrow_drop_down</span>
                             </button>
@@ -118,7 +118,7 @@
 
                         <div class="col-12 col-md-4 col-lg-2 filters">
 
-                            <button style="width: 100%;" class="btn btn-secondary" onclick="expand_filter(1)">
+                            <button style="width: 100%;" class="btn btn-secondary expand-filter">
                                 Materials
                                 <span class="material-icons">arrow_drop_down</span>
                             </button>
@@ -128,7 +128,7 @@
 
                         <div class="col-12 col-md-4 col-lg-2 filters">
 
-                            <button style="width: 100%;" class="btn btn-secondary-reverse" onclick="expand_filter(2)">
+                            <button style="width: 100%;" class="btn btn-secondary-reverse expand-filter">
                                 Location
                                 <span class="material-icons">arrow_drop_down</span>
                             </button>
@@ -138,7 +138,7 @@
 
                         <div class="col-12 col-md-4 col-lg-2 filters">
 
-                            <button style="width: 100%;" class="btn btn-secondary" onclick="expand_filter(3)">
+                            <button style="width: 100%;" class="btn btn-secondary expand-filter">
                                 Furniture
                                 <span class="material-icons">arrow_drop_down</span>
                             </button>
@@ -160,7 +160,7 @@
 
                         <div class="col-12 col-md-4 col-lg-2" style="justify-content: right;">
 
-                            <button style="width: 100%;" class="btn btn-success" onclick="apply_filters()">
+                            <button style="width: 100%;" class="btn btn-success" id="apply-filters">
                                 Apply Filters
                             </button>
                         </div>
@@ -168,7 +168,7 @@
                     <div class="row">
                         <div class="col-md-8 col-lg-10"></div>
                         <div class="col-12 col-md-4 col-lg-2">
-                            <button style="width: 100%" class="btn btn-danger" onclick="clear_filters()">
+                            <button style="width: 100%" class="btn btn-danger" id="clear-filters">
                                 Clear Filters
                             </button>
                         </div>
@@ -179,14 +179,12 @@
     </div>
 
     <div class="responive_row" id="row">
-        <div class="responsive_column"></div>
-        <div class="responsive_column"></div>
-        <div class="responsive_column"></div>
-        <div class="responsive_column"></div>
+        <!-- Data rendered by javascript -->
     </div>
 
-    <img src="pictures/loading.gif" id="loading"/>
-
+    <div class="spinner-border" id="loading" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
 
     <footer class="page-footer">
 
@@ -260,29 +258,14 @@
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
-
-    <script>
-    var firebaseConfig = {
-        apiKey: "AIzaSyC8LzSIS1mRoQuFnjtwq1U5vtp2Hx2rdtk",
-        authDomain: "kk-cabinets.firebaseapp.com",
-        databaseURL: "https://kk-cabinets.firebaseio.com",
-        projectId: "kk-cabinets",
-        storageBucket: "kk-cabinets.appspot.com",
-        messagingSenderId: "999203573812",
-        appId: "1:999203573812:web:7baa8753bce4e8ac187a61"
-    };
-    firebase.initializeApp(firebaseConfig);
-    var storage = firebase.storage();
-    const db = firebase.firestore()
-    </script>
 
     <script src="js/script.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/destagnate@1.8.0/dist/es6/deStagnate.bundle.min.js" integrity="sha384-BI7Dqh4ro6cM04vGv0fy3o8cw2h1kiWrMUW45VmRaKJwEwyGhb/kz6ZKshVxM3AA" crossorigin="anonymous"></script>
 
     <script src="js/gallery.js"></script>
 </body>
