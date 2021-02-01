@@ -14,6 +14,7 @@ import "./clickListeners"
 import * as Types from "./types"
 import {firestore as db} from "../_firebase"
 import utils from "./utils"
+import lozad from "lozad"
 
 type GalleryParams = "colour" | "material" | "location"
 
@@ -66,6 +67,8 @@ class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
         }
     }
 
+    public isfirstRender = true
+
     protected static handleImageClick = (event: MouseEvent): void => {
         if (event.target instanceof HTMLElement) {
             const container = event.target?.parentNode?.querySelector<HTMLElement>(".details")
@@ -76,6 +79,12 @@ class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
                 container.style.maxHeight = `${container.scrollHeight}px`
             }
         }
+    }
+
+    public componentDidUpdate = (): void => {
+        this.isfirstRender = false
+
+        lozad().observe()
     }
 
     public clearFilters = (): void => {
@@ -142,11 +151,19 @@ class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
     }
 
     public render = (): JSX.Element[] => {
-        const data = utils.arrayToChunks(this.state.galleryItems)
+        let data = utils.arrayToChunks(this.state.galleryItems, 4)
+
+        if (this.isfirstRender) { // Enable lazy loading
+            data = data.map((items) => items.slice(0, 6))
+        }
 
         return data.map((items) => <div class="responsive_column">
             {items.map((item) => <div class="image_container">
-                <img src={`${Values.ImageUrl}${item.file}${Values.UrlPrefix}`} onClick={Gallery.handleImageClick}/>
+                <img
+                    class="lozad"
+                    data-src={`${Values.ImageUrl}${item.file}${Values.UrlPrefix}`}
+                    onClick={Gallery.handleImageClick}
+                />
                 <div class="details">
                     <p>
                         <br/>
@@ -261,9 +278,9 @@ const createFilterButtons = (): void => {
                 }
             }
         }
-
-        gallery.setState({galleryItems: Object.values(galleryData)})
     })
+
+    gallery.setState({galleryItems: Object.values(galleryData)})
 
     createFilterButtons()
 
@@ -271,3 +288,24 @@ const createFilterButtons = (): void => {
 
     spinner?.parentNode?.removeChild(spinner)
 })()
+
+const handleScroll = () => {
+    const row = document.querySelector<HTMLElement>(".responive_row")
+
+    if (row) {
+        const scrolledAt = window.scrollY + window.innerHeight,
+            target = row.scrollHeight + row.offsetTop
+
+        if (scrolledAt >= target) {
+            gallery.setState({})
+
+            if (!gallery.isfirstRender) {
+                document.removeEventListener("scroll", handleScroll)
+
+                return
+            }
+        }
+    }
+}
+
+document.addEventListener("scroll", handleScroll)

@@ -4,12 +4,16 @@
  * @param chunkSize - size of array chunks
  */
 export const arrayToChunks = <T extends unknown>(
-    arr: T[], chunkSize = 3,
+    arr: T[], chunkCount = 3,
 ): T[][] => {
     const chunks: T[][] = []
 
-    for (let index = 0; index < arr.length; index += chunkSize) {
-        chunks.push(arr.slice(index, index + chunkSize))
+    for (const [index, item] of arr.entries()) {
+        if (chunks[index % chunkCount]) {
+            chunks[index % chunkCount].push(item)
+        } else {
+            chunks[index % chunkCount] = [item]
+        }
     }
 
     return chunks
