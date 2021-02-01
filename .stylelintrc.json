@@ -4,7 +4,8 @@
         "public/**",
         "images/**/*.svg",
         "css/",
-        "scss/normalize.css"
+        "scss/normalize.css",
+        "build/"
     ],
     "rules": {
         "indentation": 2,

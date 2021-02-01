@@ -40,7 +40,7 @@ build() {
 
     echo "Minifying with html-minifer"
     for file in public/*.html; do
-        "$bin"/html-minifier  --collapse-whitespace --remove-comments "$file" -o build/"$(basename "$file")" &
+        "$bin"/html-minifier --config-file .htmlminifier.json "$file" -o build/"$(basename "$file")" &
     done
 }
 
