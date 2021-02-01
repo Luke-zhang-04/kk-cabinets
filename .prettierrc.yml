@@ -1,0 +1,16 @@
+# Prettier config for HTML and CSS
+
+arrowParens: "always"
+bracketSpacing: false
+embeddedLanguageFormatting: "auto"
+endOfLine: "lf"
+htmlWhitespaceSensitivity: "ignore"
+jsxBracketSameLine: false
+jsxSingleQuote: false
+printWidth: 120
+quoteProps: "as-needed"
+semi: false
+singleQuote: false
+tabWidth: 2
+trailingComma: "all"
+useTabs: false

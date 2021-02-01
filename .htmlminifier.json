@@ -1,0 +1,7 @@
+{
+    "collapseWhitespace": true,
+    "html5": true,
+    "keepClosingSlash": false,
+    "removeComments": true,
+    "removeEmptyAttributes": true
+}

@@ -1,3 +1,4 @@
+#!/bin/bash
 # KK Cabinets
 # Copyright (C) 2020  Luke Zhang, Ethan Lim
 #
@@ -16,8 +17,58 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-npx tsc -p .
 
-npx babel ./src/ --out-dir ./public/js --minified --compact true --no-comments -s inline
+bin="./node_modules/.bin"
 
-sass scss/:public/css --style compressed
+build() {
+    echo "Compiling with tsc"
+    "$bin"/tsc &
+
+    echo "Compiling with sass"
+    "$bin"/sass scss/:build/css --style compressed --no-source-map &
+
+    wait
+
+    echo "Bundling with Rollup"
+    "$bin"/rollup -c rollup.config.js
+
+    echo "Minifying with Babel"
+    "$bin"/babel build/js/*.js -d build/js --no-babelrc --config-file ./.babelrc.min.js
+
+    echo "Moving assets"
+    cp -rv public/pictures build
+
+    echo "Minifying with html-minifer"
+    for file in public/*.html; do
+        "$bin"/html-minifier --config-file .htmlminifier.json "$file" -o build/"$(basename "$file")" &
+    done
+}
+
+buildDev() {
+    if [[ $(echo "scss:$(tar cf - scss | shasum -a 384)" | node buildInfo.js) == 1 ]]; then
+        # Compile SASS
+        echo -e "Compiling ./scss/ to ./public/css/ with sass"
+        "$bin"/sass scss/:public/css
+    else
+        echo -e "No changed found in ./scss/"
+    fi
+
+    sourceDidChange=$(echo "src:$(tar cf - src | shasum -a 384)" | node buildInfo.js)
+
+    if [[ $sourceDidChange == 1 ]]; then
+        # Compile w/ TypeScript
+        echo -e "Compiling ./src/ to ./lib/ with TypeScript"
+        "$bin"/tsc
+
+        echo -e "Bundling with rollup"
+        NODE_ENV="dev" "$bin"/rollup -c rollup.config.js
+    else
+        echo -e "No changed found in ./src/"
+    fi
+}
+
+if [[ $1 == "-d" ]]||[[ $1 == "--dev" ]]; then
+    buildDev
+else
+    build
+fi

@@ -1,23 +1,13 @@
 /*!
  * KK Cabinets
- * Copyright (C) 2020  Luke Zhang, Ethan Lim
+ * Copyright (C) 2020 - 2021 Luke Zhang, Ethan Lim
  *
  * https://luke-zhang-04.github.io
  * https://github.com/ethanlim04
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * License: GPL-3.0-or-later
+ */
+
 body {
   overflow-x: hidden;
 }
@@ -32,7 +22,7 @@ nav a {
 
 .page-footer {
   background-color: #373737;
-  color: white;;
+  color: white;
 }
 
 .background-default {
@@ -65,12 +55,11 @@ nav a {
 
 .overlay-surface {
   position: absolute;
-  /* width: 25%; */
-  /* height: 30%; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 .overlay-surface h1 {
@@ -88,65 +77,81 @@ nav a {
 
 @keyframes overlay-surface {
   from {
-      background-color: rgba(255, 255, 255, 0);
-  } to {
-      background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  to {
+    background-color: rgba(255, 255, 255, 0.8);
   }
 }
 
 @-webkit-keyframes overlay-surface {
   from {
-      background-color: rgba(255, 255, 255, 0);
-  } to {
-      background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  to {
+    background-color: rgba(255, 255, 255, 0.8);
   }
 }
 
 @keyframes fade-in {
   from {
-      opacity: 0;
-  } to {
-      opacity: 1;
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
 @-webkit-keyframes fade-in {
   from {
-      opacity: 0;
-  } to {
-      opacity: 1;
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
 @keyframes to_white {
   from {
-      background-color: rgba(255, 255, 255, 0);
-  } to {
-      background-color: white;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  to {
+    background-color: white;
   }
 }
 
 @-webkit-keyframes to_white {
   from {
-      background-color: rgba(255, 255, 255, 0);
-  } to {
-      background-color: white;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  to {
+    background-color: white;
   }
 }
 
 @keyframes to_trans {
   from {
-      background-color: white;
-  } to {
-      background-color: rgba(255, 255, 255, 0);
+    background-color: white;
+  }
+
+  to {
+    background-color: rgba(255, 255, 255, 0);
   }
 }
 
 @-webkit-keyframes to_trans {
   from {
-      background-color: white;
-  } to {
-      background-color: rgba(255, 255, 255, 0);
+    background-color: white;
+  }
+
+  to {
+    background-color: rgba(255, 255, 255, 0);
   }
 }
 
@@ -166,7 +171,7 @@ nav a {
 }
 
 .raise {
-  transform: translateY(0)
+  transform: translateY(0);
 }
 
 .content {
@@ -185,6 +190,7 @@ nav a {
   margin-top: 17%;
   position: absolute;
 }
+
 .content-left h5 span {
   width: 100%;
   display: block;
@@ -195,7 +201,7 @@ nav a {
 .content-left h5 p {
   position: relative;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -208,7 +214,7 @@ nav a {
 }
 
 .content h5 .line2 {
-  background: #DCD0C0;
+  background: #dcd0c0;
 }
 
 .content img {
@@ -236,6 +242,7 @@ nav a {
   right: 7.5%;
   text-align: right;
 }
+
 .content-right h5 span {
   width: 100%;
   display: inline-block;
@@ -246,7 +253,7 @@ nav a {
 .content-right h5 p {
   position: relative;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -280,37 +287,37 @@ nav a {
 
 @media screen and (max-width: 767px) {
   .content img {
-      display: none;
+    display: none;
   }
 
   .content h5 {
-      width: 80%;
-      display: block;
-      position: relative;
+    width: 80%;
+    display: block;
+    position: relative;
   }
 
   .content {
-      height: 100%;
+    height: 100%;
   }
 
   .content-right h5 {
-      margin-left:auto;
+    margin-left: auto;
   }
 
   #testimonial-content h5 {
-      position: relative !important;
+    position: relative !important;
   }
 
   #aligner {
-      display: block !important;
+    display: block !important;
   }
 
   .content-first {
-      padding-top: 0;
+    padding-top: 0;
   }
 
   .quote-icon {
-      transform: translate(-50%, 400%);
+    transform: translate(-50%, 400%);
   }
 }
 
@@ -321,6 +328,7 @@ nav a {
   position: absolute;
   text-align: center;
 }
+
 #testimonial-content h5 span {
   width: 100%;
   display: block;
@@ -340,7 +348,7 @@ nav a {
 #testimonial-content h5 p {
   position: relative;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -375,52 +383,56 @@ hr {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border-width: 0;
-  opacity: .5;
+  opacity: 0.5;
   text-align: center;
 }
 
 @keyframes desolidify {
   from {
-      opacity: 1;
-  } to {
-      opacity: .5;
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.5;
   }
 }
 
 @-webkit-keyframes desolidify {
   from {
-      opacity: 1;
-  } to {
-      opacity: .5;
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.5;
   }
 }
 
 @keyframes solidify {
   from {
-      opacity: .75;
-  } to {
-      opacity: 1;
+    opacity: 0.75;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
 @-webkit-keyframes solidify {
   from {
-      opacity: .75;
-  } to {
-      opacity: 1;
+    opacity: 0.75;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
 #downBtn:hover {
   animation-name: solidify;
   animation-duration: 1s;
-  opacity: 1
+  opacity: 1;
 }
 
 .nav-link {
   font-weight: 1000;
-}
-
-.overlay-surface {
-  background-color: rgba(255, 255, 255, 0.75);
 }

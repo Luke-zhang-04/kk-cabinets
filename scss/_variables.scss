@@ -1,0 +1,31 @@
+@import "../node_modules/bootstrap/scss/variables";
+
+$body-bg: #f4f4f4;
+
+$blue: #007bff;
+
+$colors: map-merge(
+  $colors,
+  (
+    "blue": $blue,
+  )
+);
+
+$primary: $blue;
+$secondary: #dcd0c0;
+
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "primary": $primary,
+    "secondary": $secondary,
+    "secondary-reverse": #373737,
+    "none": rgba(0, 0, 0, 0),
+  )
+);
+
+$font-family-sans-serif: "Ubuntu", sans-serif;
+$font-family-monospace: "Roboto Mono", monospace;
+$font-family-base: $font-family-sans-serif;
+
+$jumbotron-bg: #fff;
