@@ -12,7 +12,6 @@
 <p align="center">
     <a href="https://github.com/luke-zhang-04/kk-cabinets/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/luke-zhang-04/kk-cabinets.svg"/></a>
     <a href="https://www.kkcabinets.ca"><img alt="website kk-cabinets.ca" src="https://img.shields.io/website-up-down-green-red/https/kkcabinets.ca.svg"/></a>
-    <a href="https://app.codacy.com/manual/luke.zhang2004/kk-cabinets?utm_source=github.com&utm_medium=referral&utm_content=Luke-zhang-04/kk-cabinets&utm_campaign=Badge_Grade_Dashboard"><img alt="Codacy Badge" src="https://api.codacy.com/project/badge/Grade/d6d5f99056ba41b6a80057c84ab398e9"/></a>
 </p>
 
 Note: this site is no longer an accurate representation of the way I program today. Many of the "conventions", inconsistencies, and "noob code" are from older versions of me.
