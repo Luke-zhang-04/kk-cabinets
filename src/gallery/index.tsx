@@ -88,6 +88,18 @@ class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
             locations: [],
         }})
 
+        document.querySelectorAll<HTMLElement>(".dropdown_menu .material-icons")
+            .forEach((icon) => {
+                icon.innerText = "done"
+            })
+
+        const patternToggle =
+            document.querySelector<HTMLElement>("#pattern_toggle span")
+
+        if (patternToggle) {
+            patternToggle.innerText = "remove"
+        }
+
         this.applyFilters()
     }
 
@@ -103,7 +115,7 @@ class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
 
             for (const filter of filterTypes) { // Make sure the filters don't catch this item
                 if (activeFilters[`${filter}s` as FilterKeys].includes(item.details[filter])) {
-                    isfiltered = false
+                    isfiltered = true
 
                     break
                 }
@@ -113,13 +125,13 @@ class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
                 isfiltered ||
                 activeFilters.pattern !== undefined && item.details.pattern !== activeFilters.pattern
             ) {
-                break
+                continue
             } else if (activeFilters.countertop !== undefined && activeFilters.cabinets !== undefined) {
                 const didmatch = item.details.furniture.countertop !== activeFilters.countertop ||
                     item.details.furniture.cabinet !== activeFilters.cabinets
 
                 if (didmatch) {
-                    break
+                    continue
                 }
             }
 
