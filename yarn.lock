@@ -906,7 +906,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5":
+"@babel/runtime@^7.12.5":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
@@ -2346,6 +2346,13 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+cross-env@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-7.0.3.tgz#865264b29677dc015ba8418918965dd232fc54cf"
+  integrity sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==
+  dependencies:
+    cross-spawn "^7.0.1"
+
 cross-spawn@^6.0.5:
   version "6.0.5"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"
@@ -2357,7 +2364,7 @@ cross-spawn@^6.0.5:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
-cross-spawn@^7.0.2:
+cross-spawn@^7.0.1, cross-spawn@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
   integrity sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==
@@ -2449,12 +2456,12 @@ define-property@^2.0.2:
     is-descriptor "^1.0.2"
     isobject "^3.0.1"
 
-destagnate@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/destagnate/-/destagnate-1.8.0.tgz#628dfd06b68efe5ed6c20c79700f511ae764ff51"
-  integrity sha512-aNWTTJGKMp4apjss6DrzNtP1YV+UMiCcSJLZlx8Mjr48F1aH/d0NxZXspK/x7jeva7ecPU3mcoR7b5D9d5lQOw==
+destagnate@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/destagnate/-/destagnate-2.0.0.tgz#9df0f090ff0ea5f2e98227172b5213c4940a397a"
+  integrity sha512-Cdv19AjvpuU2rRALkHsx4ZyCsTECO1MdzXC0FbFiKWCSPFhs+1SfB2OrkJKnhsKngO2ZEJ91vfgER/4PgvQjIg==
   dependencies:
-    "@babel/runtime" "^7.11.2"
+    cross-env "^7.0.3"
 
 dir-glob@^3.0.1:
   version "3.0.1"

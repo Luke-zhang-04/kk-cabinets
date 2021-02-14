@@ -12,6 +12,7 @@
 import "regenerator-runtime/runtime"
 import "./clickListeners"
 import * as Types from "./types"
+import DeStagnate from "destagnate"
 import {firestore as db} from "../_firebase"
 import utils from "./utils"
 import lozad from "lozad"
@@ -19,8 +20,6 @@ import lozad from "lozad"
 type GalleryParams = "colour" | "material" | "location"
 
 type FilterKeys = `${GalleryParams}s`
-
-declare const DeStagnate: typeof import("destagnate") // Unfourtunately, rollup has issues with circular dependencies
 
 /**
  * Values for usage later
@@ -49,7 +48,7 @@ type State = {
 
 const capitalizeFirst = (str: string): string => str[0].toUpperCase() + str.slice(1)
 
-class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
+class Gallery extends DeStagnate.Component<Record<string, unknown>, State> {
 
     public constructor (parent: HTMLElement) {
         super(parent)
@@ -66,6 +65,8 @@ class Gallery extends DeStagnate.default<Record<string, unknown>, State> {
             galleryItems: [],
         }
     }
+
+    public shouldComponentUpdate = (): boolean => this.stateDidChange(["galleryItems"], 5, 30)
 
     public isfirstRender = true
 
@@ -297,7 +298,7 @@ const handleScroll = () => {
             target = row.scrollHeight + row.offsetTop
 
         if (scrolledAt >= target) {
-            gallery.setState({})
+            gallery.forceUpdate()
 
             if (!gallery.isfirstRender) {
                 document.removeEventListener("scroll", handleScroll)
