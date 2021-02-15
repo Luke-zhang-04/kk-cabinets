@@ -21,19 +21,13 @@
 bin="./node_modules/.bin"
 
 build() {
-    echo "Compiling with tsc"
-    "$bin"/tsc &
-
     echo "Compiling with sass"
     "$bin"/sass scss/:build/css --style compressed --no-source-map &
 
-    wait
-
     echo "Bundling with Rollup"
-    "$bin"/rollup -c rollup.config.js
+    "$bin"/rollup -c rollup.config.js &
 
-    echo "Minifying with Babel"
-    "$bin"/babel build/js/*.js -d build/js --no-babelrc --config-file ./.babelrc.min.js
+    wait
 
     echo "Moving assets"
     cp -rv public/pictures build
@@ -53,18 +47,7 @@ buildDev() {
         echo -e "No changed found in ./scss/"
     fi
 
-    sourceDidChange=$(echo "src:$(tar cf - src | shasum -a 384)" | node buildInfo.js)
-
-    if [[ $sourceDidChange == 1 ]]; then
-        # Compile w/ TypeScript
-        echo -e "Compiling ./src/ to ./lib/ with TypeScript"
-        "$bin"/tsc
-
-        echo -e "Bundling with rollup"
-        NODE_ENV="dev" "$bin"/rollup -c rollup.config.js
-    else
-        echo -e "No changed found in ./src/"
-    fi
+    NODE_ENV="dev" "$bin"/rollup -c rollup.config.js
 }
 
 if [[ $1 == "-d" ]]||[[ $1 == "--dev" ]]; then

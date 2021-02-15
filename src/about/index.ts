@@ -11,7 +11,7 @@
 
 declare const $: typeof import("jquery")
 
-const enum About {
+enum About {
     ScrollTime = 800,
 }
 

@@ -1,9 +1,12 @@
 import {babel} from "@rollup/plugin-babel"
-import commonjs from "@rollup/plugin-commonjs"
 import crypto from "crypto"
 import childProcess from "child_process"
+import filesize from "rollup-plugin-filesize"
 import fs from "fs/promises"
 import {nodeResolve} from "@rollup/plugin-node-resolve"
+import progress from "rollup-plugin-progress"
+import {terser} from "rollup-plugin-terser"
+import typescript from "@rollup/plugin-typescript"
 
 const banner = `/**
  * KK cabinets
@@ -78,29 +81,57 @@ const fileDidChange = async (fileName) => {
 }
 
 const config = async () => {
-    const scripts = (await fs.readdir("./lib/")).filter((dir) => dir[0] !== "_"),
-        configs = []
+    const scripts = (await fs.readdir("./src/")).filter((dir) => dir[0] !== "_"),
+        configs = [],
+        isProduction = process.env.NODE_ENV !== "dev",
+        plugins = [
+            progress(),
+            typescript(),
+            nodeResolve(),
+            ...isProduction ? [
+                babel({
+                    babelrc: false,
+                    babelHelpers: "bundled",
+                    presets: ["@babel/preset-env"],
+                    minified: false,
+                    comments: true,
+                }),
+                terser({
+                    mangle: {
+                        properties: {
+                            regex: /^_/u, // Mangle private properties
+                        },
+                    },
+                    format: {
+                        comments: (_, {value: val}) => {
+                            if ((/Microsoft/gui).test(val)) {
+                                console.log(val, (/licen[sc]e|copyright|@preserve|^!/gui).test(val))
+                            }
+
+                            return (/licen[sc]e|copyright|@preserve|^!/gui).test(val)
+                        },
+                    },
+                }),
+                filesize(),
+            ] : [],
+        ]
 
     for (const script of scripts) {
-        if (process.env.NODE_ENV !== "dev" || await fileDidChange(`./lib/${script}`)) {
+        if (process.env.NODE_ENV !== "dev" || await fileDidChange(`./src/${script}`)) {
+            const [entry] = (await fs.readdir(`./src/${script}`))
+                .filter((dir) => (/index/u).test(dir))
+
             configs.push({
-                input: `./lib/${script}`,
+                input: `./src/${script}/${entry}`,
                 output: {
                     file: `${process.env.NODE_ENV == "dev" ? "public" : "build"}/js/${script}.js`,
                     format: "iife",
                     banner,
                 },
-                plugins: [
-                    commonjs(),
-                    nodeResolve(),
-                    process.env.NODE_ENV === "dev" ? undefined : babel({
-                        babelrc: true,
-                        babelHelpers: "bundled",
-                    })
-                ],
+                plugins,
             })
         } else {
-            console.log(`No changes found in lib/${script}, skipping.`)
+            console.log(`No changes found in src/${script}, skipping.`)
         }
     }
 
