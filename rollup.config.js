@@ -103,13 +103,9 @@ const config = async () => {
                         },
                     },
                     format: {
-                        comments: (_, {value: val}) => {
-                            if ((/Microsoft/gui).test(val)) {
-                                console.log(val, (/licen[sc]e|copyright|@preserve|^!/gui).test(val))
-                            }
-
-                            return (/licen[sc]e|copyright|@preserve|^!/gui).test(val)
-                        },
+                        comments: (_, {value: val}) => (
+                            /licen[sc]e|copyright|@preserve|^!/gui
+                        ).test(val),
                     },
                 }),
                 filesize(),
@@ -129,6 +125,7 @@ const config = async () => {
                     banner,
                 },
                 plugins,
+                external: [/@babel\/runtime/],
             })
         } else {
             console.log(`No changes found in src/${script}, skipping.`)

@@ -9,7 +9,6 @@
  * @license GPL-3.0-or-later
  */
 
-import "regenerator-runtime/runtime"
 import {firestore as db} from "../_firebase"
 import type firebase from "firebase"
 

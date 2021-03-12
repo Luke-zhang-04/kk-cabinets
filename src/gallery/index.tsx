@@ -9,7 +9,6 @@
  * @license GPL-3.0-or-later
  */
 
-import "regenerator-runtime/runtime"
 import "./clickListeners"
 import * as Types from "./types"
 import DeStagnate from "destagnate"

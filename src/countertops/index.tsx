@@ -9,7 +9,6 @@
  * @license GPL-3.0-or-later
  */
 
-import "regenerator-runtime/runtime"
 import * as DeStagnate from "destagnate/lib/createElementOnly"
 import {firestore as db, storage} from "../_firebase"
 

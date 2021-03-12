@@ -9,8 +9,6 @@
  * @license GPL-3.0-or-later
  */
 
-import "regenerator-runtime/runtime"
-
 
 // Filter Expanding
 document.querySelectorAll<HTMLElement>(".expand-filter")
