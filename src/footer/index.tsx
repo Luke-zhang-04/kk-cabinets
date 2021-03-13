@@ -20,9 +20,9 @@ document.querySelector("footer.page-footer")?.appendChild(
                     <p>
                         <b>Business Hours</b>
                         <br/>
-                        {document.createTextNode("Monday to Friday . . . . . 10 am - 5 pm")}
+                        Monday to Friday . . . . . 10 am - 5 pm
                         <br/>
-                        {document.createTextNode("Saturday . . . . . . . . . . . . . . 10 am - 2 pm")}
+                        Saturday . . . . . . . . . . . . . . 10 am - 2 pm
                     </p>
                     <p>
                         <b>Other times available by appointment</b>
@@ -62,25 +62,25 @@ document.querySelector("footer.page-footer")?.appendChild(
                         <li>
                             <p style="margin-block-end: 0;">
                                 <i class="material-icons">phone</i>
-                                {document.createTextNode(" (519) 578-9123")}
+                                {" "}(519) 578-9123
                             </p>
                         </li>
                         <li>
                             <a style="color: white" href="mailto:info@kkcabinets.ca">
                                 <i class="material-icons">email</i>
-                                {document.createTextNode(" info@kkcabinets.ca")}
+                                {" "}info@kkcabinets.ca
                             </a>
                         </li>
                         <li>
                             <a style="color: white" href="mailto:kkcabinets2000@gmail.com">
                                 <i class="material-icons">email</i>
-                                {document.createTextNode(" kkcabinets2000@gmail.com")}
+                                {" "}kkcabinets2000@gmail.com
                             </a>
                         </li>
                         <li>
                             <a style="color: white" href="https://www.facebook.com/kkcabinetskw/">
                                 <i class="fab fa-facebook-square fa-lg"/>
-                                {document.createTextNode(" kkcabinetskw")}
+                                {" "}kkcabinetskw
                             </a>
                         </li>
                     </ul>
@@ -89,15 +89,15 @@ document.querySelector("footer.page-footer")?.appendChild(
         </div>
 
         <div class="footer-copyright text-center py-3">
-            {document.createTextNode("Copyright © 2020 - 2021 ")}
+            Copyright © 2020 - 2021{" "}
             <a href="https://luke-zhang-04.github.io/" class="text-info">
                 Luke Zhang
             </a>
-            {document.createTextNode(", ")}
+            ,{" "}
             <a href="https://github.com/ethanlim04" class="text-info">
                 Ethan Lim
             </a>
-            {document.createTextNode(".")}
+            .
         </div>
         <div class="text-center py3">
             <a

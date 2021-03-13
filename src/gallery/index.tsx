@@ -167,9 +167,9 @@ class Gallery extends DeStagnate.Component<Record<string, unknown>, State> {
                 <div class="details">
                     <p>
                         <br/>
-                        {document.createTextNode(`Colour: ${capitalizeFirst(item.details.colour)}`)}
+                        {`Colour: ${capitalizeFirst(item.details.colour)}`}
                         <br/>
-                        {document.createTextNode(`Furniture: ${((): string => {
+                        {`Furniture: ${((): string => {
                             if (item.details.furniture.countertop && item.details.furniture.cabinet) {
                                 return "Countertop and Cabinets"
                             }
@@ -177,13 +177,13 @@ class Gallery extends DeStagnate.Component<Record<string, unknown>, State> {
                             return item.details.furniture.cabinet
                                 ? "Cabinet"
                                 : "Countertop"
-                        })()}`)}
+                        })()}`}
                         <br/>
-                        {document.createTextNode(`Location: ${capitalizeFirst(item.details.location)}`)}
+                        {`Location: ${capitalizeFirst(item.details.location)}`}
                         <br/>
-                        {document.createTextNode(`Material: ${capitalizeFirst(item.details.material)}`)}
+                        {`Material: ${capitalizeFirst(item.details.material)}`}
                         <br/>
-                        {document.createTextNode(`Pattern: ${item.details.pattern ? "Yes" : "None"}`)}
+                        {`Pattern: ${item.details.pattern ? "Yes" : "None"}`}
                     </p>
                 </div>
             </div>)}
@@ -250,7 +250,7 @@ const createFilterButtons = (): void => {
                     id={id}
                     onClick={onClick}
                 >
-                    {document.createTextNode(info)}
+                    {info}
                     <span style="float: right;" class="material-icons">done</span>
                 </button>,
             )
@@ -301,8 +301,6 @@ const handleScroll = (): void => {
 
             if (!gallery.isfirstRender) {
                 document.removeEventListener("scroll", handleScroll)
-
-
             }
         }
     }
