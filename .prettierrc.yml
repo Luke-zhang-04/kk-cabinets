@@ -11,6 +11,14 @@ printWidth: 120
 quoteProps: "as-needed"
 semi: false
 singleQuote: false
-tabWidth: 2
+tabWidth:
 trailingComma: "all"
 useTabs: false
+
+overrides:
+  - files:
+    - "*.js"
+
+    options:
+      tabWidth: 4
+      printWidth: 100
