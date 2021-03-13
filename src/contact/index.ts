@@ -9,6 +9,8 @@
  * @license GPL-3.0-or-later
  */
 
+// PLEASE NOTE: I am not the one who decided client side validation was a good idea
+
 import {functions} from "../_firebase"
 
 const loader = document.getElementById("loader")
