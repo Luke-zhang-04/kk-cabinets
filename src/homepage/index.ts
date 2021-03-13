@@ -1,7 +1,7 @@
 /**
  * KK Cabinets
  * @copyright 2020 - 2021 Luke Zhang, Ethan Lim
- * @author luke zhang, Ethan Lim
+ * @author Luke Zhang, Ethan Lim
  *
  * https://luke-zhang-04.github.io
  * https://github.com/ethanlim04
@@ -9,6 +9,7 @@
  * @license GPL-3.0-or-later
  */
 
+import {Breakpoints} from "../_globals"
 import {firestore as db} from "../_firebase"
 import type firebase from "firebase"
 
@@ -50,7 +51,7 @@ db?.collection("testimonials").get()
         }
     })
 
-if (window.innerWidth >= 767) {
+if (window.innerWidth >= Breakpoints.Md - 1) {
     let multiplyer = 1
 
     /* eslint-disable */

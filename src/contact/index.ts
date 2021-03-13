@@ -1,7 +1,7 @@
 /**
  * KK Cabinets
  * @copyright 2020 - 2021 Luke Zhang, Ethan Lim
- * @author luke zhang, Ethan Lim
+ * @author Luke Zhang, Ethan Lim
  *
  * https://luke-zhang-04.github.io
  * https://github.com/ethanlim04
@@ -9,23 +9,31 @@
  * @license GPL-3.0-or-later
  */
 
-/* eslint-disable */
-
 import {functions} from "../_firebase"
 
-const loader = document.getElementById("loader"),
-    loading = loader?.querySelector("h1")
+const loader = document.getElementById("loader")
+const loading = loader?.querySelector("h1")
+
+const enum Loading {
+    MaxLoadingTextLen = 13,
+    LoadingInterval = 250,
+}
+
+const enum Form {
+    EmailInterval = 60_000,
+    ProblemMax = 11,
+}
 
 if (loader && loading) {
     setInterval(() => {
         if (loader.classList.contains("active")) {
-            if (loading.innerText.length >= 13) {
+            if (loading.innerText.length >= Loading.MaxLoadingTextLen) {
                 loading.innerText = "Sending"
             } else {
                 loading.innerText = `${loading.innerText} .`
             }
         }
-    }, 250)
+    }, Loading.LoadingInterval)
 }
 
 const verifyMathProblem = (problem: string, answer: string): boolean => {
@@ -36,17 +44,20 @@ const verifyMathProblem = (problem: string, answer: string): boolean => {
 
 ((form: HTMLElement | null): void => {
     if (form) {
+        /* eslint-disable max-lines-per-function, max-statements */
         form.addEventListener("submit", (event): void => {
             event.preventDefault()
 
-            const name = (document.getElementById("contact-name") as HTMLInputElement).value,
-                email = (document.getElementById("contact-email") as HTMLInputElement).value,
-                comments = (document.getElementById("contact-comments") as HTMLInputElement).value,
-                problem = (document.getElementById("contact-problem") as HTMLSpanElement)
-                    .innerHTML
-                    .replace(/<span>/ug, "")
-                    .replace(/<\/span>/ug, ""),
-                answer = (document.getElementById("contact-answer") as HTMLInputElement).value
+            /* eslint-disable max-len */
+            const {value: name} = document.getElementById("contact-name") as HTMLInputElement
+            const {value: email} = document.getElementById("contact-email") as HTMLInputElement
+            const {value: comments} = document.getElementById("contact-comments") as HTMLInputElement
+            const problem = (document.getElementById("contact-problem") as HTMLSpanElement)
+                .innerHTML
+                .replace(/<span>/ug, "")
+                .replace(/<\/span>/ug, "")
+            const {value: answer} = document.getElementById("contact-answer") as HTMLInputElement
+            /* eslint-enable max-len */
 
             if (!localStorage.getItem("lastEmailSent")) {
                 localStorage.setItem("lastEmailSent", "0")
@@ -58,7 +69,7 @@ const verifyMathProblem = (problem: string, answer: string): boolean => {
                 alert("Please fill out all fields")
 
                 return
-            } else if (Date.now() - lastEmailSent <= 60000) {
+            } else if (Date.now() - lastEmailSent <= Form.EmailInterval) {
                 alert("Please wait before sending another email")
 
                 return
@@ -76,14 +87,14 @@ const verifyMathProblem = (problem: string, answer: string): boolean => {
 
             loader?.classList.add("active")
 
-            const sendEmail = functions.httpsCallable("contactFormSubmit"),
-                sentEmail = sendEmail({
-                    name,
-                    email,
-                    desc: comments,
-                    problem,
-                    answer,
-                })
+            const sendEmail = functions.httpsCallable("contactFormSubmit")
+            const sentEmail = sendEmail({
+                name,
+                email,
+                desc: comments,
+                problem,
+                answer,
+            })
 
             Promise.resolve(sentEmail).then((msg): void => {
                 loader?.classList.remove("active")
@@ -96,6 +107,7 @@ const verifyMathProblem = (problem: string, answer: string): boolean => {
                 }
             })
         })
+        /* eslint-enable max-lines-per-function, max-statements */
     }
 })(document.getElementById("contact-form"))
 
@@ -104,9 +116,9 @@ const generateMathProblem = (): void => {
 
     if (contactProblem) {
         const numbers = [
-            Math.floor(Math.random() * 11),
-            Math.floor(Math.random() * 11),
-            Math.floor(Math.random() * 11)
+            Math.floor(Math.random() * Form.ProblemMax),
+            Math.floor(Math.random() * Form.ProblemMax),
+            Math.floor(Math.random() * Form.ProblemMax),
         ]
 
         contactProblem.innerHTML = `<span>${numbers[0]}</span>+<span>${numbers[1]}</span>-<span>${numbers[2]}</span>` // Ugh stringed HTML

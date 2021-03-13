@@ -1,7 +1,7 @@
 /**
  * KK Cabinets
  * @copyright 2020 - 2021 Luke Zhang, Ethan Lim
- * @author luke zhang, Ethan Lim
+ * @author Luke Zhang, Ethan Lim
  *
  * https://luke-zhang-04.github.io
  * https://github.com/ethanlim04
@@ -15,6 +15,8 @@ import type firebase from "firebase"
 
 type Testimonials = {[key: number]: string}
 
+const breakpoint = 0.8
+
 const isTestimonials = (
     obj: firebase.firestore.DocumentData,
 ): obj is Testimonials => typeof obj === "object"
@@ -26,14 +28,14 @@ const handleScroll = (): void => {
 
     for (const element of elements) {
         if (
-            window.pageYOffset + window.screen.height * 0.8 >= element.offsetTop &&
+            window.pageYOffset + window.screen.height * breakpoint >= element.offsetTop &&
                 !element.classList.contains("raise")
         ) {
             element.classList.add("opaque") // Make text appear
             element.classList.add("raise")
             element.classList.remove("transparent") // Remove transparent class
         } else if (
-            window.pageYOffset + window.screen.height * 0.85 < element.offsetTop &&
+            window.pageYOffset + window.screen.height * (breakpoint + 0.5) < element.offsetTop &&
                 element.classList.contains("raise")
         ) {
             element.classList.remove("opaque") // Make text appear
