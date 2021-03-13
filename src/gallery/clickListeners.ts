@@ -1,7 +1,7 @@
 /**
  * KK Cabinets
  * @copyright 2020 - 2021 Luke Zhang, Ethan Lim
- * @author Luke Zhang, Ethan Lim
+ * @author luke zhang, Ethan Lim
  *
  * https://luke-zhang-04.github.io
  * https://github.com/ethanlim04
@@ -75,15 +75,15 @@ document.querySelectorAll<HTMLElement>(".furniture_dropdown")
                     }
                 }
 
-                const icon = event.target.querySelector<HTMLElement>("span"),
-                    filterChoice = event.target.id.replace("_furniture", "")
+                const icon = event.target.querySelector<HTMLElement>("span")
+                const filterChoice = event.target.id.replace("_furniture", "")
 
                 if (icon) {
                     icon.innerHTML = "done"
                 }
 
-                let shouldshowCabinets: boolean | undefined = true,
-                    shouldshowCountertop: boolean | undefined = true
+                let shouldshowCabinets: boolean | undefined = true
+                let shouldshowCountertop: boolean | undefined = true
 
                 switch (filterChoice) {
                 case "both": // If current setting is both countertops and cabinets

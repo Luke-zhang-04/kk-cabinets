@@ -1,7 +1,7 @@
 /**
  * KK Cabinets
  * @copyright 2020 - 2021 Luke Zhang, Ethan Lim
- * @author Luke Zhang, Ethan Lim
+ * @author luke zhang, Ethan Lim
  *
  * https://luke-zhang-04.github.io
  * https://github.com/ethanlim04
@@ -40,8 +40,8 @@ db?.collection("testimonials").get()
         const data = snapshot.docs[0].data()
 
         if (isTestimonials(data)) {
-            const testimonials = Object.values(data),
-                container = document.getElementById("testimonial")
+            const testimonials = Object.values(data)
+            const container = document.getElementById("testimonial")
 
             if (container) {
                 container.innerText =
