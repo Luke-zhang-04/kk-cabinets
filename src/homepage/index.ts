@@ -23,7 +23,6 @@ const timelines = [],
     controller = new ScrollMagic.Controller()
 /* eslint-enable one-var, @typescript-eslint/naming-convention */
 
-
 type Testimonials = {[key: number]: string}
 
 type TimelineArgs = [
@@ -32,11 +31,11 @@ type TimelineArgs = [
     position?: string | number | undefined,
 ]
 
-const isTestimonials = (
-    obj: firebase.firestore.DocumentData,
-): obj is Testimonials => typeof obj === "object"
+const isTestimonials = (obj: firebase.firestore.DocumentData): obj is Testimonials =>
+    typeof obj === "object"
 
-db?.collection("testimonials").get()
+db?.collection("testimonials")
+    .get()
     .then((snapshot): void => {
         const data = snapshot.docs[0].data()
 
@@ -45,8 +44,7 @@ db?.collection("testimonials").get()
             const container = document.getElementById("testimonial")
 
             if (container) {
-                container.innerText =
-                    testimonials[Math.floor(Math.random() * testimonials.length)]
+                container.innerText = testimonials[Math.floor(Math.random() * testimonials.length)]
             }
         }
     })

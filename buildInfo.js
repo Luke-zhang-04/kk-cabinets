@@ -27,7 +27,7 @@ if (require.main === module) {
     const stdinBuffer = fs.readFileSync(0, "utf-8") // STDIN_FILENO = 0,
     let [file, checksum] = stdinBuffer.toString().trim().split(":")
 
-    checksum = checksum.replace(/-/gui, "").trim()
+    checksum = checksum.replace(/-/giu, "").trim()
 
     if (buildInfo[file] && buildInfo[file] === checksum) {
         console.log(0)

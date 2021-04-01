@@ -3,9 +3,7 @@
  * @param arr - array to split
  * @param chunkSize - size of array chunks
  */
-export const arrayToChunks = <T extends unknown>(
-    arr: T[], chunkCount = 3,
-): T[][] => {
+export const arrayToChunks = <T extends unknown>(arr: T[], chunkCount = 3): T[][] => {
     const chunks: T[][] = []
 
     for (const [index, item] of arr.entries()) {

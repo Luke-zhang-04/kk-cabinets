@@ -9,49 +9,57 @@
  * @license GPL-3.0-or-later
  */
 
-
 // Filter Expanding
-document.querySelectorAll<HTMLElement>(".expand-filter")
-    .forEach((element, index) => {
-        element.addEventListener("click", () => {
-            const filter = document.querySelector(`#filter${index}`)
+document.querySelectorAll<HTMLElement>(".expand-filter").forEach((element, index) => {
+    element.addEventListener("click", () => {
+        const filter = document.querySelector(`#filter${index}`)
 
-            if (filter && filter instanceof HTMLElement) {
-                if (filter.style.maxHeight) {
-                    filter.style.maxHeight = ""
-                } else {
-                    filter.style.maxHeight = `${filter.scrollHeight}px`
-                }
+        if (filter && filter instanceof HTMLElement) {
+            if (filter.style.maxHeight) {
+                filter.style.maxHeight = ""
+            } else {
+                filter.style.maxHeight = `${filter.scrollHeight}px`
             }
-        })
+        }
     })
+})
 
 // Toggler for pattern fitler
-document.querySelector<HTMLElement>("#pattern_toggle")
+document
+    .querySelector<HTMLElement>("#pattern_toggle")
     ?.addEventListener("click", async (event) => {
         const {gallery} = await import("./index")
 
         if (event.target instanceof HTMLElement) {
             const icon = event.target.querySelector("span")
 
-            if (icon?.innerText === "remove") { // If current setting is either or
+            if (icon?.innerText === "remove") {
+                // If current setting is either or
                 icon.innerText = "clear"
-                gallery.setState({activeFilters: {
-                    ...gallery.getState.activeFilters,
-                    pattern: false,
-                }})
-            } else if (icon?.innerText === "clear") { // If current setting is no pattern
+                gallery.setState({
+                    activeFilters: {
+                        ...gallery.getState.activeFilters,
+                        pattern: false,
+                    },
+                })
+            } else if (icon?.innerText === "clear") {
+                // If current setting is no pattern
                 icon.innerText = "done"
-                gallery.setState({activeFilters: {
-                    ...gallery.getState.activeFilters,
-                    pattern: true,
-                }})
-            } else if (icon?.innerText === "done") { // If current setting is with a pattern
+                gallery.setState({
+                    activeFilters: {
+                        ...gallery.getState.activeFilters,
+                        pattern: true,
+                    },
+                })
+            } else if (icon?.innerText === "done") {
+                // If current setting is with a pattern
                 icon.innerText = "remove"
-                gallery.setState({activeFilters: {
-                    ...gallery.getState.activeFilters,
-                    pattern: undefined,
-                }})
+                gallery.setState({
+                    activeFilters: {
+                        ...gallery.getState.activeFilters,
+                        pattern: undefined,
+                    },
+                })
             }
 
             gallery.applyFilters()
@@ -59,73 +67,74 @@ document.querySelector<HTMLElement>("#pattern_toggle")
     })
 
 // Toggler for furniture types
-document.querySelectorAll<HTMLElement>(".furniture_dropdown")
-    .forEach((element) => {
-        const furnitureDropdowns = ["either", "both", "countertop", "cabinets"]
+document.querySelectorAll<HTMLElement>(".furniture_dropdown").forEach((element) => {
+    const furnitureDropdowns = ["either", "both", "countertop", "cabinets"]
 
-        element.addEventListener("click", async (event) => {
-            if (event.target instanceof HTMLElement) {
-                const {gallery} = await import("./index")
+    element.addEventListener("click", async (event) => {
+        if (event.target instanceof HTMLElement) {
+            const {gallery} = await import("./index")
 
-                for (const dropdown of furnitureDropdowns) {
-                    const dropdownBtn = document.querySelector<HTMLElement>(`#${dropdown}_furniture span`)
+            for (const dropdown of furnitureDropdowns) {
+                const dropdownBtn = document.querySelector<HTMLElement>(
+                    `#${dropdown}_furniture span`,
+                )
 
-                    if (dropdownBtn) {
-                        dropdownBtn.innerText = ""
-                    }
+                if (dropdownBtn) {
+                    dropdownBtn.innerText = ""
                 }
+            }
 
-                const icon = event.target.querySelector<HTMLElement>("span")
-                const filterChoice = event.target.id.replace("_furniture", "")
+            const icon = event.target.querySelector<HTMLElement>("span")
+            const filterChoice = event.target.id.replace("_furniture", "")
 
-                if (icon) {
-                    icon.innerHTML = "done"
-                }
+            if (icon) {
+                icon.innerHTML = "done"
+            }
 
-                let shouldshowCabinets: boolean | undefined = true
-                let shouldshowCountertop: boolean | undefined = true
+            let shouldShowCabinets: boolean | undefined = true
+            let shouldShowCountertops: boolean | undefined = true
 
-                switch (filterChoice) {
+            switch (filterChoice) {
                 case "both": // If current setting is both countertops and cabinets
-                    shouldshowCabinets = true
-                    shouldshowCountertop = true
+                    shouldShowCabinets = true
+                    shouldShowCountertops = true
                     break
 
                 case "either": // If current setting is either countertops or cabinets
-                    shouldshowCabinets = undefined
-                    shouldshowCountertop = undefined
+                    shouldShowCabinets = undefined
+                    shouldShowCountertops = undefined
                     break
 
                 case "countertop": // If current setting is countertops only
-                    shouldshowCabinets = false
-                    shouldshowCountertop = true
+                    shouldShowCabinets = false
+                    shouldShowCountertops = true
                     break
 
                 case "cabinets": // If current setting is cabinets only
-                    shouldshowCabinets = true
-                    shouldshowCountertop = false
+                    shouldShowCabinets = true
+                    shouldShowCountertops = false
                     break
 
-                default: break
-                }
-
-                gallery.setState({activeFilters: {
-                    ...gallery.getState.activeFilters,
-                    cabinets: shouldshowCabinets,
-                    countertop: shouldshowCountertop,
-                }})
-
-
-                gallery.applyFilters()
+                default:
+                    break
             }
-        })
-    })
 
-document.querySelector<HTMLElement>("#clear-filters")
-    ?.addEventListener("click", async () => (
-        (await import("./index")).gallery.clearFilters()
-    ))
-document.querySelector<HTMLElement>("#apply-filters")
-    ?.addEventListener("click", async () => (
-        (await import("./index")).gallery.applyFilters()
-    ))
+            gallery.setState({
+                activeFilters: {
+                    ...gallery.getState.activeFilters,
+                    cabinets: shouldShowCabinets,
+                    countertop: shouldShowCountertops,
+                },
+            })
+
+            gallery.applyFilters()
+        }
+    })
+})
+
+document
+    .querySelector<HTMLElement>("#clear-filters")
+    ?.addEventListener("click", async () => (await import("./index")).gallery.clearFilters())
+document
+    .querySelector<HTMLElement>("#apply-filters")
+    ?.addEventListener("click", async () => (await import("./index")).gallery.applyFilters())

@@ -10,39 +10,35 @@
  */
 
 export type FilterOptions = {
-    colours: string[],
-    materials: string[],
-    furniture: ["cabinets", "countertop"],
-    pattern?: boolean,
-    locations: string[],
+    colours: string[]
+    materials: string[]
+    furniture: ["cabinets", "countertop"]
+    pattern?: boolean
+    locations: string[]
 }
 
 export type ActiveFilters = {
-    colours: FilterOptions["colours"],
-    materials: FilterOptions["materials"],
-    cabinets?: boolean,
-    countertop?: boolean,
-    pattern: FilterOptions["pattern"],
-    locations: FilterOptions["locations"],
+    colours: FilterOptions["colours"]
+    materials: FilterOptions["materials"]
+    cabinets?: boolean
+    countertop?: boolean
+    pattern: FilterOptions["pattern"]
+    locations: FilterOptions["locations"]
 }
 
 export type GalleryItem = {
     details: {
-        colour: string,
+        colour: string
         furniture: {
-            cabinet: boolean,
-            countertop: true,
-        },
-        location: string,
-        material: string,
-        pattern: boolean,
-    },
-    file: string,
+            cabinet: boolean
+            countertop: true
+        }
+        location: string
+        material: string
+        pattern: boolean
+    }
+    file: string
 }
 
-export const isGalleryItem = (
-    obj: {[key: string]: unknown},
-): obj is GalleryItem => (
-    typeof obj?.file === "string" &&
-    obj.details instanceof Object
-)
+export const isGalleryItem = (obj: {[key: string]: unknown}): obj is GalleryItem =>
+    typeof obj?.file === "string" && obj.details instanceof Object

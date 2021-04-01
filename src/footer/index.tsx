@@ -19,9 +19,9 @@ document.querySelector("footer.page-footer")?.appendChild(
                     <h5 class="text-uppercase">KK Cabinets</h5>
                     <p>
                         <b>Business Hours</b>
-                        <br/>
+                        <br />
                         Monday to Friday . . . . . 10 am - 5 pm
-                        <br/>
+                        <br />
                         Saturday . . . . . . . . . . . . . . 10 am - 2 pm
                     </p>
                     <p>
@@ -32,7 +32,7 @@ document.querySelector("footer.page-footer")?.appendChild(
                     </p>
                 </div>
 
-                <hr class="clearfix w-100 d-md-none pb-3"/>
+                <hr class="clearfix w-100 d-md-none pb-3" />
 
                 <div class="col-md-3 mb-md-0 mb-3">
                     <h5 class="text-uppercase">Navigation</h5>
@@ -61,26 +61,22 @@ document.querySelector("footer.page-footer")?.appendChild(
                     <ul class="list-unstyled">
                         <li>
                             <p style="margin-block-end: 0;">
-                                <i class="material-icons">phone</i>
-                                {" "}(519) 578-9123
+                                <i class="material-icons">phone</i> (519) 578-9123
                             </p>
                         </li>
                         <li>
                             <a style="color: white" href="mailto:info@kkcabinets.ca">
-                                <i class="material-icons">email</i>
-                                {" "}info@kkcabinets.ca
+                                <i class="material-icons">email</i> info@kkcabinets.ca
                             </a>
                         </li>
                         <li>
                             <a style="color: white" href="mailto:kkcabinets2000@gmail.com">
-                                <i class="material-icons">email</i>
-                                {" "}kkcabinets2000@gmail.com
+                                <i class="material-icons">email</i> kkcabinets2000@gmail.com
                             </a>
                         </li>
                         <li>
                             <a style="color: white" href="https://www.facebook.com/kkcabinetskw/">
-                                <i class="fab fa-facebook-square fa-lg"/>
-                                {" "}kkcabinetskw
+                                <i class="fab fa-facebook-square fa-lg" /> kkcabinetskw
                             </a>
                         </li>
                     </ul>

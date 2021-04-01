@@ -61,10 +61,7 @@ const niceTry = (func) => {
  * @returns {string}
  */
 const dependencyToString = (dep) => {
-    const lines = [
-        `${dep.name} ${dep.version}`,
-        `License: ${dep.license}`,
-    ]
+    const lines = [`${dep.name} ${dep.version}`, `License: ${dep.license}`]
 
     if (dep.homepage) {
         lines.push(`${dep.homepage}`)
@@ -179,7 +176,7 @@ const config = async () => {
                     file: `${process.env.NODE_ENV === "dev" ? "public" : "build"}/js/${script}.js`,
                     format: "iife",
                     banner: process.env.NODE_ENV === "dev" ? undefined : banner(script),
-                    sourcemap: (process.env.NODE_ENV !== "dev") || "inline"
+                    sourcemap: process.env.NODE_ENV !== "dev" || "inline",
                 },
                 plugins: plugins(script),
             })

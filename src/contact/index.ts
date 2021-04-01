@@ -42,9 +42,23 @@ const verifyMathProblem = (problem: string, answer: string): boolean => {
     const numbers = problem.split(/\+|-/gu).map(Number)
 
     return numbers[0] + numbers[1] - numbers[2] === Number(answer)
-};
+}
 
-((form: HTMLElement | null): void => {
+const generateMathProblem = (): void => {
+    const contactProblem = document.getElementById("contact-problem")
+
+    if (contactProblem) {
+        const numbers = [
+            Math.floor(Math.random() * Form.ProblemMax),
+            Math.floor(Math.random() * Form.ProblemMax),
+            Math.floor(Math.random() * Form.ProblemMax),
+        ]
+
+        contactProblem.innerHTML = `<span>${numbers[0]}</span>+<span>${numbers[1]}</span>-<span>${numbers[2]}</span>` // Ugh stringed HTML
+    }
+}
+
+;((form: HTMLElement | null): void => {
     if (form) {
         /* eslint-disable max-lines-per-function, max-statements */
         form.addEventListener("submit", (event): void => {
@@ -53,11 +67,14 @@ const verifyMathProblem = (problem: string, answer: string): boolean => {
             /* eslint-disable max-len */
             const {value: name} = document.getElementById("contact-name") as HTMLInputElement
             const {value: email} = document.getElementById("contact-email") as HTMLInputElement
-            const {value: comments} = document.getElementById("contact-comments") as HTMLInputElement
-            const problem = (document.getElementById("contact-problem") as HTMLSpanElement)
-                .innerHTML
-                .replace(/<span>/ug, "")
-                .replace(/<\/span>/ug, "")
+            const {value: comments} = document.getElementById(
+                "contact-comments",
+            ) as HTMLInputElement
+            const problem = (document.getElementById(
+                "contact-problem",
+            ) as HTMLSpanElement).innerHTML
+                .replace(/<span>/gu, "")
+                .replace(/<\/span>/gu, "")
             const {value: answer} = document.getElementById("contact-answer") as HTMLInputElement
             /* eslint-enable max-len */
 
@@ -112,19 +129,5 @@ const verifyMathProblem = (problem: string, answer: string): boolean => {
         /* eslint-enable max-lines-per-function, max-statements */
     }
 })(document.getElementById("contact-form"))
-
-const generateMathProblem = (): void => {
-    const contactProblem = document.getElementById("contact-problem")
-
-    if (contactProblem) {
-        const numbers = [
-            Math.floor(Math.random() * Form.ProblemMax),
-            Math.floor(Math.random() * Form.ProblemMax),
-            Math.floor(Math.random() * Form.ProblemMax),
-        ]
-
-        contactProblem.innerHTML = `<span>${numbers[0]}</span>+<span>${numbers[1]}</span>-<span>${numbers[2]}</span>` // Ugh stringed HTML
-    }
-}
 
 generateMathProblem()

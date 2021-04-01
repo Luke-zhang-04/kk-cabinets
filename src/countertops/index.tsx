@@ -13,14 +13,12 @@ import * as DeStagnate from "destagnate/lib/createElementOnly"
 import {firestore as db, storage} from "../_firebase"
 
 type Countertop = {
-    caption: string,
-    file: string,
+    caption: string
+    file: string
 }
 
-const isCountertop = (obj: {[key: string]: unknown}): obj is Countertop => (
-    typeof obj.caption === "string" &&
-        typeof obj.file === "string"
-)
+const isCountertop = (obj: {[key: string]: unknown}): obj is Countertop =>
+    typeof obj.caption === "string" && typeof obj.file === "string"
 
 const columns = document.querySelectorAll("#row .responsive_column")
 
@@ -39,7 +37,9 @@ const displayCountertops = async (): Promise<void> => {
     if (db && storage) {
         const storageRef = storage.ref("countertops")
 
-        const data = await db.collection("countertops").get()
+        const data = await db
+            .collection("countertops")
+            .get()
             .then((snapshot): {[key: string]: Countertop} => {
                 const _data: {[key: string]: Countertop} = {}
 
@@ -60,18 +60,17 @@ const displayCountertops = async (): Promise<void> => {
 
         for (const [index, countertop] of Object.values(data).entries()) {
             // eslint-disable-next-line
-                const imageUrl = await storageRef.child(countertop.file).getDownloadURL() as string
+            const imageUrl = (await storageRef.child(countertop.file).getDownloadURL()) as string
 
             if (typeof imageUrl === "string") {
                 const column = columns[index % 4]
 
                 column.append(
                     <div class="image_container" id={index.toString()}>
-                        <img
-                            src={imageUrl}
-                            onClick={(): void => expand(index)}
-                        />
-                        <div class="details"><p>{countertop.caption}</p></div>
+                        <img src={imageUrl} onClick={(): void => expand(index)} />
+                        <div class="details">
+                            <p>{countertop.caption}</p>
+                        </div>
                     </div>,
                 )
             }

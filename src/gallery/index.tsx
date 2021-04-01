@@ -16,6 +16,8 @@ import {firestore as db} from "../_firebase"
 import lozad from "lozad"
 import utils from "./utils"
 
+/* eslint-disable @typescript-eslint/no-magic-numbers */
+
 type GalleryParams = "colour" | "material" | "location"
 
 type FilterKeys = `${GalleryParams}s`
@@ -25,7 +27,7 @@ type FilterKeys = `${GalleryParams}s`
  */
 enum Values {
     ImageUrl = "https://firebasestorage.googleapis.com/v0/b/kk-cabinets.appspot.com/o/gallery%2F",
-    UrlPrefix = "?alt=media"
+    UrlPrefix = "?alt=media",
 }
 
 const galleryData: {[key: string]: Types.GalleryItem} = {}
@@ -41,17 +43,16 @@ const filterOptions: Types.FilterOptions = {
 const infoTypes: GalleryParams[] = ["colour", "material", "location"]
 
 type State = {
-    activeFilters: Types.ActiveFilters,
-    galleryItems: Types.GalleryItem[],
+    activeFilters: Types.ActiveFilters
+    galleryItems: Types.GalleryItem[]
 }
 
 const capitalizeFirst = (str: string): string => str[0].toUpperCase() + str.slice(1)
 
-class Gallery extends DeStagnate.Component<Record<string, unknown>, State> {
-
+class Gallery extends DeStagnate.Component<{[key: string]: unknown}, State> {
     public isfirstRender = true
 
-    public constructor (parent: HTMLElement) {
+    public constructor(parent: HTMLElement) {
         super(parent)
 
         this.state = {
@@ -88,22 +89,24 @@ class Gallery extends DeStagnate.Component<Record<string, unknown>, State> {
     }
 
     public clearFilters = (): void => {
-        this.setState({activeFilters: {
-            colours: [],
-            materials: [],
-            cabinets: undefined,
-            countertop: undefined,
-            pattern: undefined,
-            locations: [],
-        }})
+        this.setState({
+            activeFilters: {
+                colours: [],
+                materials: [],
+                cabinets: undefined,
+                countertop: undefined,
+                pattern: undefined,
+                locations: [],
+            },
+        })
 
-        document.querySelectorAll<HTMLElement>(".dropdown_menu .material-icons")
+        document
+            .querySelectorAll<HTMLElement>(".dropdown_menu .material-icons")
             .forEach((icon) => {
                 icon.innerText = "done"
             })
 
-        const patternToggle =
-            document.querySelector<HTMLElement>("#pattern_toggle span")
+        const patternToggle = document.querySelector<HTMLElement>("#pattern_toggle span")
 
         if (patternToggle) {
             patternToggle.innerText = "remove"
@@ -120,26 +123,32 @@ class Gallery extends DeStagnate.Component<Record<string, unknown>, State> {
         const {activeFilters} = this.state
 
         for (const item of Object.values(galleryData)) {
-            let isfiltered = false
+            let isFiltered = false
 
-            for (const filter of filterTypes) { // Make sure the filters don't catch this item
+            for (const filter of filterTypes) {
+                // Make sure the filters don't catch this item
                 if (activeFilters[`${filter}s` as FilterKeys].includes(item.details[filter])) {
-                    isfiltered = true
+                    isFiltered = true
 
                     break
                 }
             }
 
             if (
-                isfiltered ||
-                activeFilters.pattern !== undefined && item.details.pattern !== activeFilters.pattern
+                isFiltered ||
+                (activeFilters.pattern !== undefined &&
+                    item.details.pattern !== activeFilters.pattern)
             ) {
                 continue
-            } else if (activeFilters.countertop !== undefined && activeFilters.cabinets !== undefined) {
-                const didmatch = item.details.furniture.countertop !== activeFilters.countertop ||
+            } else if (
+                activeFilters.countertop !== undefined &&
+                activeFilters.cabinets !== undefined
+            ) {
+                const didMatch =
+                    item.details.furniture.countertop !== activeFilters.countertop ||
                     item.details.furniture.cabinet !== activeFilters.cabinets
 
-                if (didmatch) {
+                if (didMatch) {
                     continue
                 }
             }
@@ -153,43 +162,50 @@ class Gallery extends DeStagnate.Component<Record<string, unknown>, State> {
     public render = (): JSX.Element[] => {
         let data = utils.arrayToChunks(this.state.galleryItems, 4)
 
-        if (this.isfirstRender) { // Enable lazy loading
+        if (this.isfirstRender) {
+            // Enable lazy loading
             data = data.map((items) => items.slice(0, 6))
         }
 
-        return data.map((items) => <div class="responsive_column">
-            {items.map((item) => <div class="image_container">
-                <img
-                    class="lozad"
-                    data-src={`${Values.ImageUrl}${item.file}${Values.UrlPrefix}`}
-                    onClick={Gallery.handleImageClick}
-                />
-                <div class="details">
-                    <p>
-                        <br/>
-                        {`Colour: ${capitalizeFirst(item.details.colour)}`}
-                        <br/>
-                        {`Furniture: ${((): string => {
-                            if (item.details.furniture.countertop && item.details.furniture.cabinet) {
-                                return "Countertop and Cabinets"
-                            }
+        return data.map((items) => (
+            <div class="responsive_column">
+                {items.map((item) => (
+                    <div class="image_container">
+                        <img
+                            class="lozad"
+                            data-src={`${Values.ImageUrl}${item.file}${Values.UrlPrefix}`}
+                            onClick={Gallery.handleImageClick}
+                        />
+                        <div class="details">
+                            <p>
+                                <br />
+                                {`Colour: ${capitalizeFirst(item.details.colour)}`}
+                                <br />
+                                {`Furniture: ${((): string => {
+                                    if (
+                                        item.details.furniture.countertop &&
+                                        item.details.furniture.cabinet
+                                    ) {
+                                        return "Countertop and Cabinets"
+                                    }
 
-                            return item.details.furniture.cabinet
-                                ? "Cabinet"
-                                : "Countertop"
-                        })()}`}
-                        <br/>
-                        {`Location: ${capitalizeFirst(item.details.location)}`}
-                        <br/>
-                        {`Material: ${capitalizeFirst(item.details.material)}`}
-                        <br/>
-                        {`Pattern: ${item.details.pattern ? "Yes" : "None"}`}
-                    </p>
-                </div>
-            </div>)}
-        </div>)
+                                    return item.details.furniture.cabinet
+                                        ? "Cabinet"
+                                        : "Countertop"
+                                })()}`}
+                                <br />
+                                {`Location: ${capitalizeFirst(item.details.location)}`}
+                                <br />
+                                {`Material: ${capitalizeFirst(item.details.material)}`}
+                                <br />
+                                {`Pattern: ${item.details.pattern ? "Yes" : "None"}`}
+                            </p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        ))
     }
-
 }
 
 const row = document.querySelector<HTMLElement>(".responive_row#row")
@@ -203,21 +219,28 @@ export const gallery = new Gallery(row)
 gallery.mount()
 
 const createFilterButtons = (): void => {
-    for (const [count, infoType] of infoTypes.entries()) { // Iterate through each filter type
-        for (const info of filterOptions[`${infoType}s` as FilterKeys]) { // Within these types, get all filter options
+    for (const [count, infoType] of infoTypes.entries()) {
+        // Iterate through each filter type
+        for (const info of filterOptions[`${infoType}s` as FilterKeys]) {
+            // Within these types, get all filter options
             const id = `${info}_${infoType}` // Unique id for each button
 
             /* eslint-disable no-loop-func */
-            const onClick = (event: MouseEvent): void => { // Handle filter clicks
+            const onClick = (event: MouseEvent): void => {
+                // Handle filter clicks
                 const filterName = info
                 const filterType = `${infoType}s` as FilterKeys
                 const {activeFilters} = gallery.getState
 
                 if (activeFilters[filterType].includes(filterName)) {
-                    gallery.setState({activeFilters: {
-                        ...activeFilters,
-                        [filterType]: activeFilters[filterType].filter((val) => val !== filterName), // Remove an element
-                    }})
+                    gallery.setState({
+                        activeFilters: {
+                            ...activeFilters,
+                            [filterType]: activeFilters[filterType].filter(
+                                (val) => val !== filterName,
+                            ), // Remove an element
+                        },
+                    })
 
                     if (event.target instanceof HTMLElement) {
                         const icon = event.target.querySelector("span")
@@ -227,10 +250,12 @@ const createFilterButtons = (): void => {
                         }
                     }
                 } else {
-                    gallery.setState({activeFilters: {
-                        ...activeFilters,
-                        [filterType]: [...activeFilters[filterType], filterName],
-                    }})
+                    gallery.setState({
+                        activeFilters: {
+                            ...activeFilters,
+                            [filterType]: [...activeFilters[filterType], filterName],
+                        },
+                    })
 
                     if (event.target instanceof HTMLElement) {
                         const icon = event.target.querySelector("span")
@@ -244,22 +269,21 @@ const createFilterButtons = (): void => {
                 gallery.applyFilters()
             }
 
-            document.querySelector(`#filter${count}`)?.appendChild( // Create button for seleting filter
-                <button
-                    class="dropdown_menu"
-                    id={id}
-                    onClick={onClick}
-                >
+            document.querySelector(`#filter${count}`)?.appendChild(
+                // Create button for seleting filter
+                <button class="dropdown_menu" id={id} onClick={onClick}>
                     {info}
-                    <span style="float: right;" class="material-icons">done</span>
+                    <span style="float: right;" class="material-icons">
+                        done
+                    </span>
                 </button>,
             )
         }
     }
-};
+}
 
-(async (): Promise<void> => {
-    (await db?.collection("gallery").get())?.forEach((doc): void => {
+;(async (): Promise<void> => {
+    ;(await db?.collection("gallery").get())?.forEach((doc): void => {
         const docData = doc.data()
 
         if (Types.isGalleryItem(docData)) {
@@ -267,10 +291,9 @@ const createFilterButtons = (): void => {
 
             const {details} = docData
 
-            for (const infoType of infoTypes) { // Add filters
-                const detail = details[infoType].replace(/ /gu, "")
-                    ? details[infoType]
-                    : "mixed"
+            for (const infoType of infoTypes) {
+                // Add filters
+                const detail = details[infoType].replace(/ /gu, "") ? details[infoType] : "mixed"
 
                 // If filter category not included yet, push it
                 if (!filterOptions[`${infoType}s` as FilterKeys].includes(detail)) {
@@ -290,11 +313,11 @@ const createFilterButtons = (): void => {
 })()
 
 const handleScroll = (): void => {
-    const row = document.querySelector<HTMLElement>(".responive_row")
+    const _row = document.querySelector<HTMLElement>(".responive_row")
 
-    if (row) {
+    if (_row) {
         const scrolledAt = window.scrollY + window.innerHeight
-        const target = row.scrollHeight + row.offsetTop
+        const target = _row.scrollHeight + _row.offsetTop
 
         if (scrolledAt >= target) {
             gallery.forceUpdate()
