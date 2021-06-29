@@ -10,8 +10,8 @@
  */
 
 import "./clickListeners"
+import * as DeStagnate from "destagnate"
 import * as Types from "./types"
-import DeStagnate from "destagnate"
 import {firestore as db} from "../_firebase"
 import lozad from "lozad"
 import utils from "./utils"

@@ -12,7 +12,8 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^4.14.1
   '@typescript-eslint/parser': ^4.14.1
   bootstrap: 4.4.1
-  destagnate: ^2.0.0
+  core-js: ^3.15.2
+  destagnate: ^2.1.0
   eslint: ^7.19.0
   eslint-config-recommended: ^4.1.0
   eslint-plugin-prefer-arrow: ^1.2.3
@@ -23,12 +24,13 @@ specifiers:
   prettier: ^2.2.1
   rollup: ^2.38.0
   rollup-plugin-filesize: ^9.1.0
-  rollup-plugin-license: ^2.3.0
+  rollup-plugin-license: ^2.5.0
   rollup-plugin-progress: ^1.1.2
   rollup-plugin-terser: ^7.0.2
-  sass: ^1.32.5
+  sass: ~1.32.5
   stylelint: ^13.9.0
   stylelint-config-standard: ^20.0.0
+  tslib: ^2.3.0
   typescript: ^4.1.3
 
 dependencies:
@@ -41,12 +43,13 @@ devDependencies:
   '@babel/preset-env': 7.14.7_@babel+core@7.14.6
   '@rollup/plugin-babel': 5.3.0_@babel+core@7.14.6+rollup@2.52.3
   '@rollup/plugin-node-resolve': 11.2.1_rollup@2.52.3
-  '@rollup/plugin-typescript': 8.2.1_rollup@2.52.3+typescript@4.3.4
+  '@rollup/plugin-typescript': 8.2.1_f98a8762ffe7e6cea3574877623d19a6
   '@types/jquery': 3.5.5
   '@types/lozad': 1.16.0
   '@types/scrollmagic': 2.0.1
   '@typescript-eslint/eslint-plugin': 4.28.1_20a3b80fca6a1319695de43eee7865f8
   '@typescript-eslint/parser': 4.28.1_eslint@7.29.0+typescript@4.3.4
+  core-js: 3.15.2
   eslint: 7.29.0
   eslint-config-recommended: 4.1.0
   eslint-plugin-prefer-arrow: 1.2.3_eslint@7.29.0
@@ -59,9 +62,10 @@ devDependencies:
   rollup-plugin-license: 2.5.0_rollup@2.52.3
   rollup-plugin-progress: 1.1.2
   rollup-plugin-terser: 7.0.2_rollup@2.52.3
-  sass: 1.35.1
+  sass: 1.32.13
   stylelint: 13.13.1
   stylelint-config-standard: 20.0.0_stylelint@13.13.1
+  tslib: 2.3.0
   typescript: 4.3.4
 
 packages:
@@ -1653,7 +1657,7 @@ packages:
       rollup: 2.52.3
     dev: true
 
-  /@rollup/plugin-typescript/8.2.1_rollup@2.52.3+typescript@4.3.4:
+  /@rollup/plugin-typescript/8.2.1_f98a8762ffe7e6cea3574877623d19a6:
     resolution: {integrity: sha512-Qd2E1pleDR4bwyFxqbjt4eJf+wB0UKVMLc7/BAFDGVdAXQMCsD4DUv5/7/ww47BZCYxWtJqe1Lo0KVNswBJlRw==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
@@ -1664,6 +1668,7 @@ packages:
       '@rollup/pluginutils': 3.1.0_rollup@2.52.3
       resolve: 1.20.0
       rollup: 2.52.3
+      tslib: 2.3.0
       typescript: 4.3.4
     dev: true
 
@@ -2487,6 +2492,11 @@ packages:
     dependencies:
       browserslist: 4.16.6
       semver: 7.0.0
+    dev: true
+
+  /core-js/3.15.2:
+    resolution: {integrity: sha512-tKs41J7NJVuaya8DxIOCnl8QuPHx5/ZVbFo1oKgVl1qHFBBrDctzQGtuLjPpRdNTWmKPH6oEvgN/MUID+l485Q==}
+    requiresBuild: true
     dev: true
 
   /core-js/3.6.5:
@@ -5306,8 +5316,8 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass/1.35.1:
-    resolution: {integrity: sha512-oCisuQJstxMcacOPmxLNiLlj4cUyN2+8xJnG7VanRoh2GOLr9RqkvI4AxA4a6LHVg/rsu+PmxXeGhrdSF9jCiQ==}
+  /sass/1.32.13:
+    resolution: {integrity: sha512-dEgI9nShraqP7cXQH+lEXVf73WOPCse0QlFzSD8k+1TcOxCMwVXfQlr0jtoluZysQOyJGnfr21dLvYKDJq8HkA==}
     engines: {node: '>=8.9.0'}
     hasBin: true
     dependencies:
