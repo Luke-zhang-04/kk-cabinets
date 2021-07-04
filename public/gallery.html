@@ -108,117 +108,7 @@
       </div>
     </nav>
 
-    <div class="accordion" id="advancedSearch">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
-            <button
-              class="btn btn-link text-dark"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-            >
-              Advanced search
-            </button>
-          </h5>
-        </div>
-
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#advancedSearch">
-          <div class="card-body">
-            <p>Choose what categories you want to filter out</p>
-            <h5>/</h5>
-            <p>
-              <span class="material-icons">remove</span>
-              neutral - include all
-              <br />
-              <span class="material-icons">done</span>
-              included
-              <br />
-              <span class="material-icons">clear</span>
-              not included
-            </p>
-            <div class="row">
-              <div class="col-12 col-md-4 col-lg-2 filters">
-                <!--dropdown-->
-                <button style="width: 100%" class="btn btn-secondary-reverse expand-filter">
-                  Colours
-                  <span class="material-icons">arrow_drop_down</span>
-                </button>
-                <div id="filter0"></div>
-              </div>
-
-              <div class="col-12 col-md-4 col-lg-2 filters">
-                <button style="width: 100%" class="btn btn-secondary expand-filter">
-                  Materials
-                  <span class="material-icons">arrow_drop_down</span>
-                </button>
-                <div id="filter1"></div>
-              </div>
-
-              <div class="col-12 col-md-4 col-lg-2 filters">
-                <button style="width: 100%" class="btn btn-secondary-reverse expand-filter">
-                  Location
-                  <span class="material-icons">arrow_drop_down</span>
-                </button>
-                <div id="filter2"></div>
-              </div>
-
-              <div class="col-12 col-md-4 col-lg-2 filters">
-                <button style="width: 100%" class="btn btn-secondary expand-filter">
-                  Furniture
-                  <span class="material-icons">arrow_drop_down</span>
-                </button>
-                <div id="filter3">
-                  <button class="dropdown_menu furniture_dropdown" id="cabinets_furniture">
-                    cabinets
-                    <span style="float: right" class="material-icons"></span>
-                  </button>
-                  <button class="dropdown_menu furniture_dropdown" id="countertop_furniture">
-                    countertops
-                    <span style="float: right" class="material-icons"></span>
-                  </button>
-                  <button class="dropdown_menu furniture_dropdown" id="both_furniture">
-                    both
-                    <span style="float: right" class="material-icons"></span>
-                  </button>
-                  <button class="dropdown_menu furniture_dropdown" id="either_furniture">
-                    either
-                    <span style="float: right" class="material-icons">done</span>
-                  </button>
-                </div>
-              </div>
-
-              <div class="col-12 col-md-4 col-lg-2 filters">
-                <button style="width: 100%" class="btn btn-secondary-reverse" id="pattern_toggle">
-                  Pattern
-                  <span class="material-icons">remove</span>
-                </button>
-              </div>
-
-              <div class="col-12 col-md-4 col-lg-2" style="justify-content: right">
-                <button style="width: 100%" class="btn btn-success" id="apply-filters">Apply Filters</button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-8 col-lg-10"></div>
-              <div class="col-12 col-md-4 col-lg-2">
-                <button style="width: 100%" class="btn btn-danger" id="clear-filters">Clear Filters</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="responive_row" id="row">
-      <!-- Data rendered by javascript -->
-    </div>
-
-    <div class="spinner-border" id="loading" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
+    <div id="gallery-root"></div>
 
     <footer class="page-footer"><!-- Javascript Rendered Content --></footer>
 
@@ -245,6 +135,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="js/gallery.js"></script>
+    <script async defer src="js/gallery.js"></script>
   </body>
 </html>

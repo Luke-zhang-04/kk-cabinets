@@ -11,12 +11,15 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.0.2
 
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master

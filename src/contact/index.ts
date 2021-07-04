@@ -70,9 +70,9 @@ const generateMathProblem = (): void => {
             const {value: comments} = document.getElementById(
                 "contact-comments",
             ) as HTMLInputElement
-            const problem = (document.getElementById(
-                "contact-problem",
-            ) as HTMLSpanElement).innerHTML
+            const problem = (
+                document.getElementById("contact-problem") as HTMLSpanElement
+            ).innerHTML
                 .replace(/<span>/gu, "")
                 .replace(/<\/span>/gu, "")
             const {value: answer} = document.getElementById("contact-answer") as HTMLInputElement

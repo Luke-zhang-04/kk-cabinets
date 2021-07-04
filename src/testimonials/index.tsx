@@ -9,7 +9,7 @@
  * @license GPL-3.0-or-later
  */
 
-import * as DeStagnate from "destagnate/lib/createElementOnly"
+import * as DeStagnate from "destagnate"
 import {firestore as db} from "../_firebase"
 import type firebase from "firebase"
 

@@ -1,11 +1,14 @@
 import {babel} from "@rollup/plugin-babel"
 import crypto from "crypto"
 import childProcess from "child_process"
+import commonjs from "@rollup/plugin-commonjs"
 import filesize from "rollup-plugin-filesize"
 import fs from "fs/promises"
 import license from "rollup-plugin-license"
 import {nodeResolve} from "@rollup/plugin-node-resolve"
 import progress from "rollup-plugin-progress"
+import svelte from "rollup-plugin-svelte"
+import sveltePreprocess from "svelte-preprocess"
 import {terser} from "rollup-plugin-terser"
 import typescript from "@rollup/plugin-typescript"
 
@@ -17,7 +20,7 @@ License: GPL-3.0-or-later
 https://luke-zhang-04.github.io
 https://github.com/ethanlim04
 
-Copyright 2020 - 2021 Luke Zhang, Ethan Lim
+Copyright (C) 2020 - 2021 Luke Zhang, Ethan Lim
 ===
 
 `
@@ -123,8 +126,20 @@ const config = async () => {
      * @returns {import("rollup").Plugin[]}
      */
     const plugins = (script) => [
-        typescript(),
+        typescript({
+            target: isProduction ? undefined : "ESNext" // Production: use tsconfig value
+        }),
+        svelte({
+            preprocess: [sveltePreprocess({sourceMap: true})],
+            compilerOptions: {
+                // enable run-time checks when not in production
+                dev: !isProduction,
+                hydratable: false,
+                sourcemap: true,
+            },
+        }),
         nodeResolve(),
+        commonjs(),
         ...isProduction
             ? [
                 license({
@@ -144,7 +159,7 @@ const config = async () => {
                 babel({
                     babelrc: false,
                     babelHelpers: "bundled",
-                    presets: ["@babel/preset-env"],
+                    presets: [["@babel/preset-env", {corejs: 3, useBuiltIns: "usage"}]],
                     minified: false,
                     comments: true,
                 }),

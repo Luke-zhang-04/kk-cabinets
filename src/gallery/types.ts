@@ -40,5 +40,13 @@ export type GalleryItem = {
     file: string
 }
 
+export type ThenArg<T> = T extends PromiseLike<infer U> ? U : T
+
+export type GalleryParams = "colour" | "material" | "location"
+
+export type FilterKeys = `${GalleryParams}s`
+
 export const isGalleryItem = (obj: {[key: string]: unknown}): obj is GalleryItem =>
     typeof obj?.file === "string" && obj.details instanceof Object
+
+export const filterTypes = ["colour", "material", "location"] as ["colour", "material", "location"]
