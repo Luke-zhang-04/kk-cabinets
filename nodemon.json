@@ -1,0 +1,5 @@
+{
+  "ext": "js,mjs,json,scss,css,svelte",
+  "watch": ["src", "rollup.config.js"],
+  "delay": 1000
+}

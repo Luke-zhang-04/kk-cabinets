@@ -7,7 +7,7 @@ function* range(min, max) {
 module.exports = {
     env: {
         es2021: true,
-        node: true,
+        browser: true,
     },
     extends: ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended"],
     parser: "@typescript-eslint/parser",
@@ -19,8 +19,9 @@ module.exports = {
         ecmaVersion: 2021,
         sourceType: "module",
         project: ["./tsconfig.json"],
+        extraFileExtensions: [".svelte"],
     },
-    plugins: ["@typescript-eslint", "prefer-arrow"],
+    plugins: ["@typescript-eslint", "prefer-arrow", "svelte3"],
     rules: {
         // General ESLint rules
         "arrow-body-style": ["warn", "as-needed"],
@@ -37,6 +38,7 @@ module.exports = {
         "no-negated-condition": "warn",
         "no-nested-ternary": "warn",
         "no-unused-vars": "off",
+        "no-undef": "off",
         "no-var": "warn",
         "object-shorthand": "warn",
         "one-var": ["warn", "never"],
@@ -150,5 +152,21 @@ module.exports = {
                 allowStandaloneDeclarations: false,
             },
         ],
+    },
+    overrides: [
+        {
+            files: ["*.svelte"],
+            parser: "@typescript-eslint/parser",
+            processor: "svelte3/svelte3",
+            env: {
+                es2021: true,
+                node: true,
+                browser: true,
+            },
+        },
+    ],
+    settings: {
+        "svelte3/typescript": () => require("typescript"),
+        "svelte3/ignore-styles": (tag) => tag.lang === "scss",
     },
 }

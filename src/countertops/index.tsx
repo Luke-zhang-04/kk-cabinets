@@ -24,7 +24,7 @@ const columns = document.querySelectorAll("#row .responsive_column")
 
 const expand = (key: number | string): void => {
     const element = document.getElementById(key.toString())
-    const [container] = element?.querySelectorAll<HTMLElement>(".details") ?? []
+    const [container] = Array.from(element?.querySelectorAll<HTMLElement>(".details") ?? [])
 
     if (container.style.maxHeight) {
         container.style.maxHeight = ""

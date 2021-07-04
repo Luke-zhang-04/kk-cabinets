@@ -1,30 +1,36 @@
 {
   "name": "kk-cabinets",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Website redesign for KK Cabinets",
-  "main": "index.js",
-  "scripts": {
-    "build": "./build.sh",
-    "build:dev": "./build.sh --dev",
-    "start": "nodemon --watch lib --exec \"NODE_ENV=dev ./node_modules/.bin/rollup -c rollup.config.js\"",
-    "start:all": "nodemon --watch lib --exec \"./build.sh --dev\"",
-    "format": "./format.sh"
-  },
+  "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Luke-zhang-04/kk-cabinets.git"
   },
-  "keywords": [],
   "author": "Luke Zhang",
-  "license": "GPL-3.0-or-later",
+  "homepage": "https://kkcabinets.ca",
   "bugs": {
     "url": "https://github.com/Luke-zhang-04/kk-cabinets/issues"
   },
-  "homepage": "https://github.com/Luke-zhang-04/kk-cabinets#readme",
+  "scripts": {
+    "build": "./build.sh",
+    "build:dev": "./build.sh --dev",
+    "format": "./format.sh",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx,.svelte src/ --cache",
+    "start": "nodemon --config nodemon.json --exec \"NODE_ENV=dev ./node_modules/.bin/rollup -c rollup.config.js\"",
+    "start:all": "nodemon  --config nodemon.json --watch scss --exec \"./build.sh --dev\""
+  },
+  "keywords": [],
+  "dependencies": {
+    "bootstrap": "4.4.1",
+    "destagnate": "^2.1.0",
+    "svelte": "^3.38.3"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "@rollup/plugin-typescript": "^8.2.0",
     "@types/jquery": "3.5.5",
@@ -36,24 +42,24 @@
     "eslint": "^7.19.0",
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-svelte3": "^3.2.0",
     "firebase": "^8.2.4",
     "gsap": "^3.6.0",
     "html-minifier": "^4.0.0",
     "prettier": "^2.2.1",
+    "prettier-plugin-package": "^1.3.0",
+    "prettier-plugin-svelte": "~2.3.0",
     "rollup": "^2.38.0",
     "rollup-plugin-filesize": "^9.1.0",
     "rollup-plugin-license": "^2.5.0",
     "rollup-plugin-progress": "^1.1.2",
+    "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "sass": "~1.32.5",
     "stylelint": "^13.9.0",
     "stylelint-config-standard": "^20.0.0",
+    "svelte-preprocess": "^4.7.3",
     "tslib": "^2.3.0",
     "typescript": "^4.1.3"
-  },
-  "dependencies": {
-    "bootstrap": "4.4.1",
-    "destagnate": "^2.1.0",
-    "lozad": "^1.16.0"
   }
 }
