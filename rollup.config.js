@@ -159,9 +159,11 @@ const config = async () => {
                 babel({
                     babelrc: false,
                     babelHelpers: "bundled",
+                    exclude: [/\bcore-js\b/],
                     presets: [
                         ["@babel/preset-env", {
-                            // corejs: 3, useBuiltIns: "usage"
+                            corejs: 3,
+                            useBuiltIns: "usage"
                         }]
                     ],
                     minified: false,
